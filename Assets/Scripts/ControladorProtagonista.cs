@@ -4,20 +4,39 @@ using UnityEngine;
 
 public class ControladorProtagonista : MonoBehaviour {
     private float VelX;
-    private Animator animator; //creo un objeto "animator" donde meteré el componente animador del personaje
+    public Animator animacionHumana;
     public float FuerzaPasos = 10f;  //variables publicas para el movimiento y el salto. Por si lo queremos tocar dentro de unity directamente.
     public float FuerzaSalto = 20f;
+    public GameObject Humana;       //Aqui meto los gameobjects de Huama y Demonio. Se podria hacer a través de GetComponentInChildren, per creo que asi                            
+    public GameObject Demonio;       //se ve más claro.
+    private bool demon=false;  //Demon regula que gameobject está activo, si Humana o Demonio. Empieza siendo falso y, por lo tanto, es Humana quine está on
 
-	// Use this for initialization
-	void Start () {
-        animator = GetComponent<Animator>(); //meto el componente animador dentro del objeto "animator"
+    public LayerMask suelo;        //Esto sirve para que el PJ solo pueda saltar si está tocando el suelo. Suelo es la capa y detectorsuelo un objeto.
+    public Transform DetectorSuelo;
+    bool enSuelo=false;
+    public void setenSuelo(bool a)
+    {
+        enSuelo = a;
+    }
+
+    // Use this for initialization
+    void Start () {
+
+        animacionHumana = GetComponentInChildren<Animator>();
+        Demonio.SetActive(false);
 	}
 	
     void FixedUpdate()
     {
-        animator.SetFloat("VelX", VelX); //Cada X fotogramas, accedo al "animator", el cual contiene el animador del personaje
-                                         // y accedo a la variable VelX y le doy el valor de la variable del codigo VelX (la segunda), que
-                                         // se actualiza en el update.
+ 
+        Demonio.SetActive(demon); //Regulo el que gameobject está activo, si Dmeonio o Humana.
+        Humana.SetActive(!demon);
+        
+        VelX = GetComponent<Rigidbody2D>().velocity.x;
+        animacionHumana.SetFloat("VelX", VelX);
+        enSuelo=Physics2D.OverlapCircle(DetectorSuelo.position, 0.18f, suelo);  //Con OverlapCircle hago que ensuelo sea true si el objeto DetectorSuelo
+                                                                    //está a 0.18 unidades de distancia o menos de un objeto de capa suelo. 
+                                                                    // Los bloques de suelo tienen la capa suelo.
     }
 
 
@@ -33,12 +52,23 @@ public class ControladorProtagonista : MonoBehaviour {
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(FuerzaPasos, GetComponent<Rigidbody2D>().velocity.y);
         }
-        VelX = GetComponent<Rigidbody2D>().velocity.x; //VelX vale la velocidad del personaje en el eje X. Este dato se actualiza cada fotograma.
 
-        //Hace falta meter algún control que impida saltar si no está en el suelo. Esto es provisional.
-        if (Input.GetKey(KeyCode.Space))
+        //Regula el salto
+        if (Input.GetKey(KeyCode.Space) && enSuelo)
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, FuerzaSalto);
+            enSuelo = false;
         }
+
+        //esto regula la transformación. Si se spamea en carrera, la forma humana se queda con el sprite de correr y no sale de ese. Hay que pulirlo.
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (demon)
+                demon = false;
+            else
+                demon = true;
+          
+        }
+      
     }
 }
