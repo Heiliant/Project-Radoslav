@@ -192,11 +192,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4734994465264170, guid: f89d710983d91be4296e5b0a305e80b7, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.64
+      value: -8.61
       objectReference: {fileID: 0}
     - target: {fileID: 4734994465264170, guid: f89d710983d91be4296e5b0a305e80b7, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.97
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 4734994465264170, guid: f89d710983d91be4296e5b0a305e80b7, type: 2}
       propertyPath: m_LocalPosition.z
@@ -323,6 +323,21 @@ Prefab:
       propertyPath: m_Name
       value: Bloque Pared
       objectReference: {fileID: 0}
+    - target: {fileID: 114485944322475512, guid: f1e66d81a80307f44af37f5d46cdd355,
+        type: 2}
+      propertyPath: fuerzaY
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114485944322475512, guid: f1e66d81a80307f44af37f5d46cdd355,
+        type: 2}
+      propertyPath: incrementoCaida
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114485944322475512, guid: f1e66d81a80307f44af37f5d46cdd355,
+        type: 2}
+      propertyPath: segToFall
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f1e66d81a80307f44af37f5d46cdd355, type: 2}
   m_IsPrefabParent: 0
@@ -331,6 +346,60 @@ GameObject:
   m_PrefabParentObject: {fileID: 1591434939522028, guid: f89d710983d91be4296e5b0a305e80b7,
     type: 2}
   m_PrefabInternal: {fileID: 434771707}
+--- !u!1001 &1615501681
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4072482812460336, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 35.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4072482812460336, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 7.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 4072482812460336, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.01953125
+      objectReference: {fileID: 0}
+    - target: {fileID: 4072482812460336, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4072482812460336, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4072482812460336, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4072482812460336, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4072482812460336, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1498451658900134, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
+      propertyPath: m_Name
+      value: Plataforma atravesable
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -33.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -7.2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1775819977
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,7 +482,7 @@ Transform:
   m_GameObject: {fileID: 1775819977}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5601618, y: 0.56016165, z: 0.56016165}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0

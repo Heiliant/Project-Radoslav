@@ -11,9 +11,12 @@ public class ControladorProtagonista : MonoBehaviour {
     public GameObject Demonio;       //se ve más claro.
     private bool demon=false;  //Demon regula que gameobject está activo, si Humana o Demonio. Empieza siendo falso y, por lo tanto, es Humana quine está on
 
-    public LayerMask suelo;        //Esto sirve para que el PJ solo pueda saltar si está tocando el suelo. Suelo es la capa y detectorsuelo un objeto.
+    public LayerMask suelo;
+    public LayerMask plat;//Esto sirve para que el PJ solo pueda saltar si está tocando el suelo. Suelo es la capa y detectorsuelo un objeto.
+    public LayerMask player;
     public Transform DetectorSuelo;
-    bool enSuelo=false;
+    public bool enSuelo=false;
+
     public void setenSuelo(bool a)
     {
         enSuelo = a;
@@ -53,8 +56,15 @@ public class ControladorProtagonista : MonoBehaviour {
             GetComponent<Rigidbody2D>().velocity = new Vector2(FuerzaPasos, GetComponent<Rigidbody2D>().velocity.y);
         }
 
-        //Regula el salto
-        if (Input.GetKey(KeyCode.Space) && enSuelo)
+
+        /*
+        if (Input.GetKey(KeyCode.S))
+        {
+            Physics2D.IgnoreLayerCollision(player, plat, true);
+        }
+        */
+            //Regula el salto
+            if (Input.GetKeyDown(KeyCode.Space) && enSuelo)
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, FuerzaSalto);
             enSuelo = false;
