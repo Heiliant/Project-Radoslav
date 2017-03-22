@@ -19,7 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4870923478580324}
-  m_Layer: 0
+  - component: {fileID: 58838092337722518}
+  m_Layer: 9
   m_Name: Pared
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +38,7 @@ GameObject:
   - component: {fileID: 212948333825424464}
   - component: {fileID: 61577108614149284}
   - component: {fileID: 114485944322475512}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ladrillos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,13 +65,27 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1220034898706326}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.92, y: 4.03, z: 0}
+  m_LocalPosition: {x: -0.7, y: 2.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4863976965430894}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &58838092337722518
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1220034898706326}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.06
 --- !u!61 &61577108614149284
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -97,6 +112,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prota: {fileID: 0}
+  script: {fileID: 0}
+  fuerzaY: 1
+  incrementoCaida: 5
+  contador: 0
+  segToFall: 1
+  derecha: 1
+  sentido: 0
 --- !u!212 &212948333825424464
 SpriteRenderer:
   m_ObjectHideFlags: 1
