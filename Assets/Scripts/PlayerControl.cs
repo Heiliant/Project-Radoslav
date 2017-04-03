@@ -10,7 +10,7 @@ public class PlayerControl : MonoBehaviour {
     public Animator animacionHumana;
 
     //mimebros de movimiento simple
-    public float FuerzaPasos = 10f;  
+    public float FuerzaPasos = 1100f;  
     public float FuerzaSalto = 20f;
     private float VelX;
     
@@ -24,6 +24,8 @@ public class PlayerControl : MonoBehaviour {
     public bool enPared;
     public LayerMask pared;
     public float FuerzaWallJump;
+
+    public Transform DetectorTecho;
 
     //métodos de acceso para scripts externos
     public bool getEnpared()
@@ -46,7 +48,9 @@ public class PlayerControl : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        Demonio.SetActive(demon); //Regulo el que gameobject está activo, si Demonio o Humana.
+     
+
+        Demonio.SetActive(demon); //Regulo que gameobject está activo, si Demonio o Humana.
         Humana.SetActive(!demon);
 
         VelX = GetComponent<Rigidbody2D>().velocity.x;
@@ -54,11 +58,25 @@ public class PlayerControl : MonoBehaviour {
 
         enSuelo = Physics2D.OverlapCircle(DetectorSuelo.position, radDetSuelo, suelo);
         enPared = Physics2D.OverlapCircle(GetComponent<Transform>().position, radDetPared, pared);
+        /*
+        if ((Physics2D.BoxCast(DetectorSuelo.position, new Vector2(5, 2.5f), 0, new Vector2(1f, 1f)))
+            .transform.tag == "plataforma")
+            enPlataforma = true;
+        else 
+            enPlataforma = false;
+        
+        if ((Physics2D.BoxCast(detectorTecho.position, new Vector2(5, 2.5f), 0, new Vector2(0f, 0f)))
+            .transform.tag == "plataforma")
+            bajoPlataforma = true;
+        else if((Physics2D.BoxCast(detectorTecho.position, new Vector2(5, 2.5f), 0, new Vector2(0f, 0f)))==null)
+            bajoPlataforma = false;
+        */
     }
     // Update is called once per frame
     void Update () {
 
-
+        if (Input.GetKey(KeyCode.Z))
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 1.70f), ForceMode2D.Impulse);
         //movimiento simple
 
         if (Input.GetKey(KeyCode.A))
@@ -68,7 +86,12 @@ public class PlayerControl : MonoBehaviour {
                 GetComponent<Rigidbody2D>().velocity = new Vector2(-FuerzaPasos, GetComponent<Rigidbody2D>().velocity.y);
             else
                 //aplicar fuerza gradualmente
-                GetComponent<Rigidbody2D>().AddForce(new Vector2(-FuerzaPasos, GetComponent<Rigidbody2D>().velocity.y));
+                if (GetComponent<Rigidbody2D>().velocity.x < -FuerzaPasos)
+            {
+                GetComponent<Rigidbody2D>().velocity = new Vector2(-FuerzaPasos, GetComponent<Rigidbody2D>().velocity.y);
+            }
+                else
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(-FuerzaPasos, 0));
         }
 
         else if (Input.GetKey(KeyCode.D))
@@ -78,16 +101,35 @@ public class PlayerControl : MonoBehaviour {
                 GetComponent<Rigidbody2D>().velocity = new Vector2(FuerzaPasos, GetComponent<Rigidbody2D>().velocity.y);
             else
                 //aplicar fuerza gradualmente
-                GetComponent<Rigidbody2D>().AddForce(new Vector2(FuerzaPasos, GetComponent<Rigidbody2D>().velocity.y));
+                if (GetComponent<Rigidbody2D>().velocity.x > FuerzaPasos)
+            {
+                GetComponent<Rigidbody2D>().velocity = new Vector2(FuerzaPasos, GetComponent<Rigidbody2D>().velocity.y);
+            }
+            else
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(FuerzaPasos, 0)); //Si has saltado sin VelX apenas te 
+                    // puedes acelerar en las X en el aire. Podemos cambiarlo multiplicando FuerzaPasos aqui si queremos
+                    // que el PJ pueda acelerarse en el aire de la "nada"
+        }
+        else
+        {
+            if (GetComponent<Rigidbody2D>().velocity.x > 0.1f)
+            {
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(-FuerzaPasos*2, 0));
+            }
+            else if(GetComponent<Rigidbody2D>().velocity.x < -0.1f)
+            {
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(FuerzaPasos*2, 0));
+            }
         }
 
         //movimiento elaborado
 
-        if (Input.GetKeyDown(KeyCode.Space) && enSuelo && !enPared)
+        if (Input.GetKeyDown(KeyCode.Space) && enSuelo)
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, FuerzaSalto);
-            enSuelo = false;
+            //GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, FuerzaSalto);
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(0, FuerzaSalto));
         }
+        
 
         //transformación
 

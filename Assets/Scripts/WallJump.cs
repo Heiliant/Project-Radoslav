@@ -70,7 +70,7 @@ public class WallJump : MonoBehaviour
                 if (Input.GetKey(KeyCode.Space) && script.getEnpared())
                 {
 
-                    prota.GetComponent<Rigidbody2D>().velocity = new Vector2(script.getFuerzawalljump()*sentido*2, script.getFuerzawalljump()*1.5f);
+                    prota.GetComponent<Rigidbody2D>().velocity = new Vector2(script.getFuerzawalljump()*sentido*2, script.getFuerzawalljump()*2f);
                 }
 
             }
