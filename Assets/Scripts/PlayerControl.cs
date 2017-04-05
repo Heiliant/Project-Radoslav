@@ -54,10 +54,23 @@ public class PlayerControl : MonoBehaviour {
         Humana.SetActive(!demon);
 
         VelX = GetComponent<Rigidbody2D>().velocity.x;
+        if (VelX < 0)
+        {
+            VelX *= -1;
+        }
         animacionHumana.SetFloat("VelX", VelX);
 
         enSuelo = Physics2D.OverlapCircle(DetectorSuelo.position, radDetSuelo, suelo);
         enPared = Physics2D.OverlapCircle(GetComponent<Transform>().position, radDetPared, pared);
+
+        if (GetComponent<Rigidbody2D>().velocity.x > 0.1f)
+        {
+            Humana.GetComponentInChildren<SpriteRenderer>().flipX = false;
+        }
+        else if(GetComponent<Rigidbody2D>().velocity.x < -0.1f)
+        {
+            Humana.GetComponentInChildren<SpriteRenderer>().flipX = true;
+        }
         /*
         if ((Physics2D.BoxCast(DetectorSuelo.position, new Vector2(5, 2.5f), 0, new Vector2(1f, 1f)))
             .transform.tag == "plataforma")

@@ -64,13 +64,15 @@ public class WallJump : MonoBehaviour
             if ((Input.GetKey(KeyCode.D) && (!derecha)) || ((derecha) && Input.GetKey(KeyCode.A)))
 
             {
-                prota.GetComponent<Rigidbody2D>().velocity = new Vector2(0/*collision.gameObject.GetComponent<Rigidbody2D>().velocity.x*/, fuerzaY);
+                prota.GetComponent<Rigidbody2D>().velocity = new Vector2(0, fuerzaY);
 
 
-                if (Input.GetKey(KeyCode.Space) && script.getEnpared())
+                if (Input.GetKey(KeyCode.Space) && script.getEnpared()) //*PROLEMILLA* Si saltas hacia la pared con el espacio 
+                    //pulsado, rebotas directamente. He probado con un GetKeyDown para hacer que saltase solo en pulsar espacio
+                    //pero el compotamiento es inesperado.
                 {
-
-                    prota.GetComponent<Rigidbody2D>().velocity = new Vector2(script.getFuerzawalljump()*sentido*2, script.getFuerzawalljump()*2f);
+                    prota.GetComponent<Rigidbody2D>().AddForce(new Vector2(script.getFuerzawalljump() * sentido, script.getFuerzawalljump()));
+                    //prota.GetComponent<Rigidbody2D>().velocity = new Vector2(script.getFuerzawalljump()*sentido*2, script.getFuerzawalljump()*2f);
                 }
 
             }
