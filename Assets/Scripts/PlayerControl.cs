@@ -27,6 +27,9 @@ public class PlayerControl : MonoBehaviour {
 
     public Transform DetectorTecho;
 
+    //miembros de combate
+    private int TotalHP;
+    private int CurrentHP;
     //métodos de acceso para scripts externos
     public bool getEnpared()
     {
@@ -38,12 +41,16 @@ public class PlayerControl : MonoBehaviour {
         return FuerzaWallJump;
     }
 
+    
     //-----------------------------
 
 
     void Start () {
         Demonio.SetActive(false);
         Humana.SetActive(true);
+
+        TotalHP = 3;
+        CurrentHP = TotalHP;
     }
 
     private void FixedUpdate()
