@@ -13,36 +13,35 @@ public class ComportamientoBloqueSuelo : MonoBehaviour {
 	void Start () {
         Xini = GetComponent<Transform>().position.x;
         Yini = GetComponent<Transform>().position.y;
-
-        if (movVer)
-        {
-            if(Yini<0)
-            {
-                float temp = fromMinVal;
-                fromMinVal = toMaxVal;
-                toMaxVal = temp;
-            }
-        }
-        else
-        {
-            if (Xini < 0)
-            {
-                float temp = fromMinVal;
-                fromMinVal = toMaxVal;
-                toMaxVal = temp;
-            }
-        }
-
+        /*
+                if (movVer)
+                {
+                    if(Yini<0)
+                    {
+                        float temp = fromMinVal;
+                        fromMinVal = toMaxVal;
+                        toMaxVal = temp;
+                    }
+                }
+                else
+                {
+                    if (Xini < 0)
+                    {
+                        float temp = fromMinVal;
+                        fromMinVal = toMaxVal;
+                        toMaxVal = temp;
+                    }
+                }
+        */
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
         if (movVer)
         {
             if (GetComponent<Transform>().position.y >= (Yini+toMaxVal) || GetComponent<Transform>().position.y <= (Yini-fromMinVal))
             {
                 speed *= -1;
-                Debug.Log(GetComponent<Transform>().position.y);
             }
                 transform.Translate(new Vector2(0, speed));
         }

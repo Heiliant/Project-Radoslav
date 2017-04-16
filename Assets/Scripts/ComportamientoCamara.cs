@@ -19,7 +19,7 @@ public class ComportamientoCamara : MonoBehaviour
         GetComponent<Transform>().position = 
             new Vector3(player.GetComponent<Transform>().position.x + Input.mousePosition.x/
                                                 (Screen.currentResolution.width/PotestadDelMouse),
-                        player.GetComponent<Transform>().position.y + Input.mousePosition.y/
+                        player.GetComponent<Transform>().position.y+ Input.mousePosition.y/
                                                 (Screen.currentResolution.height/PotestadDelMouse),
                         GetComponent<Transform>().position.z);
     }
