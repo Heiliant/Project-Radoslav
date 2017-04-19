@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - plataforma
+  - "mu\xF1eco"
+  - torso
   layers:
   - Default
   - TransparentFX

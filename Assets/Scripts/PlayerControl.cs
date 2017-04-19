@@ -65,7 +65,11 @@ public class PlayerControl : MonoBehaviour {
         {
             VelX *= -1;
         }
-        animacionHumana.SetFloat("VelX", VelX);
+
+        if (!demon)
+        {
+            animacionHumana.SetFloat("VelX", VelX);
+        }
 
         enSuelo = Physics2D.OverlapCircle(DetectorSuelo.position, radDetSuelo, suelo);
         enPared = Physics2D.OverlapCircle(GetComponent<Transform>().position, radDetPared, pared);

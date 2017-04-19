@@ -10,6 +10,7 @@ public class ComportamientoCamara : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         script = player.GetComponent<PlayerControl>();
     }
 

@@ -12,6 +12,9 @@ public class PlataformaAtravesable : MonoBehaviour {
     public GameObject HumanBody;
 
 	void Start () {
+        player = GameObject.FindGameObjectWithTag("Player");
+        HumanBody = GameObject.FindGameObjectWithTag("muñeco");
+        DemonBody = GameObject.FindGameObjectWithTag("torso");
         script = player.GetComponent<PlayerControl>();
         //height = this.transform.Find("ladrillos").gameObject;
     }

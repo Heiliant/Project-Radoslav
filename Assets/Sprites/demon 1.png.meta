@@ -1,0 +1,328 @@
+fileFormatVersion: 2
+guid: 2052d8c957e2c1e44b208408822c3b63
+timeCreated: 1492556600
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: demon 1_0
+    21300002: demon 1_1
+    21300004: demon 1_2
+    21300006: demon 1_3
+    21300008: demon 1_4
+    21300010: demon 1_5
+    21300012: demon 1_6
+    21300014: demon 1_7
+    21300016: demon 1_8
+    21300018: demon 1_9
+    21300020: demon 1_10
+    21300022: demon 1_11
+    21300024: demon 1_12
+    21300026: demon 1_13
+    21300028: demon 1_14
+    21300030: demon 1_15
+    21300032: demon 1_16
+    21300034: demon 1_17
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 400
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: demon 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1347
+        width: 171
+        height: 211
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: demon 1_1
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 1385
+        width: 65
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: demon 1_2
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 1454
+        width: 79
+        height: 80
+      alignment: 9
+      pivot: {x: 0.42462853, y: 0.2767105}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: demon 1_3
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 1303
+        width: 167
+        height: 255
+      alignment: 9
+      pivot: {x: 0.5237701, y: 0.73350614}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: demon 1_4
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 1414
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: demon 1_5
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 217
+        width: 646
+        height: 1175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: demon 1_6
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 1309
+        width: 89
+        height: 86
+      alignment: 9
+      pivot: {x: 0.6784092, y: 0.569238}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: demon 1_7
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 1077
+        width: 166
+        height: 195
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: demon 1_8
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 1100
+        width: 146
+        height: 187
+      alignment: 9
+      pivot: {x: 0.80587685, y: 0.70697117}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: demon 1_9
+      rect:
+        serializedVersion: 2
+        x: 856
+        y: 810
+        width: 187
+        height: 323
+      alignment: 9
+      pivot: {x: 0.5583767, y: 0.87483823}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: demon 1_10
+      rect:
+        serializedVersion: 2
+        x: 769
+        y: 629
+        width: 180
+        height: 143
+      alignment: 9
+      pivot: {x: 0.6764269, y: 0.7706546}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: demon 1_11
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 327
+        width: 250
+        height: 298
+      alignment: 9
+      pivot: {x: 0.48015198, y: 0.25023502}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: demon 1_12
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 85
+        width: 269
+        height: 424
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: demon 1_13
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 0
+        width: 119
+        height: 320
+      alignment: 9
+      pivot: {x: 0.26649424, y: 0.760505}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: demon 1_14
+      rect:
+        serializedVersion: 2
+        x: 845
+        y: 85
+        width: 7
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: demon 1_15
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 72
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: demon 1_16
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 67
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: demon 1_17
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 1205
+        width: 98
+        height: 91
+      alignment: 9
+      pivot: {x: 0.7126571, y: 0.56543374}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

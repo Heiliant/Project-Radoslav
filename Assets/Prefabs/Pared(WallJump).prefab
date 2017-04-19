@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc9e59b585e19c439312c19b5894794, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prota: {fileID: 0}
+  prota: {fileID: 1775919142956300, guid: 9c526dd606c07624582bb154bac1ed6f, type: 2}
   script: {fileID: 0}
   fuerzaY: 1
   incrementoCaida: 5

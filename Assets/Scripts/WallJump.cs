@@ -20,6 +20,10 @@ public class WallJump : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        prota = GameObject.FindGameObjectWithTag("Player");
+
+        Debug.Log("prota: " + prota.name);
+
         script = prota.GetComponent<PlayerControl>();
 
         fuerzaY = FuerzaYOriginal;
