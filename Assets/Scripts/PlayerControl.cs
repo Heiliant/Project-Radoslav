@@ -27,9 +27,6 @@ public class PlayerControl : MonoBehaviour {
 
     public Transform DetectorTecho;
 
-    //miembros de combate
-    private int TotalHP;
-    private int CurrentHP;
     //métodos de acceso para scripts externos
     public bool getEnpared()
     {
@@ -48,7 +45,7 @@ public class PlayerControl : MonoBehaviour {
     void Start () {
         Demonio.SetActive(false);
         Humana.SetActive(true);
-
+        animacionHumana = GameObject.FindGameObjectWithTag("humana").GetComponent<Animator>();
         TotalHP = 3;
         CurrentHP = TotalHP;
     }
@@ -74,27 +71,43 @@ public class PlayerControl : MonoBehaviour {
         enSuelo = Physics2D.OverlapCircle(DetectorSuelo.position, radDetSuelo, suelo);
         enPared = Physics2D.OverlapCircle(GetComponent<Transform>().position, radDetPared, pared);
 
-        if (GetComponent<Rigidbody2D>().velocity.x > 0.1f)
+        if (GetComponent<Rigidbody2D>().velocity.x > 0.1f && GetComponent<Transform>().rotation.y == 0)
         {
-            Humana.GetComponentInChildren<SpriteRenderer>().flipX = false;
+
+            GetComponent<Transform>().RotateAround(GetComponent<Transform>().position, Vector3.up, 180);
+
+            foreach (Transform fliperino in GetComponentsInChildren<Transform>())
+            {
+                fliperino.transform.position = new Vector3(fliperino.GetComponent<Transform>().position.x,
+                    fliperino.GetComponent<Transform>().position.y, fliperino.GetComponent<Transform>().position.z * -2);
+            }
         }
-        else if(GetComponent<Rigidbody2D>().velocity.x < -0.1f)
-        {
-            Humana.GetComponentInChildren<SpriteRenderer>().flipX = true;
+    
+        else if(GetComponent<Rigidbody2D>().velocity.x < -0.1f && GetComponent<Transform>().rotation.y == 1)
+         {
+            GetComponent<Transform>().RotateAround(GetComponent<Transform>().position, Vector3.up, -180);
+
+            foreach (Transform fliperino in GetComponentsInChildren<Transform>())
+            {
+
+                fliperino.transform.position = new Vector3(fliperino.GetComponent<Transform>().position.x, 
+                    fliperino.GetComponent<Transform>().position.y, fliperino.GetComponent<Transform>().position.z*-2);
+            }
         }
+       
         /*
-        if ((Physics2D.BoxCast(DetectorSuelo.position, new Vector2(5, 2.5f), 0, new Vector2(1f, 1f)))
-            .transform.tag == "plataforma")
-            enPlataforma = true;
-        else 
-            enPlataforma = false;
-        
-        if ((Physics2D.BoxCast(detectorTecho.position, new Vector2(5, 2.5f), 0, new Vector2(0f, 0f)))
-            .transform.tag == "plataforma")
-            bajoPlataforma = true;
-        else if((Physics2D.BoxCast(detectorTecho.position, new Vector2(5, 2.5f), 0, new Vector2(0f, 0f)))==null)
-            bajoPlataforma = false;
-        */
+         if ((Physics2D.BoxCast(DetectorSuelo.position, new Vector2(5, 2.5f), 0, new Vector2(1f, 1f)))
+             .transform.tag == "plataforma")
+             enPlataforma = true;
+         else 
+             enPlataforma = false;
+
+         if ((Physics2D.BoxCast(detectorTecho.position, new Vector2(5, 2.5f), 0, new Vector2(0f, 0f)))
+             .transform.tag == "plataforma")
+             bajoPlataforma = true;
+         else if((Physics2D.BoxCast(detectorTecho.position, new Vector2(5, 2.5f), 0, new Vector2(0f, 0f)))==null)
+             bajoPlataforma = false;
+         */
     }
     // Update is called once per frame
     void Update () {

@@ -1,0 +1,230 @@
+fileFormatVersion: 2
+guid: afb4c144bc15c454cb1ab6eaa44b82e1
+timeCreated: 1493043179
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: azahara_1
+    21300002: azahara_3
+    21300004: azahara_6
+    21300006: azahara_9
+    21300008: azahara_10
+    21300010: azahara_11
+    21300012: azahara_13
+    21300014: azahara_21
+    21300016: azahara_22
+    21300018: azahara_23
+    21300020: azahara_24
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: azahara_1
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 1073
+        width: 142
+        height: 450
+      alignment: 9
+      pivot: {x: 0.43528253, y: 0.8880165}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: azahara_3
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 1090
+        width: 160
+        height: 426
+      alignment: 9
+      pivot: {x: 0.60051423, y: 0.89729273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: azahara_6
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 1092
+        width: 10
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: azahara_9
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 708
+        width: 94
+        height: 313
+      alignment: 9
+      pivot: {x: 0.44097048, y: 0.87523633}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: azahara_10
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 706
+        width: 106
+        height: 326
+      alignment: 9
+      pivot: {x: 0.32551056, y: 0.91417205}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: azahara_11
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 360
+        width: 80
+        height: 231
+      alignment: 9
+      pivot: {x: 0.71963865, y: 0.91635805}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: azahara_13
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 277
+        width: 176
+        height: 369
+      alignment: 9
+      pivot: {x: 0.33711, y: 0.07895526}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: azahara_21
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 106
+        width: 53
+        height: 52
+      alignment: 9
+      pivot: {x: 0.6395917, y: 0.7489841}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: azahara_22
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 103
+        width: 53
+        height: 53
+      alignment: 9
+      pivot: {x: 0.62214255, y: 0.81408113}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: azahara_23
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 50
+        width: 152
+        height: 129
+      alignment: 9
+      pivot: {x: 0.7494511, y: 0.77958965}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: azahara_24
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 26
+        width: 171
+        height: 239
+      alignment: 9
+      pivot: {x: 0.57030606, y: 0.22914006}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
