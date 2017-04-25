@@ -13,12 +13,11 @@ public class HUD : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        player = GameObject.FindGameObjectwithTag("Player");
-        
+        player = GameObject.FindGameObjectWithTag("Player");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+        display.sprite = vida[player.GetComponent<PlayerControl>().currentHP];
 	}
 }

@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class CombatePlayer : MonoBehaviour {
     public int maxHP;
+
     public int currentHP
     {
         get
         {
             return currentHP;
         }
+        set{
+            currentHP = value;
+        }
     }
+    
 }
 
+   

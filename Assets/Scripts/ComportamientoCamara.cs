@@ -5,13 +5,11 @@ using UnityEngine;
 public class ComportamientoCamara : MonoBehaviour
 {
     public GameObject player;
-    private PlayerControl script;
     public float PotestadDelMouse=10f;
     // Use this for initialization
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        script = player.GetComponent<PlayerControl>();
     }
 
     // Update is called once per frame

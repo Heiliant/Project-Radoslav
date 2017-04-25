@@ -27,6 +27,7 @@ public class PlayerControl : MonoBehaviour {
 
     public Transform DetectorTecho;
 
+    public int currentHP;
     //métodos de acceso para scripts externos
     public bool getEnpared()
     {
@@ -43,11 +44,12 @@ public class PlayerControl : MonoBehaviour {
 
 
     void Start () {
+
+        currentHP = 3;
+
         Demonio.SetActive(false);
         Humana.SetActive(true);
         animacionHumana = GameObject.FindGameObjectWithTag("humana").GetComponent<Animator>();
-        TotalHP = 3;
-        CurrentHP = TotalHP;
     }
 
     private void FixedUpdate()
@@ -58,19 +60,29 @@ public class PlayerControl : MonoBehaviour {
         Humana.SetActive(!demon);
 
         VelX = GetComponent<Rigidbody2D>().velocity.x;
-        if (VelX < 0)
-        {
-            VelX *= -1;
-        }
+        
 
         if (!demon)
         {
             animacionHumana.SetFloat("VelX", VelX);
+            animacionHumana.SetBool("enSuelo 0", enSuelo);
+            animacionHumana.SetBool("enPared", enPared);
         }
 
         enSuelo = Physics2D.OverlapCircle(DetectorSuelo.position, radDetSuelo, suelo);
         enPared = Physics2D.OverlapCircle(GetComponent<Transform>().position, radDetPared, pared);
 
+
+        //ROTACIÓN DE PLAYER SEGÚN HACIA DONDE AVANZA
+
+        if(VelX > 0.1f && !enPared)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Vector3.back), 1f);
+        }
+        else if(VelX < -0.1f || enPared)
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Vector3.forward), 1f);
+        /*
+        
         if (GetComponent<Rigidbody2D>().velocity.x > 0.1f && GetComponent<Transform>().rotation.y == 0)
         {
 
@@ -79,7 +91,7 @@ public class PlayerControl : MonoBehaviour {
             foreach (Transform fliperino in GetComponentsInChildren<Transform>())
             {
                 fliperino.transform.position = new Vector3(fliperino.GetComponent<Transform>().position.x,
-                    fliperino.GetComponent<Transform>().position.y, fliperino.GetComponent<Transform>().position.z * -2);
+                    fliperino.GetComponent<Transform>().position.y, fliperino.GetComponent<Transform>().position.z * -1);
             }
         }
     
@@ -91,10 +103,11 @@ public class PlayerControl : MonoBehaviour {
             {
 
                 fliperino.transform.position = new Vector3(fliperino.GetComponent<Transform>().position.x, 
-                    fliperino.GetComponent<Transform>().position.y, fliperino.GetComponent<Transform>().position.z*-2);
+                    fliperino.GetComponent<Transform>().position.y, fliperino.GetComponent<Transform>().position.z*-1);
             }
         }
-       
+      */
+
         /*
          if ((Physics2D.BoxCast(DetectorSuelo.position, new Vector2(5, 2.5f), 0, new Vector2(1f, 1f)))
              .transform.tag == "plataforma")
