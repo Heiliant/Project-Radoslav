@@ -4,4 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Escenas/Zona1.Tutorial.unity
+  - enabled: 1
+    path: Assets/Escenas/Menu.unity
+  - enabled: 1
+    path: Assets/Escenas/Pause Menu.unity
+  - enabled: 1
+    path: Assets/Escenas/Graphic Options.unity
+  - enabled: 1
+    path: Assets/Escenas/Controls  Menu.unity

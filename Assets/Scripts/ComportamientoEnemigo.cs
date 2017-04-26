@@ -29,11 +29,12 @@ public class ComportamientoEnemigo : MonoBehaviour
     private bool controlRotacion;
     private float PasadaX;
     //int hp = 20;
-       
-
+    private Animator animescualo;
+    public LayerMask suelo;
     // Use this for initialization
     void Start()
     {
+        animescualo = GetComponent<Animator>();
 
         //para el patron de movimiento
         speedx = 0.25f;
@@ -47,6 +48,14 @@ public class ComportamientoEnemigo : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>(); 
         //player tomara el valor de los transform del game object que tenga el script Personajeprincipal
 
+    }
+
+    private void FixedUpdate()
+    {
+        animescualo.SetFloat("VelX", (GetComponent<Transform>().position.x-PasadaX)/Time.deltaTime);
+        animescualo.SetBool("enRango", InRange);
+        animescualo.SetBool("enSuelo", Physics2D.OverlapCircle(new Vector2(GetComponent<Transform>().position.x,
+            GetComponent<Transform>().position.y), suelo));
     }
 
     void Update()
@@ -64,7 +73,7 @@ public class ComportamientoEnemigo : MonoBehaviour
 
         }
 
-        if (modulo >= 16.0f) //deberia ser >15.0f
+        if (modulo >= 16.0f) 
         {
             detectado = false; //detectado vuelve a ser false euna vez sale de la linea de vision
 
@@ -72,7 +81,7 @@ public class ComportamientoEnemigo : MonoBehaviour
 
         if (detectado == true)
         {
-            if (player.position.x == transform.position.x) //supongo que esto se hace para trigear el ataque
+            if (player.position.x == transform.position.x) 
             {
                 transform.Rotate(0, 0, 0);
             }
@@ -161,14 +170,16 @@ public class ComportamientoEnemigo : MonoBehaviour
             }
         }
 
+        PasadaX = GetComponent<Transform>().position.x;
     }
 
    void OnTriggerEnter2D(Collider2D objeto)
     {
+        Debug.Log("1");
         if (objeto.GetComponent<Collider2D>().tag == "caida")
         {
 
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 5.0f), ForceMode2D.Impulse);
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 7.5f), ForceMode2D.Impulse);
         }
     }
 

@@ -43,8 +43,8 @@ public class ComportamientoMono : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         
 
-        palaD = GameObject.Find("Pala D").GetComponent<EdgeCollider2D>();
-        palaI = GameObject.Find("Pala I").GetComponent<EdgeCollider2D>();
+        palaD = GameObject.FindGameObjectWithTag("palad").GetComponent<EdgeCollider2D>();
+        palaI = GameObject.FindGameObjectWithTag("palai").GetComponent<EdgeCollider2D>();
 
         /*
         zonaD = GameObject.Find("ZonaD");
@@ -110,6 +110,9 @@ public class ComportamientoMono : MonoBehaviour
         //SI LA BARRIGA NO TIENE VIDA
         if (tripaHP == 0)
         {
+            palaD.enabled = false;
+            palaI.enabled = false;
+
             stuneado = true; //ENTRA EN MODO STUNT
             if (zonaC.CisTriggered)
             {   //SI ESTÁS EN LA ZONA DEL CENTRO, PUEDES COLISIONAR CON LAS PALAS Y HACER WALLJUMP, SINO NO
@@ -153,6 +156,8 @@ public class ComportamientoMono : MonoBehaviour
         //TRIPA SI TIENE VIDA
         else
         {
+            palaD.enabled = true;
+            palaI.enabled = true;
             if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>().puñetazo && dmgCont)
             {
                 if (tripaHP > 0)
