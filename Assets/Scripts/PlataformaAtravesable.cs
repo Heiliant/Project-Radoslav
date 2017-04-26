@@ -45,18 +45,6 @@ public class PlataformaAtravesable : MonoBehaviour {
             }
         }
     }
-    // Update is called once per frame
-    void Update () {
-		
-	}
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-
-        Debug.Log("DetSuelo: " + script.DetectorTecho.position.y);
-        Debug.Log("Caja " + GetComponent<Transform>().position.y);
-        Debug.Log("bool: " + (script.DetectorTecho.position.y > GetComponent<Transform>().position.y));
-    }
-        
+       
 }
 

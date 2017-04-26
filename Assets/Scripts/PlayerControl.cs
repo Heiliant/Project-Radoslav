@@ -27,15 +27,45 @@ public class PlayerControl : MonoBehaviour {
     public Transform DetectorTecho;
 
     public int currentHP;
-    private bool puñetazo = false;
+    private int lastHP;
+    public bool puñetazo = false;
     private float segundero=0;
+    public float segunderoI = 0;
+
+    public float RecoveryTime;
+    private bool invulnerable=false;
+
     //métodos de acceso para scripts externos
     public bool getEnpared()
     {
         return enPared;
     }
 
+    public void attackPlayer(float a)
+    {
+        if (!invulnerable)
+        {
+            currentHP--;
+            foreach (SpriteRenderer w in GetComponentsInChildren<SpriteRenderer>())
+            {
+                w.color = new Color(1, 0, 0, 1);
+            }
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(FuerzaSalto/2*a, FuerzaSalto/2));
+        }
+    }
 
+    public void attackPlayer()
+    {
+        if (!invulnerable)
+        {
+            currentHP--;
+            foreach (SpriteRenderer w in GetComponentsInChildren<SpriteRenderer>())
+            {
+                w.color = new Color(1, 0, 0, 1);
+            }
+        }
+    }
+    
     
     //-----------------------------
 
@@ -43,6 +73,9 @@ public class PlayerControl : MonoBehaviour {
     void Start () {
 
         currentHP = 3;
+        lastHP = currentHP;
+
+        puñetazo = false;
 
         Demonio.SetActive(false);
         Humana.SetActive(true);
@@ -71,54 +104,14 @@ public class PlayerControl : MonoBehaviour {
         enPared = Physics2D.OverlapCircle(GetComponent<Transform>().position, radDetPared, pared);
 
 
-        //ROTACIÓN DE PLAYER SEGÚN HACIA DONDE AVANZA
-
         if(VelX > 0.1f && !enPared)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Vector3.back), 1f);
         }
         else if(VelX < -0.1f || enPared)
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Vector3.forward), 1f);
-        /*
         
-        if (GetComponent<Rigidbody2D>().velocity.x > 0.1f && GetComponent<Transform>().rotation.y == 0)
-        {
 
-            GetComponent<Transform>().RotateAround(GetComponent<Transform>().position, Vector3.up, 180);
-
-            foreach (Transform fliperino in GetComponentsInChildren<Transform>())
-            {
-                fliperino.transform.position = new Vector3(fliperino.GetComponent<Transform>().position.x,
-                    fliperino.GetComponent<Transform>().position.y, fliperino.GetComponent<Transform>().position.z * -1);
-            }
-        }
-    
-        else if(GetComponent<Rigidbody2D>().velocity.x < -0.1f && GetComponent<Transform>().rotation.y == 1)
-         {
-            GetComponent<Transform>().RotateAround(GetComponent<Transform>().position, Vector3.up, -180);
-
-            foreach (Transform fliperino in GetComponentsInChildren<Transform>())
-            {
-
-                fliperino.transform.position = new Vector3(fliperino.GetComponent<Transform>().position.x, 
-                    fliperino.GetComponent<Transform>().position.y, fliperino.GetComponent<Transform>().position.z*-1);
-            }
-        }
-      */
-
-        /*
-         if ((Physics2D.BoxCast(DetectorSuelo.position, new Vector2(5, 2.5f), 0, new Vector2(1f, 1f)))
-             .transform.tag == "plataforma")
-             enPlataforma = true;
-         else 
-             enPlataforma = false;
-
-         if ((Physics2D.BoxCast(detectorTecho.position, new Vector2(5, 2.5f), 0, new Vector2(0f, 0f)))
-             .transform.tag == "plataforma")
-             bajoPlataforma = true;
-         else if((Physics2D.BoxCast(detectorTecho.position, new Vector2(5, 2.5f), 0, new Vector2(0f, 0f)))==null)
-             bajoPlataforma = false;
-         */
     }
     // Update is called once per frame
     void Update () {
@@ -181,7 +174,7 @@ public class PlayerControl : MonoBehaviour {
 
         //combate 
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && enSuelo )
         {
             puñetazo = true;
         }
@@ -206,6 +199,35 @@ public class PlayerControl : MonoBehaviour {
                 demon = true;
         }
 
+        if (lastHP != currentHP)
+        {
+            invulnerable = true;
+        }
+        else
+        {
+            foreach (SpriteRenderer w in GetComponentsInChildren<SpriteRenderer>())
+            {
+                w.color = new Color(1, 1, 1, 1);
+            }
+        }
 
-    }
+        if (segunderoI >= RecoveryTime)
+        {
+            invulnerable = false;
+            segunderoI = 0;
+        }
+
+        if (invulnerable)
+        {
+            segunderoI += Time.deltaTime;
+
+            foreach (SpriteRenderer a in GetComponentsInChildren<SpriteRenderer>())
+            {
+                float localAlpha = segunderoI % 1;
+                a.color = new Color(1f, 1f, 1f, localAlpha);
+            }
+        }
+
+        lastHP = currentHP;
+    }   
 }

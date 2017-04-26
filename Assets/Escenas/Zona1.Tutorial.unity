@@ -972,6 +972,34 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 33dc42a87c98fdb428e2234b1b2d7d1b, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &454791027
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 454791028}
+  m_Layer: 0
+  m_Name: Vista
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &454791028
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 454791027}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -18.3, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2061783012}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &465217114
 Prefab:
   m_ObjectHideFlags: 0
@@ -3163,6 +3191,25 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d83116e7b442f2742aa68020456063b7, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1032370615 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1932942895321734, guid: 9c526dd606c07624582bb154bac1ed6f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1964737758}
+--- !u!58 &1032370618
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1032370615}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: -0.06476609, y: -0.16645919}
+  serializedVersion: 2
+  m_Radius: 0.26500002
 --- !u!1001 &1073775770
 Prefab:
   m_ObjectHideFlags: 0
@@ -3822,8 +3869,8 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114314124360640632, guid: 2332c23345998744db452b8466f78c05,
         type: 2}
-      propertyPath: localcolor
-      value: 1
+      propertyPath: stunTime
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2332c23345998744db452b8466f78c05, type: 2}
@@ -6357,11 +6404,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4001051279587222, guid: 9c526dd606c07624582bb154bac1ed6f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 139.6
+      value: 139.2
       objectReference: {fileID: 0}
     - target: {fileID: 4001051279587222, guid: 9c526dd606c07624582bb154bac1ed6f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 35.4
+      value: 33.7
       objectReference: {fileID: 0}
     - target: {fileID: 4001051279587222, guid: 9c526dd606c07624582bb154bac1ed6f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -6419,6 +6466,15 @@ Prefab:
         type: 2}
       propertyPath: m_CollisionDetection
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114512074882164440, guid: 9c526dd606c07624582bb154bac1ed6f,
+        type: 2}
+      propertyPath: FuerzaSalto
+      value: 1140
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932942895321734, guid: 9c526dd606c07624582bb154bac1ed6f, type: 2}
+      propertyPath: m_TagString
+      value: manoHum
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9c526dd606c07624582bb154bac1ed6f, type: 2}
@@ -6544,6 +6600,11 @@ GameObject:
   m_PrefabParentObject: {fileID: 1942534774875046, guid: d5de9bc5bd2e82441affe251f32c5d14,
     type: 2}
   m_PrefabInternal: {fileID: 1316514615}
+--- !u!4 &2061783012 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4261087525269958, guid: d5de9bc5bd2e82441affe251f32c5d14,
+    type: 2}
+  m_PrefabInternal: {fileID: 1316514615}
 --- !u!114 &2061783013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6557,7 +6618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   detectado: 0
-  PosFinal: {fileID: 0}
+  PosFinal: {fileID: 454791028}
   destino: {fileID: 1145047801}
   destino2: {fileID: 1440763230}
   speedx: 1
