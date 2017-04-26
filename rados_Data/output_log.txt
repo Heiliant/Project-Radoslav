@@ -67,3 +67,5 @@ Mano I
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 199c -> priority: 1 
