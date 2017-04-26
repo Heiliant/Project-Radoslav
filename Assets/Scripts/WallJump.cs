@@ -13,6 +13,7 @@ public class WallJump : MonoBehaviour
     public float incrementoCaida = 1;
     public float contador = 0;//
     public float segToFall = 1;
+    public float fuerzaWallJump=900;
 
     public bool derecha;
     public int sentido;//
@@ -21,8 +22,6 @@ public class WallJump : MonoBehaviour
     void Start()
     {
         prota = GameObject.FindGameObjectWithTag("Player");
-
-        Debug.Log("prota: " + prota.name);
 
         script = prota.GetComponent<PlayerControl>();
 
@@ -75,7 +74,7 @@ public class WallJump : MonoBehaviour
                     //pulsado, rebotas directamente. He probado con un GetKeyDown para hacer que saltase solo en pulsar espacio
                     //pero el compotamiento es inesperado.
                 {
-                    prota.GetComponent<Rigidbody2D>().AddForce(new Vector2(script.getFuerzawalljump() * sentido, script.getFuerzawalljump()));
+                    prota.GetComponent<Rigidbody2D>().AddForce(new Vector2(fuerzaWallJump * sentido, fuerzaWallJump));
                     //prota.GetComponent<Rigidbody2D>().velocity = new Vector2(script.getFuerzawalljump()*sentido*2, script.getFuerzawalljump()*2f);
                 }
 

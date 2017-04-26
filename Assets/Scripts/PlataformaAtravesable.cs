@@ -13,7 +13,7 @@ public class PlataformaAtravesable : MonoBehaviour {
 
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
-        HumanBody = GameObject.FindGameObjectWithTag("muñeco");
+        HumanBody = GameObject.FindGameObjectWithTag("humana");
         DemonBody = GameObject.FindGameObjectWithTag("torso");
         script = player.GetComponent<PlayerControl>();
         //height = this.transform.Find("ladrillos").gameObject;
@@ -23,13 +23,13 @@ public class PlataformaAtravesable : MonoBehaviour {
     {
         if (script.Humana)
         {
-            if (script.DetectorSuelo.position.y + 0.1f > (GetComponent<Transform>().position.y +
-                (GetComponent<BoxCollider2D>().size.y) / 5)) //PJ está por encima de la plataforma
+            if (script.DetectorSuelo.position.y > GetComponent<Transform>().position.y) //PJ está por encima de la plataforma
             {
                 if (Input.GetKey(KeyCode.S))
                 {
                     Physics2D.IgnoreCollision(GetComponentInChildren<BoxCollider2D>(), HumanBody.GetComponent<CapsuleCollider2D>(), true);
                     ignorar = true;
+                    
                 }
                 else
                 {
@@ -38,8 +38,7 @@ public class PlataformaAtravesable : MonoBehaviour {
 
                 }
             }
-            else if (script.DetectorTecho.position.y +0.1f< GetComponent<Transform>().position.y -
-                (GetComponent<BoxCollider2D>().size.y) / 5) //PJ está debajo de la plataforma
+            else if (script.DetectorTecho.position.y  < GetComponent<Transform>().position.y) //PJ está debajo de la plataforma
             {
                 Physics2D.IgnoreCollision(GetComponentInChildren<BoxCollider2D>(), HumanBody.GetComponent<CapsuleCollider2D>(), true);
                 ignorar = true;
@@ -51,23 +50,13 @@ public class PlataformaAtravesable : MonoBehaviour {
 		
 	}
 
-    /*
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.tag=="Player")
-        {
-                if (Input.GetKey(KeyCode.DownArrow))
-                    Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.collider, true);
-                else
-                    Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.collider, false);
-               
-        }            
-    }
 
-    
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.collider, false);
-    }*/
+        Debug.Log("DetSuelo: " + script.DetectorTecho.position.y);
+        Debug.Log("Caja " + GetComponent<Transform>().position.y);
+        Debug.Log("bool: " + (script.DetectorTecho.position.y > GetComponent<Transform>().position.y));
+    }
+        
 }
 

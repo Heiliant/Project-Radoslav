@@ -23,21 +23,18 @@ public class PlayerControl : MonoBehaviour {
     public float radDetPared=1.25f;
     public bool enPared;
     public LayerMask pared;
-    public float FuerzaWallJump;
 
     public Transform DetectorTecho;
 
     public int currentHP;
+    private bool puñetazo = false;
+    private float segundero=0;
     //métodos de acceso para scripts externos
     public bool getEnpared()
     {
         return enPared;
     }
 
-    public float getFuerzawalljump()
-    {
-        return FuerzaWallJump;
-    }
 
     
     //-----------------------------
@@ -67,6 +64,7 @@ public class PlayerControl : MonoBehaviour {
             animacionHumana.SetFloat("VelX", VelX);
             animacionHumana.SetBool("enSuelo 0", enSuelo);
             animacionHumana.SetBool("enPared", enPared);
+            animacionHumana.SetBool("puñetazo", puñetazo);
         }
 
         enSuelo = Physics2D.OverlapCircle(DetectorSuelo.position, radDetSuelo, suelo);
@@ -160,6 +158,7 @@ public class PlayerControl : MonoBehaviour {
                     // puedes acelerar en las X en el aire. Podemos cambiarlo multiplicando FuerzaPasos aqui si queremos
                     // que el PJ pueda acelerarse en el aire de la "nada"
         }
+        
         else
         {
             if (GetComponent<Rigidbody2D>().velocity.x > 0.1f)
@@ -179,7 +178,23 @@ public class PlayerControl : MonoBehaviour {
             //GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, FuerzaSalto);
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0, FuerzaSalto));
         }
-        
+
+        //combate 
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            puñetazo = true;
+        }
+
+        if (puñetazo)
+        {
+            segundero += Time.deltaTime;
+            if (segundero >= 0.7f)
+            {
+                puñetazo = false;
+                segundero = 0;
+            }
+        }
 
         //transformación
 
