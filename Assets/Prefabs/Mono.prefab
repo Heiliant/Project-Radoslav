@@ -1048,6 +1048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3ff8ad62f72ef64080b4514d37044ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  torso: {fileID: 0}
   monoHP: 3
   tripaHP: 10
   stunTime: 10
@@ -1065,13 +1066,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prota: {fileID: 1775919142956300, guid: 9c526dd606c07624582bb154bac1ed6f, type: 2}
   script: {fileID: 0}
-  fuerzaY: 1
   incrementoCaida: 5
-  contador: 0
   segToFall: 1
   fuerzaWallJump: 1000
+  XsobreY: 0
   derecha: 1
-  sentido: 0
 --- !u!114 &114649572015802834
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1085,13 +1084,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prota: {fileID: 1775919142956300, guid: 9c526dd606c07624582bb154bac1ed6f, type: 2}
   script: {fileID: 0}
-  fuerzaY: 1
   incrementoCaida: 5
-  contador: 0
   segToFall: 1
   fuerzaWallJump: 1000
+  XsobreY: 0
   derecha: 0
-  sentido: 0
 --- !u!114 &114739753854134870
 MonoBehaviour:
   m_ObjectHideFlags: 1

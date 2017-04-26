@@ -12,7 +12,8 @@ TagManager:
   - Torso M
   - manoHum
   - Cabeza M
-  - zonas
+  - zonas1
+  - zonas2
   layers:
   - Default
   - TransparentFX

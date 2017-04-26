@@ -36,10 +36,16 @@ public class PlayerControl : MonoBehaviour {
     private bool invulnerable=false;
 
     //métodos de acceso para scripts externos
+
+
+
+
     public bool getEnpared()
     {
         return enPared;
     }
+
+
 
     public void attackPlayer(float a)
     {
@@ -66,6 +72,10 @@ public class PlayerControl : MonoBehaviour {
         }
     }
     
+    public void killPlayer()
+    {
+        currentHP = 0;
+    }
     
     //-----------------------------
 

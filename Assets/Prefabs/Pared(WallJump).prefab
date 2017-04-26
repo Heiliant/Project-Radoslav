@@ -113,12 +113,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prota: {fileID: 1775919142956300, guid: 9c526dd606c07624582bb154bac1ed6f, type: 2}
   script: {fileID: 0}
-  fuerzaY: 1
   incrementoCaida: 5
-  contador: 0
   segToFall: 1
+  fuerzaWallJump: 900
+  XsobreY: 1
   derecha: 0
-  sentido: 0
 --- !u!212 &212948333825424464
 SpriteRenderer:
   m_ObjectHideFlags: 1
