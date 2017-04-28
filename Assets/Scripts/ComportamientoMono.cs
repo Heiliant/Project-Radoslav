@@ -34,6 +34,10 @@ public class ComportamientoMono : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        animacionMono = GetComponent<Animator>();
+        if (animacionMono != null)
+            Debug.Log("animador asignado");
+
         player = GameObject.FindGameObjectWithTag("Player");
         
         palaD = GameObject.FindGameObjectWithTag("palad").GetComponent<EdgeCollider2D>();
@@ -44,8 +48,6 @@ public class ComportamientoMono : MonoBehaviour
 
         paredD.SetActive(false);
         paredI.SetActive(false);
-
-        animacionMono = GetComponent<Animator>();
 
         tripavida = tripaHP;
         stunsave = stunTime;
