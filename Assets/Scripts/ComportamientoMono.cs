@@ -6,19 +6,13 @@ public class ComportamientoMono : MonoBehaviour
 {
     private GameObject player;
 
+    private bool D;
+    private bool C;
+    private bool I;
 
     public GameObject torso;
     private EdgeCollider2D palaD;
     private EdgeCollider2D palaI;
-
-    /*
-    private GameObject zonaD;
-    private GameObject zonaI;
-    private GameObject zonaC;
-    */
-    private TriggerZonaC zonaC;
-    private TriggerZonaD zonaD;
-    private TriggerZonaI zonaI;
 
     private Animator animacionMono;
 
@@ -42,20 +36,8 @@ public class ComportamientoMono : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         
-
         palaD = GameObject.FindGameObjectWithTag("palad").GetComponent<EdgeCollider2D>();
         palaI = GameObject.FindGameObjectWithTag("palai").GetComponent<EdgeCollider2D>();
-
-        /*
-        zonaD = GameObject.Find("ZonaD");
-        zonaI = GameObject.Find("ZonaI");
-        zonaC = GameObject.Find("ZonaC");
-        */
-
-        zonaC = FindObjectOfType<TriggerZonaC>();
-        zonaD = FindObjectOfType<TriggerZonaD>();
-        zonaI = FindObjectOfType<TriggerZonaI>();
-
 
         paredD = GameObject.FindGameObjectWithTag("zonas1");
         paredI = GameObject.FindGameObjectWithTag("zonas2");
@@ -73,33 +55,70 @@ public class ComportamientoMono : MonoBehaviour
     private void FixedUpdate()
     {
 
+        if (GameObject.Find("ZonaD").GetComponent<TriggerZonaD>().getD())
+        {
+            Debug.Log("funciono");
+        }
+        else
+        {
+            Debug.Log("no funciono");
+        }
+
+        if (GameObject.Find("ZonaD").GetComponent<TriggerZonaD>().getD())
+        {
+            D = true;
+        }
+        else
+        {
+            D = false;
+        }
+
+        if (GameObject.Find("ZonaC").GetComponent<TriggerZonaC>().getC())
+        {
+            C = true;
+        }
+        else
+        {
+            C = false;
+        }
+
+        if (GameObject.Find("ZonaI").GetComponent<TriggerZonaI>().getI())
+        {
+            I = true;
+        }
+        else
+        {
+            I = false;
+        }
+
         //He cambiado la sintaxis zonaC.GetComponent<TriggerZonaC>().CisTriggered) por zonaC.CisTriggered
         //ya que ahora, zonaC (y las otras) no son gameobjects, son el script tal cual.
         //ACTUALIZACIÓN DE LOS DATOS DEL ANIMATOR
-        animacionMono.SetBool("derecha", zonaD.DisTriggered);
-        animacionMono.SetBool("centro", zonaC.CisTriggered);
-        animacionMono.SetBool("izquierda", zonaI.IisTriggered);
+
+        animacionMono.SetBool("derecha", D);
+        animacionMono.SetBool("centro", C);
+        animacionMono.SetBool("izquierda", I);
         animacionMono.SetFloat("Tripa HP", tripaHP);
         animacionMono.SetFloat("Mono HP", monoHP);
         animacionMono.SetFloat("Stun Time", stunTime);
         animacionMono.SetBool("hasBeenDmgd", hasBeenDmgd);
 
 
-        if (zonaD.DisTriggered)
+        if (D)
         {
             animacionMono.SetBool("derecha", true);
             animacionMono.SetBool("izquierda", false);
             animacionMono.SetBool("centro", false);
         }
 
-        else if (zonaI.IisTriggered)
+        else if (I)
         {
             animacionMono.SetBool("derecha", false);
             animacionMono.SetBool("izquierda", true);
             animacionMono.SetBool("centro", false);
         }
 
-        else if (zonaC.CisTriggered)
+        else if (C)
         {
             animacionMono.SetBool("derecha", false);
             animacionMono.SetBool("izquierda", false);
@@ -114,7 +133,7 @@ public class ComportamientoMono : MonoBehaviour
             palaI.enabled = false;
 
             stuneado = true; //ENTRA EN MODO STUNT
-            if (zonaC.CisTriggered)
+            if (C)
             {   //SI ESTÁS EN LA ZONA DEL CENTRO, PUEDES COLISIONAR CON LAS PALAS Y HACER WALLJUMP, SINO NO
                 paredD.SetActive(true);
                 paredI.SetActive(true);

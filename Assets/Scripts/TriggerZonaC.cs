@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TriggerZonaC : MonoBehaviour {
-    public bool CisTriggered;
+    private bool CisTriggered;
 
     void Start()
     {
         CisTriggered = false;
+    }
+
+    public bool getC()
+    {
+        return CisTriggered;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

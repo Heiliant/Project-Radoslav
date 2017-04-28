@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class TriggerZonaD : MonoBehaviour {
 
-    public bool DisTriggered;
+    private bool DisTriggered;
 
     void Start()
     {
         DisTriggered = false;
+    }
+
+    public bool getD()
+    {
+        return DisTriggered;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
