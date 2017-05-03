@@ -29,7 +29,7 @@ public class LevelManagment : MonoBehaviour {
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag=="humana") {
-            player.transform.position = lastCP.position;
+     
             player.GetComponent<PlayerControl>().killPlayer();
         }
     }

@@ -963,7 +963,7 @@ AnimationClip:
         value: 1.6560001
         inSlope: 268.96866
         outSlope: -135.02014
-        tangentMode: 69
+        tangentMode: 1
       - serializedVersion: 2
         time: 1.55
         value: -11.846001

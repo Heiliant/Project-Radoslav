@@ -223,7 +223,7 @@ public class PlayerControl : MonoBehaviour {
 
         if (segunderoI >= RecoveryTime)
         {
-            invulnerable = false;
+            invulnerable = false; 
             segunderoI = 0;
         }
 

@@ -10,7 +10,7 @@ public class ComportamientoMono : MonoBehaviour
     private bool C;
     private bool I;
 
-    public GameObject torso;
+    private GameObject torso;
     private EdgeCollider2D palaD;
     private EdgeCollider2D palaI;
 
@@ -21,7 +21,7 @@ public class ComportamientoMono : MonoBehaviour
 
     public float monoHP = 3f;
     public float tripaHP = 10f;
-    public float stunTime = 5f;
+    public float stunTime = 10f;
 
     private float tripavida;
     private float stunsave;
@@ -31,15 +31,24 @@ public class ComportamientoMono : MonoBehaviour
     private bool stuneado = false;
     public float localcolor = 1;
 
+    private float timeToActivate = 5f;
+    private bool bossFight = false;
+
+    public void startFight()
+    {
+        bossFight = true;
+    }
+
     // Use this for initialization
     void Start()
     {
+
         animacionMono = GetComponent<Animator>();
-        if (animacionMono != null)
-            Debug.Log("animador asignado");
 
         player = GameObject.FindGameObjectWithTag("Player");
-        
+
+        torso = GameObject.FindGameObjectWithTag("Torso M");
+
         palaD = GameObject.FindGameObjectWithTag("palad").GetComponent<EdgeCollider2D>();
         palaI = GameObject.FindGameObjectWithTag("palai").GetComponent<EdgeCollider2D>();
 
@@ -51,157 +60,138 @@ public class ComportamientoMono : MonoBehaviour
 
         tripavida = tripaHP;
         stunsave = stunTime;
+
+        foreach(SpriteRenderer a in GetComponentsInChildren<SpriteRenderer>())
+        {
+
+            a.color = new Color(1, 1, 1, 0);
+        }
+       
     }
 
 
     private void FixedUpdate()
     {
-
-        if (GameObject.Find("ZonaD").GetComponent<TriggerZonaD>().getD())
-        {
-            Debug.Log("funciono");
-        }
-        else
-        {
-            Debug.Log("no funciono");
-        }
-
-        if (GameObject.Find("ZonaD").GetComponent<TriggerZonaD>().getD())
-        {
-            D = true;
-        }
-        else
-        {
-            D = false;
-        }
-
-        if (GameObject.Find("ZonaC").GetComponent<TriggerZonaC>().getC())
-        {
-            C = true;
-        }
-        else
-        {
-            C = false;
-        }
-
-        if (GameObject.Find("ZonaI").GetComponent<TriggerZonaI>().getI())
-        {
-            I = true;
-        }
-        else
-        {
-            I = false;
-        }
-
-        //He cambiado la sintaxis zonaC.GetComponent<TriggerZonaC>().CisTriggered) por zonaC.CisTriggered
-        //ya que ahora, zonaC (y las otras) no son gameobjects, son el script tal cual.
-        //ACTUALIZACIÓN DE LOS DATOS DEL ANIMATOR
-
-        animacionMono.SetBool("derecha", D);
-        animacionMono.SetBool("centro", C);
-        animacionMono.SetBool("izquierda", I);
-        animacionMono.SetFloat("Tripa HP", tripaHP);
-        animacionMono.SetFloat("Mono HP", monoHP);
-        animacionMono.SetFloat("Stun Time", stunTime);
-        animacionMono.SetBool("hasBeenDmgd", hasBeenDmgd);
+        if (bossFight) {
+            D = GameObject.FindObjectOfType<TriggerZonaD>().getD();
+            C = GameObject.FindObjectOfType<TriggerZonaC>().getC();
+            I = GameObject.FindObjectOfType<TriggerZonaI>().getI();
 
 
-        if (D)
-        {
-            animacionMono.SetBool("derecha", true);
-            animacionMono.SetBool("izquierda", false);
-            animacionMono.SetBool("centro", false);
-        }
+            //He cambiado la sintaxis zonaC.GetComponent<TriggerZonaC>().CisTriggered) por zonaC.CisTriggered
+            //ya que ahora, zonaC (y las otras) no son gameobjects, son el script tal cual.
+            //ACTUALIZACIÓN DE LOS DATOS DEL ANIMATOR
 
-        else if (I)
-        {
-            animacionMono.SetBool("derecha", false);
-            animacionMono.SetBool("izquierda", true);
-            animacionMono.SetBool("centro", false);
-        }
-
-        else if (C)
-        {
-            animacionMono.SetBool("derecha", false);
-            animacionMono.SetBool("izquierda", false);
-            animacionMono.SetBool("centro", true);
-        }
+            animacionMono.SetBool("derecha", D);
+            animacionMono.SetBool("centro", C);
+            animacionMono.SetBool("izquierda", I);
+            animacionMono.SetFloat("Tripa HP", tripaHP);
+            animacionMono.SetFloat("Mono HP", monoHP);
+            animacionMono.SetFloat("Stun Time", stunTime);
+            animacionMono.SetBool("hasBeenDmgd", hasBeenDmgd);
 
 
-        //SI LA BARRIGA NO TIENE VIDA
-        if (tripaHP == 0)
-        {
-            palaD.enabled = false;
-            palaI.enabled = false;
-
-            stuneado = true; //ENTRA EN MODO STUNT
-            if (C)
-            {   //SI ESTÁS EN LA ZONA DEL CENTRO, PUEDES COLISIONAR CON LAS PALAS Y HACER WALLJUMP, SINO NO
-                paredD.SetActive(true);
-                paredI.SetActive(true);
-
-                if (GameObject.FindGameObjectWithTag("Player").transform.position.y >
-                    GetComponentInChildren<PlataformaAtravesable>().transform.position.y) //SI ESTÁS ENCIMA DE LA TAPA DEL CASCO Y PEGAS, ESTANDO EL MONO STUNEADO
-                                                                            //, QUITAS VIDA AL MONO Y LE DESACTIVAS EL STUNT Y RESETEAS SU VIDA DE TRIPA
-                {
-                    if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>().puñetazo && stuneado)
-                    {
-                        monoHP--;
-                        hasBeenDmgd = true;
-                        stuneado = false;
-                        tripaHP = tripavida;
-                        stunTime = stunsave;
-                    }
-                }
-
+            if (D)
+            {
+                animacionMono.SetBool("derecha", true);
+                animacionMono.SetBool("izquierda", false);
+                animacionMono.SetBool("centro", false);
             }
 
+            else if (I)
+            {
+                animacionMono.SetBool("derecha", false);
+                animacionMono.SetBool("izquierda", true);
+                animacionMono.SetBool("centro", false);
+            }
+
+            else if (C)
+            {
+                animacionMono.SetBool("derecha", false);
+                animacionMono.SetBool("izquierda", false);
+                animacionMono.SetBool("centro", true);
+            }
+
+
+            //SI LA BARRIGA NO TIENE VIDA
+            if (tripaHP == 0)
+            {
+                palaD.enabled = false;
+                palaI.enabled = false;
+
+                stuneado = true; //ENTRA EN MODO STUNT
+                if (C)
+                {   //SI ESTÁS EN LA ZONA DEL CENTRO, PUEDES COLISIONAR CON LAS PALAS Y HACER WALLJUMP, SINO NO
+                    paredD.SetActive(true);
+                    paredI.SetActive(true);
+
+                    if (GameObject.FindGameObjectWithTag("Player").transform.position.y >
+                        GetComponentInChildren<PlataformaAtravesable>().transform.position.y) //SI ESTÁS ENCIMA DE LA TAPA DEL CASCO Y PEGAS, ESTANDO EL MONO STUNEADO
+                                                                                              //, QUITAS VIDA AL MONO Y LE DESACTIVAS EL STUNT Y RESETEAS SU VIDA DE TRIPA
+                    {
+                        if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>().puñetazo && stuneado)
+                        {
+                            monoHP--;
+                            hasBeenDmgd = true;
+                            stuneado = false;
+                            tripaHP = tripavida;
+                            stunTime = stunsave;
+                        }
+                    }
+
+                }
+
+                else
+                {
+                    paredD.SetActive(false);
+                    paredI.SetActive(false);
+                }
+
+                //CADA FOTOGRAMA QUE PASA, REDUCIMOS EL stuntTime, QUE ES EL TIEMPO QUE EL MONO ESTARÁ STUNEADO SI NO SE LE PEGA
+                stunTime -= Time.deltaTime;
+
+                if (stunTime <= 0)
+                {
+                    stuneado = false;
+                    tripaHP = tripavida;
+                    stunTime = stunsave;
+                    hasBeenDmgd = false;
+                }
+            }
+
+            //TRIPA SI TIENE VIDA
             else
             {
+                palaD.enabled = true;
+                palaI.enabled = true;
+                if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>().puñetazo && dmgCont)
+                {
+                    if (tripaHP > 0)
+                    {
+                        //SI ESTÁS EN CENTRO, PEGAS UN PUÑETAZO, Y TRIPA TIENE VIDA, LE QUITAS VIDA A TRIPA
+                        tripaHP--;
+                        dmgCont = false; //Esta variable es para no quitarle vida cada fotograma que puñetazo está activo
+                    }
+                }
+                if (!GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>().puñetazo)
+                    dmgCont = true;
+
                 paredD.SetActive(false);
                 paredI.SetActive(false);
-            }
 
-            //CADA FOTOGRAMA QUE PASA, REDUCIMOS EL stuntTime, QUE ES EL TIEMPO QUE EL MONO ESTARÁ STUNEADO SI NO SE LE PEGA
-            stunTime -= Time.deltaTime;
-            
-            if (stunTime <= 0)
-            {
-                stuneado = false;
-                tripaHP = tripavida;
-                stunTime = stunsave;
                 hasBeenDmgd = false;
             }
-        }
 
-        //TRIPA SI TIENE VIDA
+            //CAMBIA EL COLOR DE TRIPA EN FUNCIÓN DE SU VIDA
+            localcolor = tripaHP / tripavida;
+
+            torso.GetComponent<SpriteRenderer>().color = new Color(1f, localcolor, localcolor, 1f);
+
+        }
         else
         {
-            palaD.enabled = true;
-            palaI.enabled = true;
-            if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>().puñetazo && dmgCont)
-            {
-                if (tripaHP > 0)
-                {
-                    //SI ESTÁS EN CENTRO, PEGAS UN PUÑETAZO, Y TRIPA TIENE VIDA, LE QUITAS VIDA A TRIPA
-                    tripaHP--;
-                    dmgCont = false; //Esta variable es para no quitarle vida cada fotograma que puñetazo está activo
-                }
-            }
-            if (!GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>().puñetazo)
-                dmgCont = true;
-
-            paredD.SetActive(false);
-            paredI.SetActive(false);
-
-            hasBeenDmgd = false;
+            Debug.Log("Mono pasivo");
         }
-
-        //CAMBIA EL COLOR DE TRIPA EN FUNCIÓN DE SU VIDA
-        localcolor = tripaHP / tripavida;
-        
-        torso.GetComponent<SpriteRenderer>().color = new Color(1f, localcolor, localcolor, 1f);
-        
     }
 }
 

@@ -21,9 +21,10 @@ GameObject:
   - component: {fileID: 4562933725216320}
   - component: {fileID: 212259910652871468}
   - component: {fileID: 68154589283447604}
+  - component: {fileID: 114216095984940176}
   m_Layer: 0
   m_Name: Pala D
-  m_TagString: pala
+  m_TagString: palad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,7 +40,7 @@ GameObject:
   - component: {fileID: 58564704225378340}
   m_Layer: 9
   m_Name: ParedPalaI
-  m_TagString: zonas
+  m_TagString: zonas2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,7 +106,7 @@ GameObject:
   - component: {fileID: 58486824664641218}
   m_Layer: 9
   m_Name: ParedPalaD
-  m_TagString: zonas
+  m_TagString: zonas1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -280,9 +281,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4969170456510586}
   - component: {fileID: 212215848227569702}
+  - component: {fileID: 68766074730067654}
+  - component: {fileID: 114237089409439486}
   m_Layer: 0
   m_Name: Pala I
-  m_TagString: pala
+  m_TagString: palai
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -590,7 +593,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1163367892916866}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 139.9, y: 46.4, z: 0}
+  m_LocalPosition: {x: 140.1, y: 46.4, z: 0}
   m_LocalScale: {x: 1.5204003, y: 1.5204008, z: 1.5204008}
   m_Children:
   - {fileID: 4174724467708316}
@@ -980,6 +983,23 @@ EdgeCollider2D:
   - {x: -6.7046556, y: -3.7947412}
   - {x: 7.06385, y: 2.547155}
   - {x: 6.704469, y: 3.1839929}
+--- !u!68 &68766074730067654
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1591798755638468}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+  - {x: -6.703746, y: 3.2200098}
+  - {x: -7.1161823, y: 2.5273504}
+  - {x: 6.6373615, y: -3.7536592}
+  - {x: 7.0717535, y: -3.0360117}
 --- !u!95 &95654329160310986
 Animator:
   serializedVersion: 3
@@ -1024,7 +1044,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d6457396c024d04ea120640bc8da6b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IisTriggered: 0
+--- !u!114 &114216095984940176
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1054066104970904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c98a16ab348a164388bc9140ac5f17f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114237089409439486
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1591798755638468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c98a16ab348a164388bc9140ac5f17f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114312590425760280
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1036,7 +1077,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1eb1790465866d4d8495ad103b06a04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DisTriggered: 0
 --- !u!114 &114314124360640632
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1048,8 +1088,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3ff8ad62f72ef64080b4514d37044ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  torso: {fileID: 0}
-  monoHP: 3
+  monoHP: 1
   tripaHP: 10
   stunTime: 10
   localcolor: 1
@@ -1069,7 +1108,7 @@ MonoBehaviour:
   incrementoCaida: 5
   segToFall: 1
   fuerzaWallJump: 1000
-  XsobreY: 0
+  XsobreY: 1
   derecha: 1
 --- !u!114 &114649572015802834
 MonoBehaviour:
@@ -1087,7 +1126,7 @@ MonoBehaviour:
   incrementoCaida: 5
   segToFall: 1
   fuerzaWallJump: 1000
-  XsobreY: 0
+  XsobreY: 1
   derecha: 0
 --- !u!114 &114739753854134870
 MonoBehaviour:
@@ -1100,7 +1139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca736c6c2a34ea04a87c4d8ae5bc2b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CisTriggered: 0
 --- !u!212 &212031475330019956
 SpriteRenderer:
   m_ObjectHideFlags: 1
