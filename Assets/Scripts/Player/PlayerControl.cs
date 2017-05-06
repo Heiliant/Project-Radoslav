@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour {
     //mimebros de animacion
-    public GameObject Humana;       //Aqui meto los gameobjects de Huama y Demonio. Se podria hacer a través de GetComponentInChildren, per creo que asi                            
-    public GameObject Demonio;
-    private bool demon = false;
     public Animator animacionHumana;
 
     //mimebros de movimiento simple
@@ -15,10 +12,8 @@ public class PlayerControl : MonoBehaviour {
     private float VelX;
     
     //miembros de movimiento elaborado
-    public Transform DetectorSuelo;
-    public float radDetSuelo = 0.40f;
     public bool enSuelo = false;
-    public LayerMask suelo;
+   
 
     public float radDetPared=1.25f;
     public bool enPared;
@@ -35,6 +30,11 @@ public class PlayerControl : MonoBehaviour {
     public float RecoveryTime;
     private bool invulnerable=false;
 
+    private KeyCode JUMP = KeyCode.Space;
+    private KeyCode LEFT = KeyCode.A;
+    private KeyCode RIGHT = KeyCode.D;
+    private KeyCode DOWN = KeyCode.S;
+    private KeyCode PUÑO = KeyCode.Mouse0;
     //métodos de acceso para scripts externos
 
 
@@ -81,37 +81,26 @@ public class PlayerControl : MonoBehaviour {
 
 
     void Start () {
-
         currentHP = 3;
         lastHP = currentHP;
 
         puñetazo = false;
-
-        Demonio.SetActive(false);
-        Humana.SetActive(true);
+ 
         animacionHumana = GameObject.FindGameObjectWithTag("humana").GetComponent<Animator>();
     }
 
     private void FixedUpdate()
     {
-     
-
-        Demonio.SetActive(demon); //Regulo que gameobject está activo, si Demonio o Humana.
-        Humana.SetActive(!demon);
-
-        VelX = GetComponent<Rigidbody2D>().velocity.x;
+            VelX = GetComponent<Rigidbody2D>().velocity.x;
         
-
-        if (!demon)
-        {
             animacionHumana.SetFloat("VelX", VelX);
             animacionHumana.SetBool("enSuelo 0", enSuelo);
             animacionHumana.SetBool("enPared", enPared);
             animacionHumana.SetBool("puñetazo", puñetazo);
-        }
+        
 
-        enSuelo = Physics2D.OverlapCircle(DetectorSuelo.position, radDetSuelo, suelo);
-        enPared = Physics2D.OverlapCircle(GetComponent<Transform>().position, radDetPared, pared);
+            enSuelo = FindObjectOfType<CambioFormas>().enSuelo;
+            enPared = Physics2D.OverlapCircle(GetComponent<Transform>().position, radDetPared, pared);
 
 
         if(VelX > 0.1f && !enPared)
@@ -130,7 +119,7 @@ public class PlayerControl : MonoBehaviour {
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 1.70f), ForceMode2D.Impulse);
         //movimiento simple
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(LEFT))
         {
             if(enSuelo)
                 //cambiar vector de velocidad "a saco"
@@ -145,7 +134,7 @@ public class PlayerControl : MonoBehaviour {
                 GetComponent<Rigidbody2D>().AddForce(new Vector2(-FuerzaPasos, 0));
         }
 
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(RIGHT))
         {
             if (enSuelo)
                 //cambiar vector de velocidad "a saco"
@@ -176,7 +165,7 @@ public class PlayerControl : MonoBehaviour {
 
         //movimiento elaborado
 
-        if (Input.GetKeyDown(KeyCode.Space) && enSuelo)
+        if (Input.GetKeyDown(JUMP) && enSuelo)
         {
             //GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, FuerzaSalto);
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0, FuerzaSalto));
@@ -184,7 +173,7 @@ public class PlayerControl : MonoBehaviour {
 
         //combate 
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && enSuelo )
+        if (Input.GetKeyDown(PUÑO) && enSuelo )
         {
             puñetazo = true;
         }
@@ -197,16 +186,6 @@ public class PlayerControl : MonoBehaviour {
                 puñetazo = false;
                 segundero = 0;
             }
-        }
-
-        //transformación
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (demon)
-                demon = false;
-            else
-                demon = true;
         }
 
         if (lastHP != currentHP)

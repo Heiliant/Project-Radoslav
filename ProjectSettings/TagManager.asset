@@ -18,6 +18,7 @@ TagManager:
   - caida
   - palai
   - palad
+  - demonio
   layers:
   - Default
   - TransparentFX
@@ -54,4 +55,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: front
+    uniqueID: 1885268413
     locked: 0

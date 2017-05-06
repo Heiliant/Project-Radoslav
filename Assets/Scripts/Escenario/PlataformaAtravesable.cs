@@ -8,6 +8,7 @@ public class PlataformaAtravesable : MonoBehaviour {
     public bool ignorar; //esta variable es de debug, se puede borrar pero ayuda a comprobar las posiciones
 
     public PlayerControl script;
+    public CambioFormas scriptFormas;
     public GameObject DemonBody;
     public GameObject HumanBody;
 
@@ -16,14 +17,15 @@ public class PlataformaAtravesable : MonoBehaviour {
         HumanBody = GameObject.FindGameObjectWithTag("humana");
         DemonBody = GameObject.FindGameObjectWithTag("torso");
         script = player.GetComponent<PlayerControl>();
+        scriptFormas = player.GetComponent<CambioFormas>();
         //height = this.transform.Find("ladrillos").gameObject;
     }
 
     private void FixedUpdate()
     {
-        if (script.Humana)
+        if (scriptFormas.Humana)
         {
-            if (script.DetectorSuelo.position.y > GetComponent<Transform>().position.y) //PJ está por encima de la plataforma
+            if (scriptFormas.DetectorSuelo.position.y > GetComponent<Transform>().position.y) //PJ está por encima de la plataforma
             {
                 if (Input.GetKey(KeyCode.S))
                 {

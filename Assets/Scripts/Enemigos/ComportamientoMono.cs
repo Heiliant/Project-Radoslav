@@ -27,11 +27,13 @@ public class ComportamientoMono : MonoBehaviour
     private float stunsave;
 
     private bool dmgCont = true;
-    private bool hasBeenDmgd = false;
+    public bool hasBeenDmgd = false;
     private bool stuneado = false;
-    public float localcolor = 1;
+    public float localcolorBody = 1;
+    private float localcolorFace = 1;
 
-    private float timeToActivate = 5f;
+    private bool check = false;
+
     private bool bossFight = false;
 
     public void startFight()
@@ -42,9 +44,9 @@ public class ComportamientoMono : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        GetComponent<Transform>().position = new Vector3(139.82f, 46.49f, 0);
         animacionMono = GetComponent<Animator>();
-
+        
         player = GameObject.FindGameObjectWithTag("Player");
 
         torso = GameObject.FindGameObjectWithTag("Torso M");
@@ -61,18 +63,39 @@ public class ComportamientoMono : MonoBehaviour
         tripavida = tripaHP;
         stunsave = stunTime;
 
-        foreach(SpriteRenderer a in GetComponentsInChildren<SpriteRenderer>())
+
+        foreach (SpriteRenderer a in GetComponentsInChildren<SpriteRenderer>())
         {
 
             a.color = new Color(1, 1, 1, 0);
+            Debug.Log(a.name);
+            Debug.Log(a.color);
         }
-       
+
     }
+
+
 
 
     private void FixedUpdate()
     {
-        if (bossFight) {
+        if (bossFight)
+        {
+
+            if (GetComponentInChildren<SpriteRenderer>().color.a < 1)
+            {
+                foreach (SpriteRenderer a in GetComponentsInChildren<SpriteRenderer>())
+                {
+                    float x = a.color.a;
+                    x += 0.01f;
+                    a.color = new Color(1, 1, 1, x);
+                }
+            }
+        }
+        Debug.Log(GetComponentInChildren<SpriteRenderer>().color.a);
+        if (GetComponentInChildren<SpriteRenderer>().color.a >= 1) {
+
+
             D = GameObject.FindObjectOfType<TriggerZonaD>().getD();
             C = GameObject.FindObjectOfType<TriggerZonaC>().getC();
             I = GameObject.FindObjectOfType<TriggerZonaI>().getI();
@@ -112,7 +135,10 @@ public class ComportamientoMono : MonoBehaviour
                 animacionMono.SetBool("centro", true);
             }
 
-
+            if (monoHP == 0) {
+                StartCoroutine(killMono(13.2f));
+                GameObject.Find("plataformaTapa").GetComponentInChildren<BoxCollider2D>().enabled = false;
+                    }
             //SI LA BARRIGA NO TIENE VIDA
             if (tripaHP == 0)
             {
@@ -136,6 +162,7 @@ public class ComportamientoMono : MonoBehaviour
                             stuneado = false;
                             tripaHP = tripavida;
                             stunTime = stunsave;
+                            localcolorFace = 0;
                         }
                     }
 
@@ -179,19 +206,37 @@ public class ComportamientoMono : MonoBehaviour
                 paredD.SetActive(false);
                 paredI.SetActive(false);
 
-                hasBeenDmgd = false;
+               // hasBeenDmgd = false;
             }
 
             //CAMBIA EL COLOR DE TRIPA EN FUNCIÓN DE SU VIDA
-            localcolor = tripaHP / tripavida;
+            localcolorBody = tripaHP / tripavida;
+            torso.GetComponent<SpriteRenderer>().color = new Color(1f, localcolorBody, localcolorBody, 1f);
 
-            torso.GetComponent<SpriteRenderer>().color = new Color(1f, localcolor, localcolor, 1f);
+            
 
+            float monolastHP = monoHP;
+            if (hasBeenDmgd) {
+                if (localcolorFace < 1)
+                {
+                    localcolorFace += Time.deltaTime;
+                    GameObject.Find("CabezaM").GetComponent<SpriteRenderer>().color = new Color(1, localcolorFace, localcolorFace, 1);
+                    check = true;
+                }
+                else
+                {
+                    localcolorFace = 0;
+                    if (check)
+                        hasBeenDmgd = false; check = false;
+                }
+            }
+            
         }
-        else
-        {
-            Debug.Log("Mono pasivo");
-        }
+    }
+    IEnumerator killMono(float s)
+    {
+        yield return new WaitForSeconds(s);
+        Destroy(gameObject);
     }
 }
 
