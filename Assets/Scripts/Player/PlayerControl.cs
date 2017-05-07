@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerControl : MonoBehaviour {
+
+    private Transform initialTorsoSave;
+
     //mimebros de animacion
     public Animator animacionHumana;
 
@@ -13,7 +16,6 @@ public class PlayerControl : MonoBehaviour {
     
     //miembros de movimiento elaborado
     public bool enSuelo = false;
-   
 
     public float radDetPared=1.25f;
     public bool enPared;
@@ -35,17 +37,14 @@ public class PlayerControl : MonoBehaviour {
     private KeyCode RIGHT = KeyCode.D;
     private KeyCode DOWN = KeyCode.S;
     private KeyCode PUÑO = KeyCode.Mouse0;
+
+ 
+
     //métodos de acceso para scripts externos
-
-
-
-
     public bool getEnpared()
     {
         return enPared;
     }
-
-
 
     public void attackPlayer(float a)
     {
@@ -77,10 +76,17 @@ public class PlayerControl : MonoBehaviour {
         currentHP = 0;
     }
     
+    public Transform getTorsoSave()
+    {
+        return initialTorsoSave;
+    }
     //-----------------------------
 
 
     void Start () {
+        initialTorsoSave = GameObject.FindGameObjectWithTag("muñeco").GetComponent<Transform>();
+        Debug.Log(initialTorsoSave.rotation);
+        Debug.Log("Human start");
         currentHP = 3;
         lastHP = currentHP;
 
@@ -110,6 +116,7 @@ public class PlayerControl : MonoBehaviour {
         else if(VelX < -0.1f || enPared)
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Vector3.forward), 1f);
         
+      
 
     }
     // Update is called once per frame
@@ -219,4 +226,6 @@ public class PlayerControl : MonoBehaviour {
 
         lastHP = currentHP;
     }   
+
+    
 }

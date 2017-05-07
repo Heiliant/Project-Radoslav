@@ -5,7 +5,8 @@ using UnityEngine;
 public class CambioFormas : MonoBehaviour {
     public GameObject Humana;       //Aqui meto los gameobjects de Huama y Demonio. Se podria hacer a través de GetComponentInChildren, per creo que asi                            
     public GameObject Demonio;
-    private bool demon = false;
+    public GameObject Particulillas;
+    public bool demon = false;
 
     private KeyCode TRANSFORMACION = KeyCode.E;
 
@@ -14,12 +15,17 @@ public class CambioFormas : MonoBehaviour {
     public bool enSuelo = false;
     public LayerMask suelo;
 
+    public bool transf;
+    public float timeToTrans;
+
     // Use this for initialization
     void Start () {
         Demonio.SetActive(false);
         Humana.SetActive(true);
 
         DetectorSuelo = GameObject.Find("DetectorSuelo").GetComponent<Transform>();
+
+        transf = false;
     }
 
     private void FixedUpdate()
@@ -30,7 +36,12 @@ public class CambioFormas : MonoBehaviour {
         FindObjectOfType<PlayerControl>().enabled = !demon;
         FindObjectOfType<DemonControl>().enabled = demon;
 
-        enSuelo = Physics2D.OverlapCircle(new Vector2(DetectorSuelo.position.x, DetectorSuelo.position.y), radDetSuelo);
+        enSuelo = Physics2D.OverlapCircle(new Vector2(DetectorSuelo.position.x, DetectorSuelo.position.y), radDetSuelo, suelo);
+
+        if (!demon)
+        {
+            FindObjectOfType<PlayerControl>().animacionHumana.SetBool("transformar", transf);
+        }
 
     }
     // Update is called once per frame
@@ -39,10 +50,25 @@ public class CambioFormas : MonoBehaviour {
 
         if (Input.GetKeyDown(TRANSFORMACION))
         {
-            if (demon)
-                demon = false;
-            else
-                demon = true;
+            transf = true;
+            StartCoroutine(TransformacionDemon(timeToTrans));
+            
+        }
+
+        if (transf)
+            Particulillas.SetActive(true);
+        else
+            Particulillas.SetActive(false);
+    }
+
+    IEnumerator TransformacionDemon(float t)
+    {
+        yield return new WaitForSeconds(t);
+        transf = false;
+        demon = !demon;
+        if (!demon)
+        {
+            Debug.Log(GameObject.FindGameObjectWithTag("muñeco").GetComponent<Transform>().rotation);
         }
     }
 }

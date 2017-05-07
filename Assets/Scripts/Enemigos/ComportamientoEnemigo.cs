@@ -175,7 +175,6 @@ public class ComportamientoEnemigo : MonoBehaviour
 
    void OnTriggerEnter2D(Collider2D objeto)
     {
-        Debug.Log("1");
         if (objeto.GetComponent<Collider2D>().tag == "caida")
         {
 
