@@ -41,6 +41,18 @@ public class CambioFormas : MonoBehaviour {
         if (!demon)
         {
             FindObjectOfType<PlayerControl>().animacionHumana.SetBool("transformar", transf);
+            if (transf)
+                FindObjectOfType<PlayerControl>().stayQuiet(true);
+            else
+                FindObjectOfType<PlayerControl>().stayQuiet(false);
+        }
+        else
+        {
+            FindObjectOfType<DemonControl>().animacionDemon.SetBool("transformar", transf);
+            if (transf)
+                FindObjectOfType<DemonControl>().stayQuiet(true);
+            else
+                FindObjectOfType<DemonControl>().stayQuiet(false);
         }
 
     }
@@ -50,13 +62,27 @@ public class CambioFormas : MonoBehaviour {
 
         if (Input.GetKeyDown(TRANSFORMACION))
         {
-            transf = true;
-            StartCoroutine(TransformacionDemon(timeToTrans));
+            Debug.Log(GetComponent<PlayerControl>().getVelX());
+            if ((!demon && (GetComponent<PlayerControl>().getVelX() > -0.1f && GetComponent<PlayerControl>().getVelX() < 0.1f) && enSuelo)
+               || (demon && (GetComponent<Rigidbody2D>().velocity.x < 0.1f && GetComponent<Rigidbody2D>().velocity.x > -0.1f) && enSuelo))
+            {
+                transf = true;
+                StartCoroutine(TransformacionDemon(timeToTrans));
+            }
             
         }
 
         if (transf)
+        {
+            int localDir;
+            if (!demon)
+                localDir = 1;
+            else
+                localDir = -1;
+
             Particulillas.SetActive(true);
+            Particulillas.transform.Translate(0f, 0.03f*localDir, 0f);
+        }
         else
             Particulillas.SetActive(false);
     }
@@ -66,9 +92,9 @@ public class CambioFormas : MonoBehaviour {
         yield return new WaitForSeconds(t);
         transf = false;
         demon = !demon;
-        if (!demon)
-        {
-            Debug.Log(GameObject.FindGameObjectWithTag("muñeco").GetComponent<Transform>().rotation);
-        }
+        if (demon)
+            Particulillas.transform.Translate(0f, 4f, 0f);
+        else
+            Particulillas.transform.Translate(0f, -4f, 0f);
     }
 }

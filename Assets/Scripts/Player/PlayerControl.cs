@@ -31,6 +31,7 @@ public class PlayerControl : MonoBehaviour {
 
     public float RecoveryTime;
     private bool invulnerable=false;
+    private bool inmovil = false;
 
     private KeyCode JUMP = KeyCode.Space;
     private KeyCode LEFT = KeyCode.A;
@@ -80,6 +81,16 @@ public class PlayerControl : MonoBehaviour {
     {
         return initialTorsoSave;
     }
+
+    public float getVelX()
+    {
+        return GetComponent<Rigidbody2D>().velocity.x;
+    }
+
+    public void stayQuiet(bool a)
+    {
+        inmovil = a;
+    }
     //-----------------------------
 
 
@@ -121,78 +132,81 @@ public class PlayerControl : MonoBehaviour {
     }
     // Update is called once per frame
     void Update () {
-
-        if (Input.GetKey(KeyCode.Z))
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 1.70f), ForceMode2D.Impulse);
-        //movimiento simple
-
-        if (Input.GetKey(LEFT))
+        if (!inmovil)
         {
-            if(enSuelo)
-                //cambiar vector de velocidad "a saco"
-                GetComponent<Rigidbody2D>().velocity = new Vector2(-FuerzaPasos, GetComponent<Rigidbody2D>().velocity.y);
-            else
-                //aplicar fuerza gradualmente
-                if (GetComponent<Rigidbody2D>().velocity.x < -FuerzaPasos)
+            if (Input.GetKey(KeyCode.Z))
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 1.70f), ForceMode2D.Impulse);
+            //movimiento simple
+
+            if (Input.GetKey(LEFT))
             {
-                GetComponent<Rigidbody2D>().velocity = new Vector2(-FuerzaPasos, GetComponent<Rigidbody2D>().velocity.y);
-            }
+                if (enSuelo)
+                    //cambiar vector de velocidad "a saco"
+                    GetComponent<Rigidbody2D>().velocity = new Vector2(-FuerzaPasos, GetComponent<Rigidbody2D>().velocity.y);
                 else
-                GetComponent<Rigidbody2D>().AddForce(new Vector2(-FuerzaPasos, 0));
-        }
+                    //aplicar fuerza gradualmente
+                    if (GetComponent<Rigidbody2D>().velocity.x < -FuerzaPasos)
+                {
+                    GetComponent<Rigidbody2D>().velocity = new Vector2(-FuerzaPasos, GetComponent<Rigidbody2D>().velocity.y);
+                }
+                else
+                    GetComponent<Rigidbody2D>().AddForce(new Vector2(-FuerzaPasos, 0));
+            }
 
-        else if (Input.GetKey(RIGHT))
-        {
-            if (enSuelo)
-                //cambiar vector de velocidad "a saco"
-                GetComponent<Rigidbody2D>().velocity = new Vector2(FuerzaPasos, GetComponent<Rigidbody2D>().velocity.y);
+            else if (Input.GetKey(RIGHT))
+            {
+                if (enSuelo)
+                    //cambiar vector de velocidad "a saco"
+                    GetComponent<Rigidbody2D>().velocity = new Vector2(FuerzaPasos, GetComponent<Rigidbody2D>().velocity.y);
+                else
+                    //aplicar fuerza gradualmente
+                    if (GetComponent<Rigidbody2D>().velocity.x > FuerzaPasos)
+                {
+                    GetComponent<Rigidbody2D>().velocity = new Vector2(FuerzaPasos, GetComponent<Rigidbody2D>().velocity.y);
+                }
+                else
+                    GetComponent<Rigidbody2D>().AddForce(new Vector2(FuerzaPasos, 0)); //Si has saltado sin VelX apenas te 
+                                                                                       // puedes acelerar en las X en el aire. Podemos cambiarlo multiplicando FuerzaPasos aqui si queremos
+                                                                                       // que el PJ pueda acelerarse en el aire de la "nada"
+            }
+
             else
-                //aplicar fuerza gradualmente
-                if (GetComponent<Rigidbody2D>().velocity.x > FuerzaPasos)
             {
-                GetComponent<Rigidbody2D>().velocity = new Vector2(FuerzaPasos, GetComponent<Rigidbody2D>().velocity.y);
+                if (GetComponent<Rigidbody2D>().velocity.x > 0.1f)
+                {
+                    GetComponent<Rigidbody2D>().AddForce(new Vector2(-FuerzaPasos * 2, 0));
+                }
+                else if (GetComponent<Rigidbody2D>().velocity.x < -0.1f)
+                {
+                    GetComponent<Rigidbody2D>().AddForce(new Vector2(FuerzaPasos * 2, 0));
+                }
             }
-            else
-                GetComponent<Rigidbody2D>().AddForce(new Vector2(FuerzaPasos, 0)); //Si has saltado sin VelX apenas te 
-                    // puedes acelerar en las X en el aire. Podemos cambiarlo multiplicando FuerzaPasos aqui si queremos
-                    // que el PJ pueda acelerarse en el aire de la "nada"
-        }
-        
-        else
-        {
-            if (GetComponent<Rigidbody2D>().velocity.x > 0.1f)
+
+            //movimiento elaborado
+
+            if (Input.GetKeyDown(JUMP) && enSuelo)
             {
-                GetComponent<Rigidbody2D>().AddForce(new Vector2(-FuerzaPasos*2, 0));
+                //GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, FuerzaSalto);
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(0, FuerzaSalto));
             }
-            else if(GetComponent<Rigidbody2D>().velocity.x < -0.1f)
+
+            //combate 
+
+            if (Input.GetKeyDown(PUÑO) && enSuelo)
             {
-                GetComponent<Rigidbody2D>().AddForce(new Vector2(FuerzaPasos*2, 0));
+                puñetazo = true;
             }
-        }
 
-        //movimiento elaborado
-
-        if (Input.GetKeyDown(JUMP) && enSuelo)
-        {
-            //GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, FuerzaSalto);
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(0, FuerzaSalto));
-        }
-
-        //combate 
-
-        if (Input.GetKeyDown(PUÑO) && enSuelo )
-        {
-            puñetazo = true;
-        }
-
-        if (puñetazo)
-        {
-            segundero += Time.deltaTime;
-            if (segundero >= 0.7f)
+            if (puñetazo)
             {
-                puñetazo = false;
-                segundero = 0;
+                segundero += Time.deltaTime;
+                if (segundero >= 0.7f)
+                {
+                    puñetazo = false;
+                    segundero = 0;
+                }
             }
+
         }
 
         if (lastHP != currentHP)
