@@ -122,6 +122,8 @@ GameObject:
   - component: {fileID: 95654329160310986}
   - component: {fileID: 114314124360640632}
   - component: {fileID: 50047808911737214}
+  - component: {fileID: 61567132707826832}
+  - component: {fileID: 61661191575640132}
   m_Layer: 0
   m_Name: Mono
   m_TagString: Untagged
@@ -251,6 +253,21 @@ GameObject:
   - component: {fileID: 212543944266388982}
   m_Layer: 0
   m_Name: Boca
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1539084142756380
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4178558864869944}
+  m_Layer: 0
+  m_Name: POS Poder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -544,6 +561,19 @@ Transform:
   m_Father: {fileID: 4289650936296318}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4178558864869944
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1539084142756380}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 26.3, y: -1.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4289650936296318}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4218244660204524
 Transform:
   m_ObjectHideFlags: 1
@@ -593,13 +623,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1163367892916866}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 191.88692, y: 49.671974, z: 0}
+  m_LocalPosition: {x: 139.92, y: 46.55, z: 0}
   m_LocalScale: {x: 1.5204003, y: 1.5204008, z: 1.5204008}
   m_Children:
   - {fileID: 4174724467708316}
   - {fileID: 4253902239293960}
   - {fileID: 4136098944369784}
   - {fileID: 4767999864218874}
+  - {fileID: 4178558864869944}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -910,6 +941,20 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 6.54, y: 18.74}
+--- !u!61 &61567132707826832
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1163367892916866}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -18.18, y: -9.260208}
+  serializedVersion: 2
+  m_Size: {x: 1.0000005, y: 2.4064353}
 --- !u!61 &61603441902369410
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -924,6 +969,20 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 3.9999998, y: 2.5699997}
+--- !u!61 &61661191575640132
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1163367892916866}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 21.41, y: -9.262988}
+  serializedVersion: 2
+  m_Size: {x: 1.0000005, y: 2.3740144}
 --- !u!61 &61733451965051468
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -1031,6 +1090,7 @@ MonoBehaviour:
   player: {fileID: 0}
   ignorar: 0
   script: {fileID: 0}
+  scriptFormas: {fileID: 0}
   DemonBody: {fileID: 0}
   HumanBody: {fileID: 0}
 --- !u!114 &114124014168619998
@@ -1088,10 +1148,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3ff8ad62f72ef64080b4514d37044ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poder: {fileID: 1544308611361952, guid: 0048a0fbf3063184ca90a58ed445f3cb, type: 2}
+  PALADGO: {fileID: 1054066104970904}
+  PALAIGO: {fileID: 1591798755638468}
   monoHP: 3
   tripaHP: 10
   stunTime: 10
-  localcolor: 1
+  hasBeenDmgd: 0
+  localcolorBody: 1
 --- !u!114 &114430148906779178
 MonoBehaviour:
   m_ObjectHideFlags: 1

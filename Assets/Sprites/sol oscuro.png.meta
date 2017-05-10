@@ -1,0 +1,188 @@
+fileFormatVersion: 2
+guid: 2832f393b525e7b47a8a993e1c6ad562
+timeCreated: 1494432882
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: sol oscuro_1
+    21300002: sol oscuro_5
+    21300004: sol oscuro_11
+    21300006: sol oscuro_29
+    21300008: sol oscuro_33
+    21300010: sol oscuro_39
+    21300012: sol oscuro_72
+    21300014: sol oscuro_74
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sol oscuro_1
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 1058
+        width: 223
+        height: 434
+      alignment: 9
+      pivot: {x: 0.5096142, y: 0.075153686}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sol oscuro_5
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 846
+        width: 156
+        height: 318
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sol oscuro_11
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 840
+        width: 49
+        height: 157
+      alignment: 9
+      pivot: {x: 0.478122, y: 0.88919514}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sol oscuro_29
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 487
+        width: 85
+        height: 234
+      alignment: 9
+      pivot: {x: 0.70178723, y: 0.7473833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sol oscuro_33
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 506
+        width: 88
+        height: 207
+      alignment: 9
+      pivot: {x: 0.7070895, y: 0.8521528}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sol oscuro_39
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 500
+        width: 43
+        height: 188
+      alignment: 9
+      pivot: {x: 0.5249293, y: 0.89344496}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sol oscuro_72
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 348
+        width: 51
+        height: 75
+      alignment: 9
+      pivot: {x: 0.45796055, y: 0.78586423}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sol oscuro_74
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 356
+        width: 37
+        height: 42
+      alignment: 9
+      pivot: {x: 0.49999836, y: 0.67866373}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

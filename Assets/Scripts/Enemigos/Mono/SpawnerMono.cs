@@ -19,6 +19,7 @@ public class SpawnerMono : MonoBehaviour {
         {
             Instantiate(mono, GetComponent<Transform>());
             cam.bossSize();
+            GameObject.FindObjectOfType<ComportamientoMono>().startFight();
             Destroy(this);
         }
     }

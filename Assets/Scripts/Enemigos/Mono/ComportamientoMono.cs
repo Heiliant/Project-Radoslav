@@ -5,12 +5,15 @@ using UnityEngine;
 public class ComportamientoMono : MonoBehaviour
 {
     private GameObject player;
+    public GameObject poder;
 
     private bool D;
     private bool C;
     private bool I;
 
     private GameObject torso;
+    public GameObject PALADGO;
+    public GameObject PALAIGO;
     private EdgeCollider2D palaD;
     private EdgeCollider2D palaI;
 
@@ -51,8 +54,8 @@ public class ComportamientoMono : MonoBehaviour
 
         torso = GameObject.FindGameObjectWithTag("Torso M");
 
-        palaD = GameObject.FindGameObjectWithTag("palad").GetComponent<EdgeCollider2D>();
-        palaI = GameObject.FindGameObjectWithTag("palai").GetComponent<EdgeCollider2D>();
+        palaD = PALADGO.GetComponent<EdgeCollider2D>();
+        palaI = PALAIGO.GetComponent<EdgeCollider2D>();
 
         paredD = GameObject.FindGameObjectWithTag("zonas1");
         paredI = GameObject.FindGameObjectWithTag("zonas2");
@@ -92,7 +95,6 @@ public class ComportamientoMono : MonoBehaviour
                 }
             }
         }
-        Debug.Log(GetComponentInChildren<SpriteRenderer>().color.a);
         if (GetComponentInChildren<SpriteRenderer>().color.a >= 1) {
 
 
@@ -136,7 +138,7 @@ public class ComportamientoMono : MonoBehaviour
             }
 
             if (monoHP == 0) {
-                StartCoroutine(killMono(13.2f));
+                StartCoroutine(killMono(9.0f));
                 GameObject.Find("plataformaTapa").GetComponentInChildren<BoxCollider2D>().enabled = false;
                     }
             //SI LA BARRIGA NO TIENE VIDA
@@ -236,6 +238,8 @@ public class ComportamientoMono : MonoBehaviour
     IEnumerator killMono(float s)
     {
         yield return new WaitForSeconds(s);
+        Instantiate(poder);
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ComportamientoCamara>().regularSize();
         Destroy(gameObject);
     }
 }

@@ -8,7 +8,7 @@ public class CambioFormas : MonoBehaviour {
     public GameObject Particulillas;
     public bool demon = false;
 
-    private KeyCode TRANSFORMACION = KeyCode.E;
+    private KeyCode TRANSFORMACION;
 
     public Transform DetectorSuelo;
     public float radDetSuelo = 0.40f;
@@ -17,6 +17,11 @@ public class CambioFormas : MonoBehaviour {
 
     public bool transf;
     public float timeToTrans;
+
+    public void enableTransf()
+    {
+        TRANSFORMACION = KeyCode.E;
+    }
 
     // Use this for initialization
     void Start () {

@@ -10,19 +10,22 @@ public class ComportamientoCamara : MonoBehaviour
     private float desplazadoY=0;
     private float bossSizeCam = 28;
     private float bossYCam = 15;
-    public bool startMove = false;
+    private float regularSizeCam=20;
+    private float regularYCam;
+    public bool startMoveB = false;
+    public bool startMoveR = false;
 
     public void bossSize()
     {
-        startMove = true;
+        startMoveB = true;
+        startMoveR = false;
     }
-
-    
-
     public void regularSize()
     {
-
+        startMoveR = true;
+        startMoveB = false;
     }
+    
     // Use this for initialization
     void Start()
     {
@@ -44,7 +47,7 @@ public class ComportamientoCamara : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (startMove)
+        if (startMoveB)
         {
             if (GetComponent<Camera>().orthographicSize < bossSizeCam)
                 GetComponent<Camera>().orthographicSize+=0.13f;
@@ -52,12 +55,24 @@ public class ComportamientoCamara : MonoBehaviour
                 desplazadoY += 0.2f;
             if (GetComponent<Camera>().orthographicSize > bossSizeCam && (GetComponent<Transform>().position.y - player.GetComponent<Transform>().position.y) > bossYCam)
             {
-                startMove = false;
-                GameObject.FindObjectOfType<ComportamientoMono>().startFight();
+                startMoveB = false;
             }
         }
-        GameObject.Find("fondo luna").GetComponent<Transform>().localScale = 
-            new Vector3 ((GetComponent<Camera>().orthographicSize / 20)* 1.05f, (GetComponent<Camera>().orthographicSize / 20), 1);
-     
+        if (startMoveR)
+        {
+            if (GetComponent<Camera>().orthographicSize > regularSizeCam)
+                GetComponent<Camera>().orthographicSize -= 0.13f;
+            if ((GetComponent<Transform>().position.y - player.GetComponent<Transform>().position.y) > regularYCam)
+                desplazadoY -= 0.2f;
+            if (GetComponent<Camera>().orthographicSize < regularSizeCam && (GetComponent<Transform>().position.y - player.GetComponent<Transform>().position.y) < regularYCam)
+            {
+                startMoveR = false;
+            }
+        }
+        
+        
+            GameObject.Find("fondo luna").GetComponent<Transform>().localScale =
+                new Vector3((GetComponent<Camera>().orthographicSize / 20) * 1.05f, (GetComponent<Camera>().orthographicSize / 20), 1);
+        
     }
 }
