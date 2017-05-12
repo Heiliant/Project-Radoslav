@@ -3,7 +3,21 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - plataforma
+  - "mu\xF1eco"
+  - torso
+  - humana
+  - pala
+  - Torso M
+  - manoHum
+  - Cabeza M
+  - zonas1
+  - zonas2
+  - zonas
+  - caida
+  - palai
+  - palad
   layers:
   - Default
   - TransparentFX
@@ -15,9 +29,9 @@ TagManager:
   - 
   - Suelo
   - Pared
-  - 
-  - 
-  - 
+  - plataforma
+  - player
+  - zonas
   - 
   - 
   - 
