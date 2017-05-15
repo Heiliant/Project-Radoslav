@@ -14,6 +14,10 @@ public class ComportamientoCamara : MonoBehaviour
     private float regularYCam;
     public bool startMoveB = false;
     public bool startMoveR = false;
+    private float counter = 0;
+    private bool checker = false;
+
+    public bool quake;
 
     public void bossSize()
     {
@@ -26,6 +30,20 @@ public class ComportamientoCamara : MonoBehaviour
         startMoveB = false;
     }
     
+    public void tremble(float a)
+    {
+        if (!checker)
+        {
+            GetComponent<Transform>().Translate(a, 0, 0);
+            checker = true;
+        }
+        else
+        {
+            GetComponent<Transform>().Translate(-a, 0, 0);
+            checker = false;
+        }
+    }
+
     // Use this for initialization
     void Start()
     {
@@ -42,7 +60,8 @@ public class ComportamientoCamara : MonoBehaviour
                        (Screen.currentResolution.height/PotestadDelMouse) + desplazadoY,
                         GetComponent<Transform>().position.z);
 
-        
+        if (quake)
+            this.tremble(0.4f);
     }
 
     private void FixedUpdate()

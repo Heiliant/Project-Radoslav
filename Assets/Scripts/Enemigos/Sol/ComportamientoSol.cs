@@ -14,6 +14,7 @@ public class ComportamientoSol : MonoBehaviour {
     }
     public Transform[]  embestida;
     public Transform PJpos;
+    public Transform recoverPos;
     private Vector2 PJtarget;
     public GameObject aura;
     public Estado modo;
@@ -21,13 +22,15 @@ public class ComportamientoSol : MonoBehaviour {
     private int currentTarget;
     private float counter = 0;
     public float timeToTargetPJ;
+    public GameObject Disparo;
+    public Transform[] ShotSpawnLat;
+    private bool localshot = false;
     private void goTo(Vector2 dest, float speed) 
     {
             Vector2 direction = new Vector2(dest.x - GetComponent<Transform>().position.x, dest.y - GetComponent<Transform>().position.y);
             float localmod = Mathf.Sqrt(Mathf.Pow(direction.x, 2) + Mathf.Pow(direction.y, 2));
             direction = new Vector2(direction.x / localmod, direction.y / localmod);
             transform.Translate(direction.x * speed, direction.y * speed, 0f);
-            Debug.Log(direction * speed);
     } //Dirige el sol hacia el punto dest a la velocidad speed.
 
     private bool imThere(Vector2 dest) //devuelve 1 si aún NO ha llegado, y 0 si SI que ha llegado.
@@ -78,19 +81,52 @@ public class ComportamientoSol : MonoBehaviour {
                     if (counter >= timeToTargetPJ * 1.4f)
                     {
                         modo = Estado.embestida4;
-                        embestidaSpeed = 4;
+                        embestidaSpeed = 3.2f;
                         counter = 0;
                     }
                 }
                 break;
 
             case Estado.embestida4:
-                if (!imThere(PJtarget))
+                
+                if (!imThere(PJtarget) && counter==0)
                 {
                     goTo(PJtarget, embestidaSpeed);
+                    localshot = true;
                 }
                 else
-                    modo = Estado.nullemod;
+                {
+                    if (counter < 4f)
+                    {
+                        counter += Time.deltaTime;
+                        if (localshot)
+                        {
+                            StartCoroutine(ShotEmUp(0, Disparo, ShotSpawnLat[0].position, new Quaternion(-90, 90, 0, 0)));
+                            StartCoroutine(ShotEmUp(1.5f, Disparo, ShotSpawnLat[1].position, new Quaternion(-90, 90, 0, 0)));
+                            StartCoroutine(ShotEmUp(3f, Disparo, ShotSpawnLat[2].position, new Quaternion(-90, 90, 0, 0)));
+
+                            StartCoroutine(ShotEmUp(0, Disparo, ShotSpawnLat[3].position, new Quaternion(90, 90, 0, 0)));
+                            StartCoroutine(ShotEmUp(1.5f, Disparo, ShotSpawnLat[4].position, new Quaternion(90, 90, 0, 0)));
+                            StartCoroutine(ShotEmUp(3f, Disparo, ShotSpawnLat[5].position, new Quaternion(90, 90, 0, 0)));
+                            localshot = false;
+                        }
+                        
+                        if (counter <= 0.4f)
+                        {
+                            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ComportamientoCamara>().tremble(0.15f);
+                        }
+                        else if(counter >3f)
+                        {
+                            if (!imThere(new Vector2(GetComponent<Transform>().position.x, recoverPos.position.y)))
+                                goTo(new Vector2(GetComponent<Transform>().position.x, recoverPos.position.y), 2f);
+                        }
+                    }
+                    else
+                    {
+                        StartCoroutine(SetState(9f, Estado.nullemod));
+                        counter = 0;
+                    }
+                }
                 break;
 
             case Estado.lluvia:
@@ -100,10 +136,28 @@ public class ComportamientoSol : MonoBehaviour {
             case Estado.nullemod:
                 embestidaSpeed = 0.2f;
                 FindObjectOfType<MovimientoAura>().vel = 50;
-                aura.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
                 GameObject.Find("pupila I").GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f);
                 GameObject.Find("pupila D").GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f);
+                if(aura.GetComponent<SpriteRenderer>().color != new Color(1f, 1f, 1f, 1f))
+                {
+                    counter += Time.deltaTime;
+                    aura.GetComponent<SpriteRenderer>().color = new Color(aura.GetComponent<SpriteRenderer>().color.r+counter/15,
+                        aura.GetComponent<SpriteRenderer>().color.g + counter/3, aura.GetComponent<SpriteRenderer>().color.b + counter/3, 1f);
+                }
+                if (!imThere(recoverPos.position))
+                    goTo(recoverPos.position, embestidaSpeed);
                 break;
         }
 	}
+    IEnumerator SetState(float a, Estado s)
+    {
+        yield return new WaitForSeconds(a);
+        modo = s;
+    }
+
+    IEnumerator ShotEmUp(float a, GameObject go, Vector3 pos, Quaternion rot)
+    {
+        yield return new WaitForSeconds(a);
+        Instantiate(go, pos, rot);
+    }
 }

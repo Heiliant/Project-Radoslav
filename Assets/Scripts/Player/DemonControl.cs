@@ -17,6 +17,7 @@ public class DemonControl : MonoBehaviour {
     private bool enSuelo;
     private bool inmovil;
     private bool puñetazo;
+    private bool puñetazoAbajo;
 
     private float segundero;
 
@@ -37,6 +38,7 @@ public class DemonControl : MonoBehaviour {
         animacionDemon.SetFloat("VelX", GetComponent<Rigidbody2D>().velocity.x);
         animacionDemon.SetBool("enSuelo", enSuelo);
         animacionDemon.SetBool("puñetazo", puñetazo);
+        animacionDemon.SetBool("puñetazoAbajo", puñetazoAbajo);
 
         if (GetComponent<Rigidbody2D>().velocity.x >0.1f)
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Vector3.back), 1f);
@@ -46,7 +48,7 @@ public class DemonControl : MonoBehaviour {
         if (puñetazo)
         {
             segundero += Time.deltaTime; inmovil = true;
-            if (segundero >= 1.4f)
+            if (segundero >= 0.9f)//duración puñetazo
             {
                 puñetazo = false;
                 segundero = 0;
@@ -86,9 +88,10 @@ public class DemonControl : MonoBehaviour {
                 GetComponent<Rigidbody2D>().AddForce(new Vector2(0, FuerzaSalto));
             }
 
-            if (GetComponent<Rigidbody2D>().velocity.x > -0.1f && GetComponent<Rigidbody2D>().velocity.x < 0.1f && Input.GetKeyDown(PUÑO))
+            if (Input.GetKeyDown(PUÑO) && !Input.GetKeyDown(DOWN))
                 puñetazo = true;
-
+            else if (Input.GetKeyDown(PUÑO) && !Input.GetKeyDown(DOWN))
+                puñetazoAbajo = true;
             
         }
     }

@@ -42,22 +42,15 @@ public class CambioFormas : MonoBehaviour {
         FindObjectOfType<DemonControl>().enabled = demon;
 
         enSuelo = Physics2D.OverlapCircle(new Vector2(DetectorSuelo.position.x, DetectorSuelo.position.y), radDetSuelo, suelo);
-
+        if (!enSuelo)
+            Debug.Log("Air");
         if (!demon)
         {
             FindObjectOfType<PlayerControl>().animacionHumana.SetBool("transformar", transf);
-            if (transf)
-                FindObjectOfType<PlayerControl>().stayQuiet(true);
-            else
-                FindObjectOfType<PlayerControl>().stayQuiet(false);
         }
         else
         {
             FindObjectOfType<DemonControl>().animacionDemon.SetBool("transformar", transf);
-            if (transf)
-                FindObjectOfType<DemonControl>().stayQuiet(true);
-            else
-                FindObjectOfType<DemonControl>().stayQuiet(false);
         }
 
     }
@@ -65,16 +58,12 @@ public class CambioFormas : MonoBehaviour {
     void Update () {
         //transformación
 
-        if (Input.GetKeyDown(TRANSFORMACION))
+        if (Input.GetKeyDown(TRANSFORMACION) && !transf)
         {
             Debug.Log(GetComponent<PlayerControl>().getVelX());
-            if ((!demon && (GetComponent<PlayerControl>().getVelX() > -0.1f && GetComponent<PlayerControl>().getVelX() < 0.1f) && enSuelo)
-               || (demon && (GetComponent<Rigidbody2D>().velocity.x < 0.1f && GetComponent<Rigidbody2D>().velocity.x > -0.1f) && enSuelo))
-            {
                 transf = true;
                 StartCoroutine(TransformacionDemon(timeToTrans));
-            }
-            
+           
         }
 
         if (transf)
@@ -97,9 +86,5 @@ public class CambioFormas : MonoBehaviour {
         yield return new WaitForSeconds(t);
         transf = false;
         demon = !demon;
-        if (demon)
-            Particulillas.transform.Translate(0f, 4f, 0f);
-        else
-            Particulillas.transform.Translate(0f, -4f, 0f);
     }
 }
