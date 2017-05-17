@@ -17,6 +17,9 @@ public class ComportamientoCamara : MonoBehaviour
     private float counter = 0;
     private bool checker = false;
 
+    private Vector2 sticker;
+    private bool stickMode=false;
+
     public bool quake;
 
     public void bossSize()
@@ -29,7 +32,19 @@ public class ComportamientoCamara : MonoBehaviour
         startMoveR = true;
         startMoveB = false;
     }
+
+    public void stickTo (Vector2 a)
+    {
+        sticker = a;
+        Debug.Log(a);
+        stickMode = true;
+    }
     
+    public void stopStick()
+    {
+        stickMode = false;
+    }
+
     public void tremble(float a)
     {
         if (!checker)
@@ -53,13 +68,19 @@ public class ComportamientoCamara : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<Transform>().position = 
-            new Vector3(player.GetComponent<Transform>().position.x + Input.mousePosition.x/
-                       (Screen.currentResolution.width/PotestadDelMouse) + desplazadoX,
-                        player.GetComponent<Transform>().position.y+ Input.mousePosition.y/
-                       (Screen.currentResolution.height/PotestadDelMouse) + desplazadoY,
-                        GetComponent<Transform>().position.z);
-
+        if (!stickMode)
+        {
+            GetComponent<Transform>().position =
+                new Vector3(player.GetComponent<Transform>().position.x + Input.mousePosition.x /
+                           (Screen.currentResolution.width / PotestadDelMouse) + desplazadoX,
+                            player.GetComponent<Transform>().position.y + Input.mousePosition.y /
+                           (Screen.currentResolution.height / PotestadDelMouse) + desplazadoY,
+                            GetComponent<Transform>().position.z);
+        }
+        else
+        {
+            GetComponent<Transform>().position = new Vector3(sticker.x, sticker.y, GetComponent<Transform>().position.z);
+        }
         if (quake)
             this.tremble(0.4f);
     }

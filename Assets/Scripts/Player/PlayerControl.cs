@@ -39,6 +39,8 @@ public class PlayerControl : MonoBehaviour {
     private KeyCode DOWN = KeyCode.S;
     private KeyCode PUÑO = KeyCode.Mouse0;
 
+    private int amountOfJumps = 1;
+    private int jumpCount;
  
 
     //métodos de acceso para scripts externos
@@ -91,6 +93,11 @@ public class PlayerControl : MonoBehaviour {
     {
         inmovil = a;
     }
+
+    public void setAmountOfJumps(int a)
+    {
+        amountOfJumps = a;
+    }
     //-----------------------------
 
 
@@ -104,6 +111,8 @@ public class PlayerControl : MonoBehaviour {
         puñetazo = false;
  
         animacionHumana = GameObject.FindGameObjectWithTag("humana").GetComponent<Animator>();
+
+        jumpCount = amountOfJumps;
     }
 
     private void FixedUpdate()
@@ -126,8 +135,11 @@ public class PlayerControl : MonoBehaviour {
         }
         else if(VelX < -0.1f || enPared)
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Vector3.forward), 1f);
-        
-      
+
+        if (enSuelo)
+        {
+            jumpCount = amountOfJumps;
+        }
 
     }
     // Update is called once per frame
@@ -190,9 +202,26 @@ public class PlayerControl : MonoBehaviour {
                 GetComponent<Rigidbody2D>().AddForce(new Vector2(0, FuerzaSalto));
             }
 
-            //combate 
+            else if (Input.GetKeyDown(JUMP) && jumpCount == 1)
+            {
+                if (Input.GetKey(RIGHT))
+                {
+                    GetComponent<Rigidbody2D>().AddForce(new Vector2(FuerzaSalto*1.2f, FuerzaSalto));
+                }
+                else if (Input.GetKey(LEFT))
+                {
+                    GetComponent<Rigidbody2D>().AddForce(new Vector2(-FuerzaSalto*1.2f, FuerzaSalto));
+                }
+                else
+                {
+                    GetComponent<Rigidbody2D>().AddForce(new Vector2(0, FuerzaSalto));
+                }
+                --jumpCount;
+            }
 
-            if (Input.GetKeyDown(PUÑO) && enSuelo)
+                //combate 
+
+                if (Input.GetKeyDown(PUÑO) && enSuelo)
             {
                 puñetazo = true;
             }
