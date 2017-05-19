@@ -31,6 +31,8 @@ public class CambioFormas : MonoBehaviour {
         DetectorSuelo = GameObject.Find("DetectorSuelo").GetComponent<Transform>();
 
         transf = false;
+
+        Particulillas.SetActive(true);
     }
 
     private void FixedUpdate()
@@ -68,17 +70,21 @@ public class CambioFormas : MonoBehaviour {
 
         if (transf)
         {
-            int localDir;
             if (!demon)
-                localDir = 1;
+            {
+                Particulillas.GetComponent<Transform>().localPosition = new Vector2(Particulillas.transform.localPosition.x, 3.1f);
+                Particulillas.GetComponent<Transform>().localScale = new Vector3(2.6025f, 2.6025f, 2.6025f);
+            }
             else
-                localDir = -1;
-
-            Particulillas.SetActive(true);
-            Particulillas.transform.Translate(0f, 0.03f*localDir, 0f);
+            {
+                Particulillas.GetComponent<Transform>().localPosition = new Vector2(Particulillas.transform.localPosition.x, 4.4f);
+                Particulillas.GetComponent<Transform>().localScale = new Vector3(3.386891f, 3.386891f, 3.386891f);
+            }
+            //  Particulillas.SetActive(true);
+            Invoke("doEmit", 0f);
         }
-        else
-            Particulillas.SetActive(false);
+        //else
+        //    Particulillas.SetActive(false);
     }
 
     IEnumerator TransformacionDemon(float t)
@@ -86,5 +92,17 @@ public class CambioFormas : MonoBehaviour {
         yield return new WaitForSeconds(t);
         transf = false;
         demon = !demon;
+    }
+
+    void doEmit()
+    {
+        ParticleSystem.EmitParams emisionArg = new ParticleSystem.EmitParams();
+        if (!demon)
+            emisionArg.startColor = Color.black;
+        else
+            emisionArg.startColor = Color.white;
+        emisionArg.startSize = 5f;
+        emisionArg.startLifetime = 0.76f;
+        Particulillas.GetComponent<ParticleSystem>().Emit(emisionArg, 7);
     }
 }

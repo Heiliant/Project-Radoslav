@@ -26,7 +26,7 @@ public class ComportamientoSol : MonoBehaviour {
     private float counter = 0;
     public float timeToTargetPJ;
     public GameObject Disparo;
-    public Transform[] ShotSpawnLat;
+    public float EmbestidaShotsAmount;
     private bool localshot = false;
     public Transform LluviaSolSpot;
     public GameObject[] ShotSpawnersLluvia;
@@ -120,14 +120,53 @@ public class ComportamientoSol : MonoBehaviour {
                         counter += Time.deltaTime;
                         if (localshot)
                         {
-                            StartCoroutine(ShotEmUp(0, Disparo, ShotSpawnLat[0].position, new Quaternion(-90, 90, 0, 0)));
-                            StartCoroutine(ShotEmUp(1.5f, Disparo, ShotSpawnLat[1].position, new Quaternion(-90, 90, 0, 0)));
-                            StartCoroutine(ShotEmUp(3f, Disparo, ShotSpawnLat[2].position, new Quaternion(-90, 90, 0, 0)));
+                            for (int i=1; i<=360; ++i)
+                            {
+                                float localParam = (i / 90f);
+                                RaycastHit2D localHit;
+                                float localY = GetComponent<Transform>().position.y;
+                                float localX = GetComponent<Transform>().position.x;
+                                if (localParam<=1)
+                                {
+                                    localY+= (1f - localParam) * 20;
+                                    localX+= -localParam * 20;
+                                    localHit=Physics2D.Linecast(GetComponent<Transform>().position, new Vector2(localX, localY));
+                                }
+                                else if (localParam<=2)
+                                {
+                                    localParam--;
+                                    localY+= -localParam * 20;
+                                    localX+= (-1f + localParam) * 20;
+                                    localParam++;
+                                    localHit = Physics2D.Linecast(GetComponent<Transform>().position, new Vector2(localX, localY));
+                                }
+                                else if (localParam<=3)
+                                {
+                                    localParam -= 2;
+                                    localY+= (-1f + localParam) * 20;
+                                    localX+=localParam*20;
+                                    localParam += 2;
+                                    localHit = Physics2D.Linecast(GetComponent<Transform>().position, new Vector2(localX, localY));
+                                }
+                                else
+                                {
+                                    localParam -= 3;
+                                    localY+= (1f - localParam) * 20;
+                                    localX+= localParam * 20;
+                                    localParam += 3;
+                                    localHit = Physics2D.Linecast(GetComponent<Transform>().position, new Vector2(localX, localY));
+                                }
 
-                            StartCoroutine(ShotEmUp(0, Disparo, ShotSpawnLat[3].position, new Quaternion(90, 90, 0, 0)));
-                            StartCoroutine(ShotEmUp(1.5f, Disparo, ShotSpawnLat[4].position, new Quaternion(90, 90, 0, 0)));
-                            StartCoroutine(ShotEmUp(3f, Disparo, ShotSpawnLat[5].position, new Quaternion(90, 90, 0, 0)));
+                                if (i % (360 / EmbestidaShotsAmount) == 0)
+                                {
+                                    Debug.DrawLine(GetComponent<Transform>().position, new Vector2(localX, localY));
+                                    StartCoroutine(ShotEmUp((i / 360f) * 2f, Disparo, localHit.point, new Quaternion(0, 0, 0, 0)));
+                                    
+                                }
+                            }
+                            Debug.DrawLine(GetComponent<Transform>().position, new Vector2(Vector2.down.x+GetComponent<Transform>().position.x, (Vector2.down.y + GetComponent<Transform>().position.y)-10), Color.magenta);
                             localshot = false;
+                            
                         }
                         
                         if (counter <= 0.4f)
@@ -195,25 +234,48 @@ public class ComportamientoSol : MonoBehaviour {
                 break;
             case Estado.laser:
                 if (!imThere(LluviaSolSpot.position))
-                    goTo(LluviaSolSpot.position, embestidaSpeed);
+                    goTo(LluviaSolSpot.position, embestidaSpeed); //el sol se va a la posición lluviaSpot
                 else
                 {
                     modo = Estado.laser2;
+                    counter = 0;
                 }
                 break;
             case Estado.laser2:
-
+                counter += Time.deltaTime;
                 if (!localCheck)
                 {
                     localCheck = true;
-                    localLaser = Instantiate(Laser[Random.Range(0, 2)], GetComponent<Transform>().position,
-                        new Quaternion(0, 0, 0, 0));
-                    localLaser.GetComponent<LineRenderer>().SetPosition(0, GetComponent<Transform>().position);
+                    localLaser = Instantiate(Laser[Random.Range(0, 2)], GetComponent<Transform>().position, //aquí instancia un solo laser
+                        new Quaternion(0, 0, 0, 0));            //elige aleatoriamente entre los 2 posibles láseres y entre los dos extremos de la
+                    localLaser.GetComponent<LineRenderer>().SetPosition(0, GetComponent<Transform>().position);//plataforma como destino del láser
                     localLaser.GetComponent<LineRenderer>().SetPosition(1, Platform[laserOrigin].position);
                 }
-                if (!localLaser.GetComponent<ComportamientoLaser>().imThere(Platform[(laserOrigin+1)%2].position))
-                    localLaser.GetComponent<ComportamientoLaser>().goTo(Platform[(laserOrigin+1)%2].position, 0.009f);
-                Debug.DrawLine(Platform[0].position, Platform[1].position, Color.black);
+
+                RaycastHit2D laserImpacto = Physics2D.Linecast(GetComponent<Transform>().position, localLaser.GetComponent<LineRenderer>().GetPosition(1));
+                Debug.DrawLine(GetComponent<Transform>().position, localLaser.GetComponent<LineRenderer>().GetPosition(1), Color.green);
+
+                if (counter>=2 && localLaser!=null) { //a partir de los 2 segundos, el láser empieza a avanzar hacia el otro extremo de la platform
+                    if (!localLaser.GetComponent<ComportamientoLaser>().imThere(Platform[(laserOrigin + 1) % 2].position))
+                    {
+                        localLaser.GetComponent<ComportamientoLaser>().goTo(Platform[(laserOrigin + 1) % 2].position, 0.3f);
+                    }
+                    else
+                    {
+                        StartCoroutine(SetState(2, Estado.nullemod)); //cuando llega, se espera 2 segundos y el láser desaparece
+                        localCheck = true;
+                    }
+                    Debug.Log(laserImpacto.collider);
+                    Debug.Log(localLaser.name);
+                    if (laserImpacto.collider.tag == ("humana") && localLaser.name=="LaserHum(Clone)")
+                    {
+                        FindObjectOfType<PlayerControl>().attackPlayer(-1);
+                    }
+                    else if (laserImpacto.collider.tag == ("demonio") && localLaser.name=="LaserDemo(Clone)")
+                    {
+                        //inflingir daño al demonio
+                    }    
+                }
 
                 break;
             case Estado.nullemod:
@@ -233,13 +295,17 @@ public class ComportamientoSol : MonoBehaviour {
                 {
                     z.SetActive(false);
                 }
+                localCheck = false;
                 break;
         }
 	}
     IEnumerator SetState(float a, Estado s)
     {
         yield return new WaitForSeconds(a);
+        if(modo==Estado.laser2)
+            Destroy(localLaser);
         modo = s;
+        counter=0;
     }
 
     IEnumerator ShotEmUp(float a, GameObject go, Vector3 pos, Quaternion rot)

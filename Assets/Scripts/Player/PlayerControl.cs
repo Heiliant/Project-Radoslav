@@ -39,7 +39,7 @@ public class PlayerControl : MonoBehaviour {
     private KeyCode DOWN = KeyCode.S;
     private KeyCode PUÑO = KeyCode.Mouse0;
 
-    private int amountOfJumps = 1;
+    private int amountOfJumps = 0;
     private int jumpCount;
  
 

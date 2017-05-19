@@ -38,6 +38,7 @@ public class PoderSpawn : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         FindObjectOfType<CambioFormas>().enableTransf();
+        FindObjectOfType<PlayerControl>().setAmountOfJumps(1);
         Destroy(gameObject);
     }
 }
