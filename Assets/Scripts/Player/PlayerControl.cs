@@ -206,15 +206,23 @@ public class PlayerControl : MonoBehaviour {
             {
                 if (Input.GetKey(RIGHT))
                 {
-                    GetComponent<Rigidbody2D>().AddForce(new Vector2(FuerzaSalto*1.2f, FuerzaSalto));
+                    if (enSuelo)
+                        GetComponent<Rigidbody2D>().AddForce(new Vector2(FuerzaSalto * 1.2f, FuerzaSalto));
+                    else
+                    {
+                        GetComponent<Rigidbody2D>().AddForce(new Vector2(FuerzaSalto * 1.2f, 0));
+                        GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, FuerzaSalto);
+                    }
                 }
                 else if (Input.GetKey(LEFT))
                 {
-                    GetComponent<Rigidbody2D>().AddForce(new Vector2(-FuerzaSalto*1.2f, FuerzaSalto));
+                    if (enSuelo)
+                        GetComponent<Rigidbody2D>().AddForce(new Vector2(-FuerzaSalto*1.2f, FuerzaSalto));
                 }
                 else
                 {
-                    GetComponent<Rigidbody2D>().AddForce(new Vector2(0, FuerzaSalto));
+                    if (enSuelo)
+                        GetComponent<Rigidbody2D>().AddForce(new Vector2(0, FuerzaSalto));
                 }
                 --jumpCount;
             }

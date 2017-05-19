@@ -19,6 +19,7 @@ TagManager:
   - palai
   - palad
   - demonio
+  - sol
   layers:
   - Default
   - TransparentFX
@@ -33,8 +34,8 @@ TagManager:
   - plataforma
   - 
   - zonas
-  - 
-  - 
+  - caraSol
+  - PJ
   - 
   - 
   - 

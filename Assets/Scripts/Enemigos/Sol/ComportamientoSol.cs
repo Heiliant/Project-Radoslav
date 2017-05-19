@@ -16,6 +16,7 @@ public class ComportamientoSol : MonoBehaviour {
     }
     public Transform[] Platform;
     public Transform[]  embestida;
+    public LayerMask capaCaraSol;
     public Transform PJpos;
     public Transform recoverPos;
     private Vector2 PJtarget;
@@ -32,6 +33,7 @@ public class ComportamientoSol : MonoBehaviour {
     public GameObject[] ShotSpawnersLluvia;
     public GameObject FireRing;
     public GameObject[] Laser;
+    public LayerMask PJ_Layer;
     private Vector3[] laserray;
     private GameObject localLaser;
 
@@ -130,7 +132,7 @@ public class ComportamientoSol : MonoBehaviour {
                                 {
                                     localY+= (1f - localParam) * 20;
                                     localX+= -localParam * 20;
-                                    localHit=Physics2D.Linecast(GetComponent<Transform>().position, new Vector2(localX, localY));
+                                    localHit=Physics2D.Linecast(GetComponent<Transform>().position, new Vector2(localX, localY), capaCaraSol);
                                 }
                                 else if (localParam<=2)
                                 {
@@ -138,7 +140,7 @@ public class ComportamientoSol : MonoBehaviour {
                                     localY+= -localParam * 20;
                                     localX+= (-1f + localParam) * 20;
                                     localParam++;
-                                    localHit = Physics2D.Linecast(GetComponent<Transform>().position, new Vector2(localX, localY));
+                                    localHit = Physics2D.Linecast(GetComponent<Transform>().position, new Vector2(localX, localY), capaCaraSol);
                                 }
                                 else if (localParam<=3)
                                 {
@@ -146,25 +148,25 @@ public class ComportamientoSol : MonoBehaviour {
                                     localY+= (-1f + localParam) * 20;
                                     localX+=localParam*20;
                                     localParam += 2;
-                                    localHit = Physics2D.Linecast(GetComponent<Transform>().position, new Vector2(localX, localY));
+                                    localHit = Physics2D.Linecast(GetComponent<Transform>().position, new Vector2(localX, localY), capaCaraSol);
                                 }
                                 else
                                 {
                                     localParam -= 3;
-                                    localY+= (1f - localParam) * 20;
-                                    localX+= localParam * 20;
+                                    localX+= (1f - localParam) * 20;
+                                    localY+= localParam * 20;
                                     localParam += 3;
-                                    localHit = Physics2D.Linecast(GetComponent<Transform>().position, new Vector2(localX, localY));
+                                    localHit = Physics2D.Linecast(GetComponent<Transform>().position, new Vector2(localX, localY), capaCaraSol);
                                 }
 
                                 if (i % (360 / EmbestidaShotsAmount) == 0)
                                 {
                                     Debug.DrawLine(GetComponent<Transform>().position, new Vector2(localX, localY));
-                                    StartCoroutine(ShotEmUp((i / 360f) * 2f, Disparo, localHit.point, new Quaternion(0, 0, 0, 0)));
+                                    StartCoroutine(ShotEmUp((i / 360f), Disparo, localHit.point, new Quaternion(0, 0, 0, 0), true));
                                     
                                 }
                             }
-                            Debug.DrawLine(GetComponent<Transform>().position, new Vector2(Vector2.down.x+GetComponent<Transform>().position.x, (Vector2.down.y + GetComponent<Transform>().position.y)-10), Color.magenta);
+                            Debug.DrawLine(GetComponent<Transform>().position, new Vector2(Vector2.down.x+GetComponent<Transform>().position.x, (Vector2.down.y + GetComponent<Transform>().position.y)), Color.magenta);
                             localshot = false;
                             
                         }
@@ -199,16 +201,18 @@ public class ComportamientoSol : MonoBehaviour {
                 }
                 break;
             case Estado.lluvia2:
-                
+
+                counter += Time.deltaTime;
+
                 if (!ShotSpawnersLluvia[0].activeSelf)
                 {
                     foreach (GameObject a in ShotSpawnersLluvia)
                         a.SetActive(true);
                 }
-
-                counter += Time.deltaTime;
+  
                 if (counter >= 1f){
                     aura.GetComponent<MovimientoAura>().maxSize = 1.4f;
+                    aura.GetComponent<MovimientoAura>().minSize = 0.9f;
                     if (!aura.GetComponent<MovimientoAura>().decreaseScale)
                         aura.GetComponent<MovimientoAura>().scaleSpeed = 2f;
                     else
@@ -217,19 +221,14 @@ public class ComportamientoSol : MonoBehaviour {
                     if (counter >= 3.5f)
                     {
                         counter = 0;
-                        int localRand = Random.Range(-90, 91);
                         aura.GetComponent<MovimientoAura>().scaleSpeed = 0.1f;
                         aura.GetComponent<MovimientoAura>().resetAuraScale = true;
                         GameObject localRing=Instantiate(FireRing, GetComponent<Transform>().position,GetComponent<Transform>().rotation);
-                        localRing.GetComponent<FireRingmov>().rotSpeed = 0.3f*Random.Range(-1, 2);
+                        localRing.GetComponent<Transform>().Rotate(0, 0, Random.Range(0f, 360f)); 
 
                         aura.GetComponent<MovimientoAura>().maxSize = 1.1f;
                         aura.GetComponent<MovimientoAura>().scaleSpeed = 0.1f;
                     }
-                }
-                else
-                {
-
                 }
                 break;
             case Estado.laser:
@@ -252,7 +251,7 @@ public class ComportamientoSol : MonoBehaviour {
                     localLaser.GetComponent<LineRenderer>().SetPosition(1, Platform[laserOrigin].position);
                 }
 
-                RaycastHit2D laserImpacto = Physics2D.Linecast(GetComponent<Transform>().position, localLaser.GetComponent<LineRenderer>().GetPosition(1));
+                RaycastHit2D laserImpacto = Physics2D.Linecast(GetComponent<Transform>().position, localLaser.GetComponent<LineRenderer>().GetPosition(1), PJ_Layer);
                 Debug.DrawLine(GetComponent<Transform>().position, localLaser.GetComponent<LineRenderer>().GetPosition(1), Color.green);
 
                 if (counter>=2 && localLaser!=null) { //a partir de los 2 segundos, el láser empieza a avanzar hacia el otro extremo de la platform
@@ -267,19 +266,22 @@ public class ComportamientoSol : MonoBehaviour {
                     }
                     Debug.Log(laserImpacto.collider);
                     Debug.Log(localLaser.name);
-                    if (laserImpacto.collider.tag == ("humana") && localLaser.name=="LaserHum(Clone)")
+                    if (laserImpacto.collider.tag == ("humana") && localLaser.name=="LaserHum(Clone)") //si el láser rojo detecta a la humana, le hace daño
                     {
-                        FindObjectOfType<PlayerControl>().attackPlayer(-1);
+                        if(laserOrigin==0)
+                            FindObjectOfType<PlayerControl>().attackPlayer(-1);
+                        else
+                            FindObjectOfType<PlayerControl>().attackPlayer(1);
                     }
-                    else if (laserImpacto.collider.tag == ("demonio") && localLaser.name=="LaserDemo(Clone)")
+                    else if (laserImpacto.collider.tag == ("demonio") && localLaser.name=="LaserDemo(Clone)") //si el láser verde detecta al demon, le hace daño
                     {
                         //inflingir daño al demonio
                     }    
                 }
-
                 break;
             case Estado.nullemod:
                 embestidaSpeed = 0.2f;
+                counter=0;
                 FindObjectOfType<MovimientoAura>().vel = 50;
                 GameObject.Find("pupila I").GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f);
                 GameObject.Find("pupila D").GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f);
@@ -308,9 +310,11 @@ public class ComportamientoSol : MonoBehaviour {
         counter=0;
     }
 
-    IEnumerator ShotEmUp(float a, GameObject go, Vector3 pos, Quaternion rot)
+    IEnumerator ShotEmUp(float a, GameObject go, Vector3 pos, Quaternion rot, bool sunEdge)
     {
         yield return new WaitForSeconds(a);
-        Instantiate(go, pos, rot);
+        GameObject localGO=Instantiate(go, pos, rot);
+        if (sunEdge)
+            localGO.GetComponent<DisparosSol>().rotateFromSun();
     }
 }

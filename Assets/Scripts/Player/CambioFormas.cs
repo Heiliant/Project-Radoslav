@@ -44,8 +44,7 @@ public class CambioFormas : MonoBehaviour {
         FindObjectOfType<DemonControl>().enabled = demon;
 
         enSuelo = Physics2D.OverlapCircle(new Vector2(DetectorSuelo.position.x, DetectorSuelo.position.y), radDetSuelo, suelo);
-        if (!enSuelo)
-            Debug.Log("Air");
+
         if (!demon)
         {
             FindObjectOfType<PlayerControl>().animacionHumana.SetBool("transformar", transf);

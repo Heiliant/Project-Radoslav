@@ -17,20 +17,27 @@ public class DisparosSol : MonoBehaviour {
     {
         rotSpeed = a;
     }
-	// Use this for initialization
-	void Start () {
+    public void rotateFromSun()
+    {
+            sun = GameObject.FindGameObjectWithTag("sol").GetComponent<Transform>();
+            origin = GetComponent<Transform>().position;
+            origin.x -= sun.position.x;
+            origin.y -= sun.position.y;
+            Vector2 localVec = new Vector2(Vector2.down.x + sun.position.x, Vector2.down.y + sun.position.y);
 
-        origin=GetComponent<Transform>().position;
-        Vector2 localVec;
-        Mathf.an
-        localVec = new Vector2(Mathf.Abs(sun.position.x - origin.x), Mathf.Abs(sun.position.y - origin.y));
-        float angle= (Vector2.down.x*localVec.x+Vector2.down.y*localVec.y)/(
-            (Mathf.Sqrt(Vector2.down.x* Vector2.down.x + Vector2.down.y* Vector2.down.y))*(Mathf.Sqrt(localVec.x*localVec.x+localVec.y*localVec.y)));
-        GetComponent<Transform>().Rotate(new Vector3(0, 0, Mathf.Cos(angle)));
-        Debug.Log(Mathf.Cos(angle));
+    float angle = (Vector2.down.x * origin.x + Vector2.down.y * origin.y) / (
+        (Mathf.Sqrt(Vector2.down.x * Vector2.down.x + Vector2.down.y * Vector2.down.y)) * (Mathf.Sqrt(origin.x * origin.x + origin.y * origin.y)));
+            if (GetComponent<Transform>().position.x<sun.position.x)
+                GetComponent<Transform>().Rotate(new Vector3(0, 0, -(Mathf.Acos(angle) * 360 / (2 * Mathf.PI))));
+            else
+                GetComponent<Transform>().Rotate(new Vector3(0, 0, (Mathf.Acos(angle) * 360 / (2 * Mathf.PI))));
+        }
+
+// Use this for initialization
+void Start () {
 	}
 	
-	// Update is called once per frame
+	
 	void Update () {
         GetComponent<Transform>().Translate(0f, Time.deltaTime*-5, 0f);
         if (Tipo == estilo.curvo)
