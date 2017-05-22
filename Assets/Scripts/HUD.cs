@@ -18,6 +18,6 @@ public class HUD : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        display.sprite = vida[player.GetComponent<PlayerControl>().currentHP];
+        display.sprite = vida[player.GetComponent<CambioFormas>().currentHP];
 	}
 }

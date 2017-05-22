@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: e30e807bf14c646408ab5646a7d67284
+timeCreated: 1495468569
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: gothical
+  fontNames:
+  - gothical
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

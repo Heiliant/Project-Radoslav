@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class dolor : MonoBehaviour {
 
-    private PlayerControl script;
+    private CambioFormas script;
 
 	// Use this for initialization
 	void Start () {
-        script = FindObjectOfType<PlayerControl>();
+        script = FindObjectOfType<CambioFormas>();
 	}
 
     private void OnTriggerEnter2D(Collider2D collision)

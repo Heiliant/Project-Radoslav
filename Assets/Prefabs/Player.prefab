@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 4184824627166730}
   - component: {fileID: 95055281053202690}
   - component: {fileID: 70414934595846352}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Demonio
   m_TagString: demonio
   m_Icon: {fileID: 0}
@@ -621,7 +621,7 @@ GameObject:
   - component: {fileID: 4435450830555190}
   - component: {fileID: 95303452961154652}
   - component: {fileID: 70745919873026256}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Humana
   m_TagString: humana
   m_Icon: {fileID: 0}
@@ -667,7 +667,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1775919142956300}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 164.19, y: 28.56, z: -0.04}
+  m_LocalPosition: {x: 163.19, y: 26.56, z: -0.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4435450830555190}
@@ -1394,6 +1394,10 @@ MonoBehaviour:
     m_Bits: 256
   transf: 0
   timeToTrans: 1
+  currentHP: 0
+  segunderoI: 2.5
+  RecoveryTime: 1
+  invulnerable: 0
 --- !u!114 &114274107933294456
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1407,6 +1411,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FuerzaPasos: 10
   FuerzaSalto: 800
+  demonBody:
+  - {fileID: 4839116102746094}
+  - {fileID: 4434924655934744}
+  - {fileID: 4297362388575440}
+  - {fileID: 4449890635728710}
+  - {fileID: 4843725749362444}
+  - {fileID: 4710003706262642}
   animacionDemon: {fileID: 95055281053202690}
 --- !u!114 &114512074882164440
 MonoBehaviour:
@@ -1429,10 +1440,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   DetectorTecho: {fileID: 4805538812012016}
-  currentHP: 0
   "pu\xF1etazo": 0
-  segunderoI: 0
-  RecoveryTime: 2
 --- !u!198 &198741856535566960
 ParticleSystem:
   m_ObjectHideFlags: 1

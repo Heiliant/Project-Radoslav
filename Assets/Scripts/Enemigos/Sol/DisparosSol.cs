@@ -55,9 +55,9 @@ void Start () {
         if (collision.tag == "humana")
         {
             if(GetComponent<Transform>().rotation.x > 0)
-                FindObjectOfType<PlayerControl>().attackPlayer(-1);
+                FindObjectOfType<CambioFormas>().attackPlayer(-1);
             else
-                FindObjectOfType<PlayerControl>().attackPlayer(1);
+                FindObjectOfType<CambioFormas>().attackPlayer(1);
         }
     }
 }

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ComportamientoSol : MonoBehaviour {
     public enum Estado 
-    {   nullemod,
-        laser, 
+    {   nullemod, //Al alternar entre modos es conveniente que al acabar un ciclo (embestida 1, 2, 3, 4), antes de ejecutar un nuevo estado,
+        laser,  //se pase antes por el estado nullemod para resetear todas las componentes que se van usando de manera local. 
         laser2,
         lluvia,
         lluvia2,
@@ -22,7 +22,8 @@ public class ComportamientoSol : MonoBehaviour {
     private Vector2 PJtarget;
     public GameObject aura;
     public Estado modo;
-    public float embestidaSpeed;
+    public float embestidaSpeedOrigin;
+    private float embestidaSpeed;
     private int currentTarget;
     private float counter = 0;
     public float timeToTargetPJ;
@@ -72,7 +73,8 @@ public class ComportamientoSol : MonoBehaviour {
         switch (modo)
         {
             case Estado.embestida: //decide a que spot dirigirse
-                currentTarget = Random.Range(0, 2);
+                currentTarget = Random.Range(0, 3);
+                counter = 0;
                 modo = Estado.embestida2;
                 break;
 
@@ -82,7 +84,7 @@ public class ComportamientoSol : MonoBehaviour {
                 else
                 {
                     modo = Estado.embestida3;
-                    FindObjectOfType<MovimientoAura>().vel = 110;
+                    FindObjectOfType<MovimientoAura>().vel = 180;
 
                 }
                 break;
@@ -114,12 +116,14 @@ public class ComportamientoSol : MonoBehaviour {
                 {
                     goTo(PJtarget, embestidaSpeed);
                     localshot = true;
+                    localCheck = true;
                 }
                 else
                 {
-                    if (counter < 4f)
+                    if (counter < 3f)
                     {
                         counter += Time.deltaTime;
+                        GameObject.Find("Centro").GetComponent<SpriteRenderer>().color = new Color(1, 0.1f+counter/3, 0.1f+counter/3);
                         if (localshot)
                         {
                             for (int i=1; i<=360; ++i)
@@ -175,16 +179,12 @@ public class ComportamientoSol : MonoBehaviour {
                         {
                             GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ComportamientoCamara>().tremble(0.15f);
                         }
-                        else if(counter >3f)
-                        {
-                            if (!imThere(new Vector2(GetComponent<Transform>().position.x, recoverPos.position.y)))
-                                goTo(new Vector2(GetComponent<Transform>().position.x, recoverPos.position.y), 2f);
-                        }
                     }
                     else
                     {
-                        StartCoroutine(SetState(9f, Estado.nullemod));
-                        counter = 0;
+                        GameObject.Find("pupila I").GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f);
+                        GameObject.Find("pupila D").GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f);
+                        StartCoroutine(SetState(0f, Estado.embestida));
                     }
                 }
                 break;
@@ -269,9 +269,9 @@ public class ComportamientoSol : MonoBehaviour {
                     if (laserImpacto.collider.tag == ("humana") && localLaser.name=="LaserHum(Clone)") //si el láser rojo detecta a la humana, le hace daño
                     {
                         if(laserOrigin==0)
-                            FindObjectOfType<PlayerControl>().attackPlayer(-1);
+                            FindObjectOfType<CambioFormas>().attackPlayer(-1);
                         else
-                            FindObjectOfType<PlayerControl>().attackPlayer(1);
+                            FindObjectOfType<CambioFormas>().attackPlayer(1);
                     }
                     else if (laserImpacto.collider.tag == ("demonio") && localLaser.name=="LaserDemo(Clone)") //si el láser verde detecta al demon, le hace daño
                     {
@@ -280,11 +280,10 @@ public class ComportamientoSol : MonoBehaviour {
                 }
                 break;
             case Estado.nullemod:
-                embestidaSpeed = 0.2f;
+                embestidaSpeed = embestidaSpeedOrigin;
                 counter=0;
                 FindObjectOfType<MovimientoAura>().vel = 50;
-                GameObject.Find("pupila I").GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f);
-                GameObject.Find("pupila D").GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f);
+
                 if(aura.GetComponent<SpriteRenderer>().color != new Color(1f, 1f, 1f, 1f))
                 {
                     counter += Time.deltaTime;
@@ -297,6 +296,7 @@ public class ComportamientoSol : MonoBehaviour {
                 {
                     z.SetActive(false);
                 }
+                GameObject.Find("Centro").GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
                 localCheck = false;
                 break;
         }
@@ -316,5 +316,20 @@ public class ComportamientoSol : MonoBehaviour {
         GameObject localGO=Instantiate(go, pos, rot);
         if (sunEdge)
             localGO.GetComponent<DisparosSol>().rotateFromSun();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (localCheck)
+        {
+            if (collision.tag == "humana" || collision.tag=="demonio")
+            {
+                int localrand = Random.Range(-1, 2);
+                if (localrand == 0)
+                    localrand++;
+                FindObjectOfType<CambioFormas>().attackPlayer(localrand);
+            }
+            localCheck = false;
+        }
     }
 }

@@ -338,6 +338,7 @@ GameObject:
   - component: {fileID: 50679678407337016}
   - component: {fileID: 95559744677142354}
   - component: {fileID: 114799826569007688}
+  - component: {fileID: 58998164253280376}
   m_Layer: 0
   m_Name: Solesico
   m_TagString: sol
@@ -894,6 +895,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &58998164253280376
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1819870628739704}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 4.96
 --- !u!68 &68045490163695224
 EdgeCollider2D:
   m_ObjectHideFlags: 1
@@ -1166,7 +1181,7 @@ MonoBehaviour:
   recoverPos: {fileID: 4077297526797390}
   aura: {fileID: 1775645076969048}
   modo: 0
-  embestidaSpeed: 0.2
+  embestidaSpeedOrigin: 0.6
   timeToTargetPJ: 2
   Disparo: {fileID: 1355439558692160, guid: 1bbf020068a54934dbfa390e09b5b6cb, type: 2}
   EmbestidaShotsAmount: 20

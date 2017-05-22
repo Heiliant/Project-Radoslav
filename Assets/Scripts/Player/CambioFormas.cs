@@ -18,10 +18,48 @@ public class CambioFormas : MonoBehaviour {
     public bool transf;
     public float timeToTrans;
 
+    public int currentHP;
+    private int lastHP;
+    public float segunderoI = 0;
+    public float RecoveryTime;
+    public bool invulnerable = false;
+
+    public void attackPlayer(float a)
+    {
+        if (!invulnerable)
+        {
+            currentHP--;
+            foreach (SpriteRenderer w in GetComponentsInChildren<SpriteRenderer>())
+            {
+                w.color = new Color(1, 0, 0, 1);
+            }
+        GetComponent<Rigidbody2D>().AddForce(new Vector2(FindObjectOfType<PlayerControl>().FuerzaSalto/2*a, FindObjectOfType<PlayerControl>().FuerzaSalto / 2));
+        }
+    }
+
+    public void attackPlayer()
+    {
+        if (!invulnerable)
+        {
+            currentHP--;
+            foreach (SpriteRenderer w in GetComponentsInChildren<SpriteRenderer>())
+            {
+                w.color = new Color(1, 0, 0, 1);
+            }
+        }
+    }
+
+    public void killPlayer()
+    {
+        currentHP = 0;
+    }
+
     public void enableTransf()
     {
         TRANSFORMACION = KeyCode.E;
     }
+
+
 
     // Use this for initialization
     void Start () {
@@ -33,6 +71,9 @@ public class CambioFormas : MonoBehaviour {
         transf = false;
 
         Particulillas.SetActive(true);
+
+        currentHP = 3;
+        lastHP = currentHP;
     }
 
     private void FixedUpdate()
@@ -79,11 +120,41 @@ public class CambioFormas : MonoBehaviour {
                 Particulillas.GetComponent<Transform>().localPosition = new Vector2(Particulillas.transform.localPosition.x, 4.4f);
                 Particulillas.GetComponent<Transform>().localScale = new Vector3(3.386891f, 3.386891f, 3.386891f);
             }
-            //  Particulillas.SetActive(true);
             Invoke("doEmit", 0f);
         }
-        //else
-        //    Particulillas.SetActive(false);
+
+        if (lastHP != currentHP)
+        {
+            invulnerable = true;
+        }
+        else
+        {
+            foreach (SpriteRenderer w in GetComponentsInChildren<SpriteRenderer>())
+            {
+                w.color = new Color(1, 1, 1, 1);
+            }
+        }
+
+
+        if (segunderoI >= RecoveryTime)
+        {
+            invulnerable = false;
+            segunderoI = 0;
+        }
+
+        if (invulnerable)
+        {
+            segunderoI += Time.deltaTime;
+
+            foreach (SpriteRenderer a in GetComponentsInChildren<SpriteRenderer>())
+            {
+                float localAlpha = segunderoI % 1;
+                a.color = new Color(1f, 1f, 1f, localAlpha);
+            }
+        }
+
+        lastHP = currentHP;
+
     }
 
     IEnumerator TransformacionDemon(float t)

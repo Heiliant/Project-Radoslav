@@ -33,14 +33,14 @@ public class ComportamientoCamara : MonoBehaviour
         startMoveB = false;
     }
 
-    public void stickTo (Vector2 a)
+    public void stickTo (Vector2 a) //stickTo un vector2
     {
         sticker = a;
         Debug.Log(a);
         stickMode = true;
     }
     
-    public void stopStick()
+    public void stopStick() //stop stick para volver al PJ.
     {
         stickMode = false;
     }

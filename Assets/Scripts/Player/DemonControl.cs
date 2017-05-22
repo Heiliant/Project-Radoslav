@@ -28,7 +28,6 @@ public class DemonControl : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        //animacionDemon = GameObject.FindGameObjectWithTag("demonio").GetComponent<Animator>();
 	}
 
     private void FixedUpdate()

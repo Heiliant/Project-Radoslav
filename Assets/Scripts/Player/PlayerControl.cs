@@ -23,14 +23,12 @@ public class PlayerControl : MonoBehaviour {
 
     public Transform DetectorTecho;
 
-    public int currentHP;
-    private int lastHP;
+
     public bool puñetazo = false;
     private float segundero=0;
-    public float segunderoI = 0;
 
-    public float RecoveryTime;
-    private bool invulnerable=false;
+
+
     private bool inmovil = false;
 
     private KeyCode JUMP = KeyCode.Space;
@@ -49,35 +47,8 @@ public class PlayerControl : MonoBehaviour {
         return enPared;
     }
 
-    public void attackPlayer(float a)
-    {
-        if (!invulnerable)
-        {
-            currentHP--;
-            foreach (SpriteRenderer w in GetComponentsInChildren<SpriteRenderer>())
-            {
-                w.color = new Color(1, 0, 0, 1);
-            }
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(FuerzaSalto/2*a, FuerzaSalto/2));
-        }
-    }
 
-    public void attackPlayer()
-    {
-        if (!invulnerable)
-        {
-            currentHP--;
-            foreach (SpriteRenderer w in GetComponentsInChildren<SpriteRenderer>())
-            {
-                w.color = new Color(1, 0, 0, 1);
-            }
-        }
-    }
-    
-    public void killPlayer()
-    {
-        currentHP = 0;
-    }
+
     
     public Transform getTorsoSave()
     {
@@ -105,8 +76,7 @@ public class PlayerControl : MonoBehaviour {
         initialTorsoSave = GameObject.FindGameObjectWithTag("muñeco").GetComponent<Transform>();
         Debug.Log(initialTorsoSave.rotation);
         Debug.Log("Human start");
-        currentHP = 3;
-        lastHP = currentHP;
+
 
         puñetazo = false;
  
@@ -202,27 +172,22 @@ public class PlayerControl : MonoBehaviour {
                 GetComponent<Rigidbody2D>().AddForce(new Vector2(0, FuerzaSalto));
             }
 
-            else if (Input.GetKeyDown(JUMP) && jumpCount == 1)
+            else if (Input.GetKeyDown(JUMP) && !enSuelo && jumpCount>0)
             {
                 if (Input.GetKey(RIGHT))
                 {
-                    if (enSuelo)
-                        GetComponent<Rigidbody2D>().AddForce(new Vector2(FuerzaSalto * 1.2f, FuerzaSalto));
-                    else
-                    {
-                        GetComponent<Rigidbody2D>().AddForce(new Vector2(FuerzaSalto * 1.2f, 0));
-                        GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, FuerzaSalto);
-                    }
+                        GetComponent<Rigidbody2D>().AddForce(new Vector2(FuerzaSalto * 1.4f, 0));
+                    GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, FuerzaSalto / 40);
                 }
                 else if (Input.GetKey(LEFT))
                 {
-                    if (enSuelo)
-                        GetComponent<Rigidbody2D>().AddForce(new Vector2(-FuerzaSalto*1.2f, FuerzaSalto));
+                        GetComponent<Rigidbody2D>().AddForce(new Vector2(-FuerzaSalto*1.4f, 0));
+                    GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, FuerzaSalto / 40);
                 }
                 else
                 {
-                    if (enSuelo)
-                        GetComponent<Rigidbody2D>().AddForce(new Vector2(0, FuerzaSalto));
+                        //GetComponent<Rigidbody2D>().AddForce(new Vector2(0, FuerzaSalto));
+                        GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, FuerzaSalto/40);
                 }
                 --jumpCount;
             }
@@ -246,36 +211,6 @@ public class PlayerControl : MonoBehaviour {
 
         }
 
-        if (lastHP != currentHP)
-        {
-            invulnerable = true;
-        }
-        else
-        {
-            foreach (SpriteRenderer w in GetComponentsInChildren<SpriteRenderer>())
-            {
-                w.color = new Color(1, 1, 1, 1);
-            }
-        }
-
-        if (segunderoI >= RecoveryTime)
-        {
-            invulnerable = false; 
-            segunderoI = 0;
-        }
-
-        if (invulnerable)
-        {
-            segunderoI += Time.deltaTime;
-
-            foreach (SpriteRenderer a in GetComponentsInChildren<SpriteRenderer>())
-            {
-                float localAlpha = segunderoI % 1;
-                a.color = new Color(1f, 1f, 1f, localAlpha);
-            }
-        }
-
-        lastHP = currentHP;
     }   
 
     

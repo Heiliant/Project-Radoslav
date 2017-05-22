@@ -4,25 +4,34 @@ using UnityEngine;
 
 public class PupilasSol : MonoBehaviour {
     private Transform PJ;
-
+    public LayerMask ojoSol;
 	// Use this for initialization
 	void Start () {
 		
 	}
-	
-	
-	void Update () {
-        PJ = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        Debug.DrawLine(GetComponent<Transform>().position, PJ.position, Color.cyan);
-        RaycastHit2D colision=Physics2D.Linecast(GetComponent<Transform>().position, PJ.position);
 
-        if (colision.collider != null)
+
+    void Update()
+    {
+        try
         {
-            foreach(Transform a in GetComponentInChildren<Transform>())
+            PJ = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+            Debug.DrawLine(GetComponent<Transform>().position, PJ.position, Color.cyan);
+            RaycastHit2D colision = Physics2D.Linecast(GetComponent<Transform>().position, PJ.position, ojoSol);
+
+            if (colision.collider != null)
             {
-                if (a.name != gameObject.name)
-                    a.position = colision.point;
+                foreach (Transform a in GetComponentInChildren<Transform>())
+                {
+                    if (a.name != gameObject.name)
+                        a.position = colision.point;
+                }
             }
         }
-	}
+
+        catch (System.NullReferenceException)
+        {
+        }
+
+    }
 }
