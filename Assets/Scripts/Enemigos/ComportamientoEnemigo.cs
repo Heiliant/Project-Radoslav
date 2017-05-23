@@ -14,9 +14,8 @@ public class ComportamientoEnemigo : MonoBehaviour
     private float modulo;
     private float multiplicacionElementos;
     public Transform PosFinal;
-    public float radius;
-    private bool InRange;
-    public LayerMask mask = 11;
+    // public float radius;
+    public float DistanciaAtaque;
 
 
     //para el patron del movimiento
@@ -25,169 +24,179 @@ public class ComportamientoEnemigo : MonoBehaviour
     private Transform[] array = new Transform[2];
     Vector2 VectorMovimiento;
     private float module;
-    public float speedx;
+    public float speedxOrigin;
+    private float speedx;
     private bool controlRotacion;
     private float PasadaX;
-    //int hp = 20;
+    Vector2 VectorAuxiliar1;
+    Vector2 VectorAuxiliar2;
+    private int hp = 3;
+    private int lasthp;
+    private bool damaged;
     private Animator animescualo;
     public LayerMask suelo;
     // Use this for initialization
     void Start()
     {
         animescualo = GetComponent<Animator>();
-
         //para el patron de movimiento
-        speedx = 0.25f;
+
         array[0] = destino;
         array[1] = destino2;
         VectorMovimiento = (array[0].position - transform.position);
         controlRotacion = false;
-        InRange = false;
+
         //para que te detecte
         detectado = false;
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>(); 
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         //player tomara el valor de los transform del game object que tenga el script Personajeprincipal
 
+        lasthp = hp;
     }
 
     private void FixedUpdate()
     {
-        animescualo.SetFloat("VelX", (GetComponent<Transform>().position.x-PasadaX)/Time.deltaTime);
-        animescualo.SetBool("enRango", InRange);
-        animescualo.SetBool("enSuelo", Physics2D.OverlapCircle(new Vector2(GetComponent<Transform>().position.x,
-            GetComponent<Transform>().position.y), suelo));
+        if (detectado)
+            speedx = 0.7f;
+        else
+            speedx = speedxOrigin;
+        if (modulo < DistanciaAtaque)
+            speedx = 0f;
+
+        animescualo.SetBool("enRango", modulo<DistanciaAtaque);
+        animescualo.SetFloat("VelX", speedx);
+        animescualo.SetInteger("HP", hp);
+        animescualo.SetBool("damaged", damaged);
+
+        AnimatorStateInfo ScualoState = animescualo.GetCurrentAnimatorStateInfo(0);
+        if (ScualoState.IsName("attack"))
+        {
+            speedx = 0;
+        }
     }
 
     void Update()
     {
-        InRange=Physics2D.OverlapCircle(transform.position, radius, mask.value);
+
 
         move = (player.position - transform.position); //move vale la distancia entre player y el enemigo
         multiplicacionElementos = (move.x * move.x);
         modulo = Mathf.Sqrt(multiplicacionElementos); //modulo de la distáncia para no tener en cuenta el símbolo
 
-
-        if (modulo <= 15.0f)
-        {
-            detectado = true;
-
-        }
-
-        if (modulo >= 16.0f) 
-        {
-            detectado = false; //detectado vuelve a ser false euna vez sale de la linea de vision
-
-        }
-
         if (detectado == true)
         {
-            if (player.position.x == transform.position.x) 
+            if (modulo < DistanciaAtaque)
             {
-                transform.Rotate(0, 0, 0);
+                move = new Vector2(0, 0);
             }
-
-            if (player.position.y > transform.position.y)
+            else
             {
-                detectado = false;
-            }
-
-            if (player.position.x < transform.position.x && PosFinal.position.x > transform.position.x)
-            //el prota esta a la izquiersa del enemigo y este le da la espalda
-            {
-                transform.Rotate(0, 180, 0);
-            }
-
-            if (player.position.x < transform.position.x && PosFinal.position.x < transform.position.x)
-            //el prota esta a la izquiersa del enemigo y este le esta mirando
-            {
-                if (InRange == true)
+                if (player.position.x == transform.position.x)
                 {
-                    move = new Vector2(0,0);
-                }
-                else
-                {
-                    move = (player.position - transform.position);
-                    move = new Vector2(move.x, 0.0f);
                     transform.Rotate(0, 0, 0);
-                    transform.Translate(move * Time.deltaTime);
                 }
-               
-            }
 
-            if (player.position.x > transform.position.x && PosFinal.position.x < transform.position.x)
-            //el prota esta a la derecha del enemigo y este le da la espalda
-            {
-                transform.Rotate(0, 180, 0);
-
-            }
-
-            if (player.position.x > transform.position.x && PosFinal.position.x > transform.position.x)
-            //el prota esta a la derecha del enemigo y este le esta mirando
-            {
-                if (InRange == true)
+                if (modulo < DistanciaAtaque)
                 {
                     move = new Vector2(0, 0);
+                    transform.Translate(move);
                 }
-                else
-                {
-                    move = (transform.position - player.position);
-                    move = new Vector2(move.x, 0.0f);
-                    transform.Rotate(0, 0, 0);
-                    transform.Translate( move * Time.deltaTime);
-                }
-               
-            }
-        }
-        else
-        {
-           
-
-            if (transform.position.x <= array[0].position.x)
-            {
-                if (controlRotacion == false)
-                {
-                    transform.Rotate(0, 180, 0);
-                    controlRotacion = true;
-                }
-
-                VectorMovimiento = (transform.position - array[1].position);
-            }
-
-            if (transform.position.x >= array[1].position.x)
-            {
-                if (controlRotacion == true)
+                if (player.position.x < transform.position.x && PosFinal.position.x > transform.position.x)
+                //el prota esta a la izquiersa del enemigo y este le da la espalda
                 {
                     transform.Rotate(0, 180, 0);
                     controlRotacion = false;
                 }
 
-                VectorMovimiento = (array[0].position - transform.position);
+                if (player.position.x < transform.position.x && PosFinal.position.x < transform.position.x)
+                //el prota esta a la izquiersa del enemigo y este le esta mirando
+                {
+                    move = (player.position - transform.position);
+                    move = new Vector2(move.x, 0.0f);
+
+                    transform.Rotate(0, 0, 0);
+                    transform.Translate(move * speedx * Time.deltaTime);
+                }
+
+                if (player.position.x > transform.position.x && PosFinal.position.x < transform.position.x)
+                //el prota esta a la derecha del enemigo y este le da la espalda
+                {
+                    transform.Rotate(0, 180, 0);
+                    controlRotacion = true;
+                }
+
+                if (player.position.x > transform.position.x && PosFinal.position.x > transform.position.x)
+                //el prota esta a la derecha del enemigo y este le esta mirando
+                {
+                    move = (transform.position - player.position);
+                    move = new Vector2(move.x, 0.0f);
+
+                    transform.Rotate(0, 0, 0);
+                    transform.Translate(move * speedx * Time.deltaTime);
+
+                }
+
             }
+
+
+
+        }
+        else
+        {
+            if (detectado == false && transform.position.x > array[1].position.x)
+            {
+                if (controlRotacion == true)
+                {
+                    transform.Rotate(0, 180, 0);
+                    controlRotacion = false;
+                    VectorMovimiento = (array[0].position - transform.position);
+                    VectorAuxiliar1 = VectorMovimiento;
+                }
+
+            }
+            if (detectado == false && transform.position.x < array[0].position.x)
+            {
+                if (controlRotacion == false)
+                {
+                    transform.Rotate(0, 180, 0);
+                    controlRotacion = true;
+                    VectorMovimiento = (transform.position - array[1].position);
+                    VectorAuxiliar2 = VectorMovimiento;
+                }
+            }
+
             module = Mathf.Sqrt(VectorMovimiento.x * VectorMovimiento.x);
             if (module >= 1.0f)
             {
                 transform.Translate(VectorMovimiento * speedx * Time.deltaTime);
             }
+
         }
 
-        PasadaX = GetComponent<Transform>().position.x;
-    }
-
-   void OnTriggerEnter2D(Collider2D objeto)
-    {
-        if (objeto.GetComponent<Collider2D>().tag == "caida")
+        if (hp != lasthp)
         {
+            damaged = true;
+        }
+        //else
+            //damaged = false;
 
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 7.5f), ForceMode2D.Impulse);
+        lasthp = hp;
+    }
+
+
+    void OnTriggerEnter2D(Collider2D objeto)
+    {
+        if (objeto.GetComponent<Collider2D>().tag.Equals("humana") || objeto.GetComponent<Collider2D>().tag.Equals("demonio"))
+        {
+            detectado = true;
         }
     }
 
-    /* void OnCollisionEnter(Collider objeto)
-     {
-         if (objeto.GetComponent<Collider2D>().tag == "arrojadiza")
-         {
-             hp -= 10;
-         }
-     }*/
-
+    void OnTriggerExit2D(Collider2D objeto)
+    {
+        if (objeto.GetComponent<Collider2D>().tag.Equals("humana") || objeto.GetComponent<Collider2D>().tag.Equals("demonio"))
+        {
+            detectado = false;
+        }
+    }
 }

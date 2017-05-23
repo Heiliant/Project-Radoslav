@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class LevelManagment : MonoBehaviour {
     public GameObject player;
-    public GameObject playerPrefab;
     private Transform lastCP;
     public Transform spawn;
     public Text Relevant;
