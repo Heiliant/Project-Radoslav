@@ -21,4 +21,15 @@ public class FireRingmov : MonoBehaviour {
         if (counter >= destroyTime)
             Destroy(gameObject);
 	}
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag.Equals("humana") || collision.tag.Equals("demonio"))
+        {
+            int randloc = Random.Range(-1, 2);
+            if (randloc == 0)
+                randloc = -1;
+            FindObjectOfType<CambioFormas>().attackPlayer(randloc);
+        }
+    }
 }

@@ -233,7 +233,7 @@ GameObject:
   - component: {fileID: 58833561826189988}
   m_Layer: 0
   m_Name: "Pu\xF1oEspectral"
-  m_TagString: Untagged
+  m_TagString: "pu\xF1odem"
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1411,13 +1411,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FuerzaPasos: 10
   FuerzaSalto: 800
-  demonBody:
-  - {fileID: 4839116102746094}
-  - {fileID: 4434924655934744}
-  - {fileID: 4297362388575440}
-  - {fileID: 4449890635728710}
-  - {fileID: 4843725749362444}
-  - {fileID: 4710003706262642}
   animacionDemon: {fileID: 95055281053202690}
 --- !u!114 &114512074882164440
 MonoBehaviour:
@@ -1496,7 +1489,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1698491268
+  randomSeed: 1029939996
   InitialModule:
     serializedVersion: 3
     enabled: 1

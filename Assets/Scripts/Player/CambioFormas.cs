@@ -21,7 +21,7 @@ public class CambioFormas : MonoBehaviour {
     public int currentHP;
     private int lastHP;
     public float segunderoI = 0;
-    public float RecoveryTime;
+    public float RecoveryTime;  
     public bool invulnerable = false;
 
     public void attackPlayer(float a)
