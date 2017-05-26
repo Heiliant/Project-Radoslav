@@ -1,0 +1,314 @@
+fileFormatVersion: 2
+guid: da7540e1e14e4db49a4c4fdabe5a31fb
+timeCreated: 1492761954
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: monaso_0
+    21300002: monaso_1
+    21300004: monaso_2
+    21300006: monaso_3
+    21300008: monaso_4
+    21300010: monaso_8
+    21300012: monaso_9
+    21300014: monaso_10
+    21300016: monaso_11
+    21300018: monaso_12
+    21300020: monaso_13
+    21300022: monaso_16
+    21300024: monaso_17
+    21300026: monaso_19
+    21300028: monaso_20
+    21300030: monaso_21
+    21300032: monaso_22
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 80
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: monaso_0
+      rect:
+        serializedVersion: 2
+        x: 2568
+        y: 3270
+        width: 242
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: monaso_1
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 1821
+        width: 306
+        height: 820
+      alignment: 9
+      pivot: {x: 0.6016008, y: 0.8649259}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: monaso_2
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 2372
+        width: 957
+        height: 780
+      alignment: 9
+      pivot: {x: 0.89390177, y: 0.7690464}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: monaso_3
+      rect:
+        serializedVersion: 2
+        x: 3369
+        y: 2296
+        width: 677
+        height: 662
+      alignment: 9
+      pivot: {x: 0.4885189, y: 0.07145834}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: monaso_4
+      rect:
+        serializedVersion: 2
+        x: 3313
+        y: 2190
+        width: 29
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: monaso_8
+      rect:
+        serializedVersion: 2
+        x: 1645
+        y: 1417
+        width: 162
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: monaso_9
+      rect:
+        serializedVersion: 2
+        x: 2466
+        y: 1450
+        width: 582
+        height: 495
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: monaso_10
+      rect:
+        serializedVersion: 2
+        x: 3342
+        y: 1236
+        width: 698
+        height: 824
+      alignment: 9
+      pivot: {x: 0.5, y: 0.11326392}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: monaso_11
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 163
+        width: 673
+        height: 1321
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: monaso_12
+      rect:
+        serializedVersion: 2
+        x: 1099
+        y: 1367
+        width: 242
+        height: 267
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: monaso_13
+      rect:
+        serializedVersion: 2
+        x: 1923
+        y: 1233
+        width: 162
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: monaso_16
+      rect:
+        serializedVersion: 2
+        x: 3557
+        y: 1144
+        width: 107
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: monaso_17
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 954
+        width: 243
+        height: 230
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: monaso_19
+      rect:
+        serializedVersion: 2
+        x: 1165
+        y: 924
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: monaso_20
+      rect:
+        serializedVersion: 2
+        x: 3299
+        y: 203
+        width: 780
+        height: 877
+      alignment: 9
+      pivot: {x: 0.49501765, y: 0.070166595}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: monaso_21
+      rect:
+        serializedVersion: 2
+        x: 918
+        y: 184
+        width: 419
+        height: 434
+      alignment: 9
+      pivot: {x: 0.32377505, y: 0.8492229}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: monaso_22
+      rect:
+        serializedVersion: 2
+        x: 1453
+        y: 160
+        width: 1183
+        height: 648
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

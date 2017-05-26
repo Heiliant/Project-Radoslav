@@ -1,0 +1,216 @@
+fileFormatVersion: 2
+guid: e66bf798114412742bd4478ba854e568
+timeCreated: 1492800110
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: escualomorfo_1
+    21300002: escualomorfo_2
+    21300004: escualomorfo_3
+    21300006: escualomorfo_4
+    21300008: escualomorfo_5
+    21300010: escualomorfo_6
+    21300012: escualomorfo_7
+    21300014: escualomorfo_8
+    21300016: escualomorfo_9
+    21300018: escualomorfo_10
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 50
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: escualomorfo_1
+      rect:
+        serializedVersion: 2
+        x: 1963
+        y: 1659
+        width: 373
+        height: 288
+      alignment: 9
+      pivot: {x: 0.89269334, y: 0.63870704}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: escualomorfo_2
+      rect:
+        serializedVersion: 2
+        x: 2562
+        y: 1536
+        width: 350
+        height: 422
+      alignment: 9
+      pivot: {x: 0.39611676, y: 0.7036497}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: escualomorfo_3
+      rect:
+        serializedVersion: 2
+        x: 3009
+        y: 1557
+        width: 514
+        height: 387
+      alignment: 9
+      pivot: {x: 0.8279668, y: 0.8074784}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: escualomorfo_4
+      rect:
+        serializedVersion: 2
+        x: 1996
+        y: 1424
+        width: 285
+        height: 155
+      alignment: 9
+      pivot: {x: 0.7899474, y: 0.71325135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: escualomorfo_5
+      rect:
+        serializedVersion: 2
+        x: 2455
+        y: 928
+        width: 359
+        height: 358
+      alignment: 9
+      pivot: {x: 0.41963488, y: 0.36981678}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: escualomorfo_6
+      rect:
+        serializedVersion: 2
+        x: 2944
+        y: 788
+        width: 520
+        height: 459
+      alignment: 9
+      pivot: {x: 0.7787776, y: 0.19991514}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: escualomorfo_7
+      rect:
+        serializedVersion: 2
+        x: 1940
+        y: 132
+        width: 177
+        height: 480
+      alignment: 9
+      pivot: {x: 0.6379229, y: 0.58322436}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: escualomorfo_8
+      rect:
+        serializedVersion: 2
+        x: 2342
+        y: 467
+        width: 123
+        height: 250
+      alignment: 9
+      pivot: {x: 0.82477653, y: 0.89059913}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: escualomorfo_9
+      rect:
+        serializedVersion: 2
+        x: 3180
+        y: 205
+        width: 241
+        height: 437
+      alignment: 9
+      pivot: {x: 0.5276264, y: 0.7539261}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: escualomorfo_10
+      rect:
+        serializedVersion: 2
+        x: 2225
+        y: 146
+        width: 277
+        height: 166
+      alignment: 9
+      pivot: {x: 0.15548585, y: 0.23261279}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

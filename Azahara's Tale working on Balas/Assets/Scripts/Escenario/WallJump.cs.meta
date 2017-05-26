@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 0fc9e59b585e19c439312c19b5894794
+timeCreated: 1490224224
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - prota: {fileID: 1591434939522028, guid: f89d710983d91be4296e5b0a305e80b7, type: 2}
+  - script: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
