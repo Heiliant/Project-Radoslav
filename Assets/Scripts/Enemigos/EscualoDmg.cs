@@ -18,7 +18,8 @@ public class EscualoDmg : MonoBehaviour {
     {
         if (collision.tag.Equals("puñodem"))
         {
-            GetComponentInParent<ComportamientoEnemigo>().harm();
+            GetComponentInParent<ComportamientoEnemigo>().harm(GetComponent<Transform>().position.x>
+                collision.GetComponent<Transform>().position.x);
         }
     }
 }

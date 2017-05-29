@@ -34,12 +34,14 @@ public class ComportamientoEnemigo : MonoBehaviour
     public int lasthp;
     private Animator animescualo;
     public LayerMask suelo;
+    public bool damaged=false;
+    public float counter=0;
 
-    private bool localCheck = false;
-
-    public void harm()
+    public void harm(bool a)//true derecha false izquierda
     {
+        int localA = a ? 1 : -1;
         hp--;
+        GetComponent<Rigidbody2D>().AddForce(new Vector2(9900*localA, 2000));
     }
     // Use this for initialization
     void Start()
@@ -69,15 +71,22 @@ public class ComportamientoEnemigo : MonoBehaviour
         if (modulo < DistanciaAtaque)
             speedx = 0f;
 
+        
+
         animescualo.SetBool("enRango", modulo<DistanciaAtaque);
         animescualo.SetFloat("VelX", speedx);
         animescualo.SetInteger("HP", hp);
-        animescualo.SetBool("damaged", hp!=lasthp);
+        animescualo.SetBool("damaged", damaged);
 
         AnimatorStateInfo ScualoState = animescualo.GetCurrentAnimatorStateInfo(0);
         if (ScualoState.IsName("attack"))
         {
             speedx = 0;
+        }
+        if (ScualoState.IsName("death"))
+        {
+            speedx = 0;
+            StartCoroutine(Autodestroy(1.55f));
         }
     }
 
@@ -176,8 +185,28 @@ public class ComportamientoEnemigo : MonoBehaviour
             {
                 transform.Translate(VectorMovimiento * speedx * Time.deltaTime);
             }
-
+            
         }
+
+        if (!damaged)
+            damaged = (lasthp != hp);
+        else
+        {
+            counter += Time.deltaTime;
+            speedx = 0;
+            if (counter > 0.4f)
+            {
+                damaged = false;
+                foreach (SpriteRenderer a in GetComponentsInChildren<SpriteRenderer>())
+                {
+                    a.color = new Color(1, 1, 1, 1);
+                }
+                speedx = speedxOrigin;
+                GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+                counter = 0;
+            }
+        }
+
         lasthp = hp;
     }
 
@@ -198,4 +227,9 @@ public class ComportamientoEnemigo : MonoBehaviour
         }
     }
 
+    IEnumerator Autodestroy(float a)
+    {
+        yield return new WaitForSeconds(a);
+        Destroy(gameObject);
+    }
 }

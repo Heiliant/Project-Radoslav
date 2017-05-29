@@ -37,7 +37,7 @@ public class DemonControl : MonoBehaviour {
         animacionDemon.SetFloat("VelX", GetComponent<Rigidbody2D>().velocity.x);
         animacionDemon.SetBool("enSuelo", enSuelo);
         animacionDemon.SetBool("puñetazo", puñetazo);
-        animacionDemon.SetBool("puñetazoAbajo", puñetazoAbajo);
+        animacionDemon.SetBool("puñetazoAbajo", puñetazoAbajo);//se quedó en el tintero
 
         if (GetComponent<Rigidbody2D>().velocity.x >0.1f)
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Vector3.back), 1f);
