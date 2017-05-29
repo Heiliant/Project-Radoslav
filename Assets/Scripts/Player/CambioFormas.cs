@@ -23,7 +23,7 @@ public class CambioFormas : MonoBehaviour {
     public float segunderoI = 0;
     public float RecoveryTime;  
     public bool invulnerable = false;
-    private bool disparoSkill;
+    private bool disparoSkill; 
 
     public void attackPlayer(float a)
     {

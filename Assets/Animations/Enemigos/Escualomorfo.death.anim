@@ -1946,6 +1946,38 @@ AnimationClip:
     path: Torso Bajo/Pierna D/Pantorrilla D/Pie D
     classID: 212
     script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_Enabled
+    path: Torso Alto/Brazo I/Antebrazo I
+    classID: 60
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_Enabled
+    path: Torso Alto/Brazo D/Antebrazo D
+    classID: 60
+    script: {fileID: 0}
   m_PPtrCurves: []
   m_SampleRate: 60
   m_WrapMode: 0
@@ -2102,6 +2134,18 @@ AnimationClip:
       attribute: 304273561
       script: {fileID: 0}
       classID: 212
+      customType: 0
+      isPPtrCurve: 0
+    - path: 2457271081
+      attribute: 3305885265
+      script: {fileID: 0}
+      classID: 60
+      customType: 0
+      isPPtrCurve: 0
+    - path: 2884364266
+      attribute: 3305885265
+      script: {fileID: 0}
+      classID: 60
       customType: 0
       isPPtrCurve: 0
     - path: 2457271081
@@ -5905,6 +5949,38 @@ AnimationClip:
     attribute: m_Color.a
     path: Torso Bajo/Pierna D/Pantorrilla D/Pie D
     classID: 212
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_Enabled
+    path: Torso Alto/Brazo I/Antebrazo I
+    classID: 60
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_Enabled
+    path: Torso Alto/Brazo D/Antebrazo D
+    classID: 60
     script: {fileID: 0}
   m_EulerEditorCurves:
   - curve:

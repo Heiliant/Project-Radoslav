@@ -30,11 +30,17 @@ public class ComportamientoEnemigo : MonoBehaviour
     private float PasadaX;
     Vector2 VectorAuxiliar1;
     Vector2 VectorAuxiliar2;
-    private int hp = 3;
-    private int lasthp;
-    private bool damaged;
+    public int hp = 3;
+    public int lasthp;
     private Animator animescualo;
     public LayerMask suelo;
+
+    private bool localCheck = false;
+
+    public void harm()
+    {
+        hp--;
+    }
     // Use this for initialization
     void Start()
     {
@@ -57,7 +63,7 @@ public class ComportamientoEnemigo : MonoBehaviour
     private void FixedUpdate()
     {
         if (detectado)
-            speedx = 0.7f;
+            speedx = 0.5f;
         else
             speedx = speedxOrigin;
         if (modulo < DistanciaAtaque)
@@ -66,7 +72,7 @@ public class ComportamientoEnemigo : MonoBehaviour
         animescualo.SetBool("enRango", modulo<DistanciaAtaque);
         animescualo.SetFloat("VelX", speedx);
         animescualo.SetInteger("HP", hp);
-        animescualo.SetBool("damaged", damaged);
+        animescualo.SetBool("damaged", hp!=lasthp);
 
         AnimatorStateInfo ScualoState = animescualo.GetCurrentAnimatorStateInfo(0);
         if (ScualoState.IsName("attack"))
@@ -80,7 +86,7 @@ public class ComportamientoEnemigo : MonoBehaviour
 
 
         move = (player.position - transform.position); //move vale la distancia entre player y el enemigo
-        multiplicacionElementos = (move.x * move.x);
+        multiplicacionElementos = (move.x * move.x)+(move.y*move.y);//soloe staba teniendo en cuenta las x. He añadido las Y.
         modulo = Mathf.Sqrt(multiplicacionElementos); //modulo de la distáncia para no tener en cuenta el símbolo
 
         if (detectado)
@@ -156,7 +162,7 @@ public class ComportamientoEnemigo : MonoBehaviour
             }
             if (!detectado && transform.position.x < array[0].position.x)
             {
-                if (controlRotacion == false)
+                if (!controlRotacion)
                 {
                     transform.Rotate(0, 180, 0);
                     controlRotacion = true;
@@ -172,14 +178,6 @@ public class ComportamientoEnemigo : MonoBehaviour
             }
 
         }
-
-        if (hp != lasthp)
-        {
-            damaged = true;
-        }
-        //else
-            //damaged = false;
-
         lasthp = hp;
     }
 
@@ -199,4 +197,5 @@ public class ComportamientoEnemigo : MonoBehaviour
             detectado = false;
         }
     }
+
 }
