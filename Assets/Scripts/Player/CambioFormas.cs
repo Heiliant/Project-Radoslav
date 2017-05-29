@@ -23,7 +23,9 @@ public class CambioFormas : MonoBehaviour {
     public float segunderoI = 0;
     public float RecoveryTime;  
     public bool invulnerable = false;
-    private bool disparoSkill; 
+    private bool disparoSkill;
+
+    public GameObject pauseMenu;
 
     public void attackPlayer(float a)
     {
@@ -160,10 +162,16 @@ public class CambioFormas : MonoBehaviour {
 
         Physics2D.Linecast(GetComponent<Transform>().position, Input.mousePosition);
         Debug.DrawLine(GetComponent<Transform>().position, Input.mousePosition, Color.magenta);
-        Debug.Log(new Vector2(Input.mousePosition.x/Screen.currentResolution.width, Input.mousePosition.y/Screen.currentResolution.height));
         if (Input.GetKey(KeyCode.Mouse1))
         {
             GetComponent<Transform>().position = Input.mousePosition;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Time.timeScale = pauseMenu.activeSelf ? 1 : 0;
+            pauseMenu.SetActive(!pauseMenu.activeSelf);
+            
         }
 
     }

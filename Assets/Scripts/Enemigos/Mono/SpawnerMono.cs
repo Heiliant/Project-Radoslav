@@ -15,7 +15,7 @@ public class SpawnerMono : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
      
-        if (collision.tag == "humana")
+        if (collision.tag.Equals("humana"))
         {
             Instantiate(mono, GetComponent<Transform>());
             cam.bossSize();

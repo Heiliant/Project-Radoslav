@@ -5,7 +5,7 @@ using UnityEngine;
 public class PoderSpawn : MonoBehaviour {
     public Transform destiny;
     public float velocity;
-
+    public string textaco;
 	// Use this for initialization
 	void Start () {
 		foreach(Light a in GetComponentsInChildren<Light>())
@@ -39,6 +39,7 @@ public class PoderSpawn : MonoBehaviour {
     {
         FindObjectOfType<CambioFormas>().enableTransf();
         FindObjectOfType<PlayerControl>().setAmountOfJumps(1);
+
         Destroy(gameObject);
     }
 }
