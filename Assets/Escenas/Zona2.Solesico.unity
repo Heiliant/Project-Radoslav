@@ -663,6 +663,14 @@ Prefab:
       propertyPath: PJpos
       value: 
       objectReference: {fileID: 1357260344}
+    - target: {fileID: 1884519437442686, guid: a02d4b97e91138945b129355fad6980c, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1819870628739704, guid: a02d4b97e91138945b129355fad6980c, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a02d4b97e91138945b129355fad6980c, type: 2}
   m_IsPrefabParent: 0

@@ -63,6 +63,7 @@ public class ComportamientoCamara : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        startMoveR = true;
     }
 
     // Update is called once per frame

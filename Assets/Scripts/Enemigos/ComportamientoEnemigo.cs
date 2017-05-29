@@ -83,7 +83,7 @@ public class ComportamientoEnemigo : MonoBehaviour
         multiplicacionElementos = (move.x * move.x);
         modulo = Mathf.Sqrt(multiplicacionElementos); //modulo de la distáncia para no tener en cuenta el símbolo
 
-        if (detectado == true)
+        if (detectado)
         {
             if (modulo < DistanciaAtaque)
             {
@@ -143,7 +143,7 @@ public class ComportamientoEnemigo : MonoBehaviour
         }
         else
         {
-            if (detectado == false && transform.position.x > array[1].position.x)
+            if (!detectado && transform.position.x > array[1].position.x)
             {
                 if (controlRotacion == true)
                 {
@@ -154,7 +154,7 @@ public class ComportamientoEnemigo : MonoBehaviour
                 }
 
             }
-            if (detectado == false && transform.position.x < array[0].position.x)
+            if (!detectado && transform.position.x < array[0].position.x)
             {
                 if (controlRotacion == false)
                 {
