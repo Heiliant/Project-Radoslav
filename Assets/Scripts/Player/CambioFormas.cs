@@ -10,6 +10,7 @@ public class CambioFormas : MonoBehaviour {
 
     private KeyCode TRANSFORMACION;
     private KeyCode Escape=KeyCode.Escape;
+    private KeyCode DisparoKey = KeyCode.Mouse1;
     public Transform DetectorSuelo;
     public float radDetSuelo = 0.40f;
     public bool enSuelo = false;
@@ -23,7 +24,8 @@ public class CambioFormas : MonoBehaviour {
     public float segunderoI = 0;
     public float RecoveryTime;  
     public bool invulnerable = false;
-    private bool disparoSkill;
+    public bool disparoSkill;
+    public GameObject demonShot;
 
     public GameObject pauseMenu;
     public GameObject opcionesMenu;
@@ -178,11 +180,7 @@ public class CambioFormas : MonoBehaviour {
         lastHP = currentHP;
 
         Physics2D.Linecast(GetComponent<Transform>().position, Input.mousePosition);
-        Debug.DrawLine(GetComponent<Transform>().position, Input.mousePosition, Color.magenta);
-        if (Input.GetKey(KeyCode.Mouse1))
-        {
-            GetComponent<Transform>().position = Input.mousePosition;
-        }
+        Debug.DrawLine(GetComponent<Transform>().position, Camera.main.ScreenToWorldPoint(Input.mousePosition), Color.magenta);
 
         if (Input.GetKeyDown(Escape))
         {
@@ -190,7 +188,16 @@ public class CambioFormas : MonoBehaviour {
             pauseMenu.SetActive(!pauseMenu.activeSelf);
             opcionesMenu.SetActive(false);
             changeControls.SetActive(false);
-}
+        }
+
+        if(disparoSkill && Input.GetKey(DisparoKey))
+        {
+            if (demon)
+            {
+                GameObject demonshot=Instantiate(demonShot, GetComponent<Transform>().position, GetComponent<Transform>().rotation);
+                demonshot.GetComponent<demonShotBehaviour>().speed = 2;
+            }
+        }
 
     }
 
