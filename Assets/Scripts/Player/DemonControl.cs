@@ -26,6 +26,10 @@ public class DemonControl : MonoBehaviour {
         inmovil = a;
     }
 
+    public bool getPuñetazo()
+    {
+        return puñetazo;
+    }
     // Use this for initialization
     void Start () {
 	}
@@ -84,7 +88,7 @@ public class DemonControl : MonoBehaviour {
 
             if (Input.GetKeyDown(JUMP) && enSuelo)
             {
-                GetComponent<Rigidbody2D>().AddForce(new Vector2(0, FuerzaSalto));
+                GetComponent<Rigidbody2D>().AddForce(new Vector2(0, FuerzaSalto*2));
             }
 
             if (Input.GetKeyDown(PUÑO) && !Input.GetKeyDown(DOWN))

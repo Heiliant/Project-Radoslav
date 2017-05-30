@@ -16,6 +16,7 @@ public class CambioFormas : MonoBehaviour {
     public bool enSuelo = false;
     public LayerMask suelo;
 
+    private float counter = 0;
     public bool transf;
     public float timeToTrans;
 
@@ -24,8 +25,10 @@ public class CambioFormas : MonoBehaviour {
     public float segunderoI = 0;
     public float RecoveryTime;  
     public bool invulnerable = false;
+
     public bool disparoSkill;
     public GameObject demonShot;
+    public GameObject demonTorso;
 
     public GameObject pauseMenu;
     public GameObject opcionesMenu;
@@ -190,12 +193,19 @@ public class CambioFormas : MonoBehaviour {
             changeControls.SetActive(false);
         }
 
-        if(disparoSkill && Input.GetKey(DisparoKey))
+        if(disparoSkill && Input.GetKey(DisparoKey) && !FindObjectOfType<DemonControl>().getPuñetazo())
         {
-            if (demon)
+            if (demon && counter<0.035f)
             {
-                GameObject demonshot=Instantiate(demonShot, GetComponent<Transform>().position, GetComponent<Transform>().rotation);
+                counter += Time.deltaTime;
+                GameObject demonshot=Instantiate(demonShot, demonTorso.GetComponent<Transform>().position, new Quaternion(0, 0, 0, 1));
                 demonshot.GetComponent<demonShotBehaviour>().speed = 2;
+            }
+            else
+            {
+                counter += Time.deltaTime;
+                if (counter > 0.07)
+                    counter = 0;
             }
         }
 
