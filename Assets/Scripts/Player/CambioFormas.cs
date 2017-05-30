@@ -26,7 +26,7 @@ public class CambioFormas : MonoBehaviour {
     private bool disparoSkill;
 
     public GameObject pauseMenu;
-
+    public GameObject opcionesMenu;
     public void attackPlayer(float a)
     {
         if (!invulnerable)
@@ -171,7 +171,7 @@ public class CambioFormas : MonoBehaviour {
         {
             Time.timeScale = pauseMenu.activeSelf ? 1 : 0;
             pauseMenu.SetActive(!pauseMenu.activeSelf);
-            
+            opcionesMenu.SetActive(false);
         }
 
     }

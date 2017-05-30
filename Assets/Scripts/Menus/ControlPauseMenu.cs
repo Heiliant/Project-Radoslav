@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ControlPauseMenu : MonoBehaviour {
-
+    public GameObject opcionesMenu;
     private void Start()
     {
         gameObject.SetActive(false);
@@ -22,7 +22,7 @@ public class ControlPauseMenu : MonoBehaviour {
     }
     public void _Options()
     {
-
+        opcionesMenu.SetActive(true);
     }
 
     public void _Reload()
@@ -30,4 +30,5 @@ public class ControlPauseMenu : MonoBehaviour {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1;
     }
+
 }
