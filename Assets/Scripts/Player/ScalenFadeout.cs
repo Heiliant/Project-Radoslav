@@ -14,8 +14,11 @@ public class ScalenFadeout : MonoBehaviour {
 	void Update () {
         GetComponent<Transform>().localScale = new Vector2(GetComponent<Transform>().localScale.x+Time.deltaTime*GrowthSpeed, 
             GetComponent<Transform>().localScale.y + Time.deltaTime*GrowthSpeed);
-        GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, GetComponent<SpriteRenderer>().color.a-Time.deltaTime*FadeOutSpeed);
+        GetComponent<SpriteRenderer>().color = new Color(GetComponent<SpriteRenderer>().color.r, GetComponent<SpriteRenderer>().color.g,
+            GetComponent<SpriteRenderer>().color.b, GetComponent<SpriteRenderer>().color.a-Time.deltaTime*FadeOutSpeed);
         if (GetComponent<SpriteRenderer>().color.a <= 0)
             Destroy(gameObject);
 	}
+
+
 }

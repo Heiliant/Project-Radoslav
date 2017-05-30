@@ -10,6 +10,7 @@ public class demonShotBehaviour : MonoBehaviour
     private float counter = 0;
     // Use this for initialization
     Vector2 vec;
+    public GameObject explosion;
 
     private float modulo(Vector2 a)
     {
@@ -40,8 +41,9 @@ public class demonShotBehaviour : MonoBehaviour
         if (counter >= 5)
             Destroy(gameObject);
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    public void explode()
     {
-        //comprobar si se choca con el enemigo 
+            Instantiate(explosion, GetComponent<Transform>().transform.position, new Quaternion(0, 0, 0, 1));
     }
 }

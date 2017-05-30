@@ -30,8 +30,8 @@ public class ComportamientoEnemigo : MonoBehaviour
     private float PasadaX;
     Vector2 VectorAuxiliar1;
     Vector2 VectorAuxiliar2;
-    public int hp = 3;
-    public int lasthp;
+    public float hp = 3;
+    public float lasthp;
     private Animator animescualo;
     public LayerMask suelo;
     public bool damaged=false;
@@ -42,6 +42,11 @@ public class ComportamientoEnemigo : MonoBehaviour
         int localA = a ? 1 : -1;
         hp--;
         GetComponent<Rigidbody2D>().AddForce(new Vector2(9900*localA, 2000));
+    }
+
+    public void harmWeak()
+    {
+        hp-=0.05f;
     }
     // Use this for initialization
     void Start()
@@ -75,7 +80,7 @@ public class ComportamientoEnemigo : MonoBehaviour
 
         animescualo.SetBool("enRango", modulo<DistanciaAtaque);
         animescualo.SetFloat("VelX", speedx);
-        animescualo.SetInteger("HP", hp);
+        animescualo.SetFloat("HP", hp);
         animescualo.SetBool("damaged", damaged);
 
         AnimatorStateInfo ScualoState = animescualo.GetCurrentAnimatorStateInfo(0);

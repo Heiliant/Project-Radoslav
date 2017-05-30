@@ -199,7 +199,7 @@ public class CambioFormas : MonoBehaviour {
         {
             if (demon)
             {
-                if (counter < 0.035f)
+                if (counter < 0.05f)
                 {
                     counter += Time.deltaTime;
                     GameObject demonshot = Instantiate(demonShot, demonTorso.GetComponent<Transform>().position, new Quaternion(0, 0, 0, 1));
@@ -208,7 +208,7 @@ public class CambioFormas : MonoBehaviour {
                 else
                 {
                     counter += Time.deltaTime;
-                    if (counter > 0.07)
+                    if (counter > 0.1)
                         counter = 0;
                 }
             }

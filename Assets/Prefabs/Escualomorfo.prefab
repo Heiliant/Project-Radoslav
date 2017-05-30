@@ -54,6 +54,7 @@ GameObject:
   - component: {fileID: 4235053542869084}
   - component: {fileID: 212457926634705556}
   - component: {fileID: 60033974643105064}
+  - component: {fileID: 114214548559378126}
   m_Layer: 0
   m_Name: Antebrazo D
   m_TagString: Untagged
@@ -150,6 +151,7 @@ GameObject:
   - component: {fileID: 4606568332215032}
   - component: {fileID: 212307132103760022}
   - component: {fileID: 60012723011779446}
+  - component: {fileID: 114966820256348080}
   m_Layer: 0
   m_Name: Antebrazo I
   m_TagString: Untagged
@@ -268,7 +270,7 @@ GameObject:
   - component: {fileID: 114323378910780400}
   m_Layer: 0
   m_Name: Escualomorfo
-  m_TagString: Untagged
+  m_TagString: escualo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -282,6 +284,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4511754554493912}
   - component: {fileID: 212105458286163552}
+  - component: {fileID: 70321981431308984}
+  - component: {fileID: 114262517664091894}
   m_Layer: 0
   m_Name: Torso Alto
   m_TagString: Untagged
@@ -350,7 +354,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1942534774875046}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.6, y: 39.9, z: 0}
+  m_LocalPosition: {x: 302.6107, y: 54.916153, z: 0}
   m_LocalScale: {x: 0.5601618, y: 0.56016165, z: 0.56016165}
   m_Children:
   - {fileID: 4511754554493912}
@@ -537,7 +541,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 20
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -711,9 +715,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: -2.1029084, y: -2.3179858}
+  m_Offset: {x: -20.454582, y: -2.3179858}
   serializedVersion: 2
-  m_Size: {x: 90.131905, y: 17.998623}
+  m_Size: {x: 53.42868, y: 17.998623}
 --- !u!68 &68379493420351352
 EdgeCollider2D:
   m_ObjectHideFlags: 1
@@ -744,6 +748,20 @@ EdgeCollider2D:
   m_Points:
   - {x: -1.7353632, y: -3.7417133}
   - {x: 0.16758141, y: -3.6003776}
+--- !u!70 &70321981431308984
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1961794339173674}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: -1.86, y: -0.28623086}
+  m_Size: {x: 10.4, y: 15.262032}
+  m_Direction: 0
 --- !u!95 &95033994542623324
 Animator:
   serializedVersion: 3
@@ -761,6 +779,28 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114214548559378126
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1316145503419904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31eb2817e24e42a4994b0c8793158e6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114262517664091894
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1961794339173674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddf24481277b8884b8945c4870a6deb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114323378910780400
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -778,10 +818,25 @@ MonoBehaviour:
   DistanciaAtaque: 10
   destino: {fileID: 0}
   destino2: {fileID: 0}
-  speedx: 0.2
+  speedxOrigin: 0.2
+  hp: 3
+  lasthp: 0
   suelo:
     serializedVersion: 2
     m_Bits: 256
+  damaged: 0
+  counter: 0
+--- !u!114 &114966820256348080
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1617604891801370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31eb2817e24e42a4994b0c8793158e6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212007859628959778
 SpriteRenderer:
   m_ObjectHideFlags: 1

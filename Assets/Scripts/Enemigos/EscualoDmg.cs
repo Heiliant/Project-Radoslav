@@ -21,5 +21,11 @@ public class EscualoDmg : MonoBehaviour {
             GetComponentInParent<ComportamientoEnemigo>().harm(GetComponent<Transform>().position.x>
                 collision.GetComponent<Transform>().position.x);
         }
+        else if (collision.tag.Equals("demonshot"))
+        {
+            GetComponentInParent<ComportamientoEnemigo>().harmWeak();
+            collision.GetComponent<demonShotBehaviour>().explode();
+            Destroy(collision.gameObject);
+        }
     }
 }
