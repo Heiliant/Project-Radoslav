@@ -14,9 +14,9 @@ public class ControlMenuOpciones : MonoBehaviour {
         changeControls.SetActive(true);
 	}
 
-    public void _Sonido()
+    public void _xd()
     {
-
+        Application.OpenURL("https://www.youtube.com/watch?v=L2tGu3tKIFM");
     }
 
     public void _Atras()
