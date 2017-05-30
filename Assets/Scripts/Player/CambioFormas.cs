@@ -29,6 +29,8 @@ public class CambioFormas : MonoBehaviour {
     public bool disparoSkill;
     public GameObject demonShot;
     public GameObject demonTorso;
+    public GameObject humanPulse;
+    private GameObject localPulse;
 
     public GameObject pauseMenu;
     public GameObject opcionesMenu;
@@ -195,17 +197,24 @@ public class CambioFormas : MonoBehaviour {
 
         if(disparoSkill && Input.GetKey(DisparoKey) && !FindObjectOfType<DemonControl>().getPuñetazo())
         {
-            if (demon && counter<0.035f)
+            if (demon)
             {
-                counter += Time.deltaTime;
-                GameObject demonshot=Instantiate(demonShot, demonTorso.GetComponent<Transform>().position, new Quaternion(0, 0, 0, 1));
-                demonshot.GetComponent<demonShotBehaviour>().speed = 2;
+                if (counter < 0.035f)
+                {
+                    counter += Time.deltaTime;
+                    GameObject demonshot = Instantiate(demonShot, demonTorso.GetComponent<Transform>().position, new Quaternion(0, 0, 0, 1));
+                    demonshot.GetComponent<demonShotBehaviour>().speed = 2;
+                }
+                else
+                {
+                    counter += Time.deltaTime;
+                    if (counter > 0.07)
+                        counter = 0;
+                }
             }
-            else
+            else if(localPulse==null)
             {
-                counter += Time.deltaTime;
-                if (counter > 0.07)
-                    counter = 0;
+                localPulse=Instantiate(humanPulse, GetComponent<Transform>().position, GetComponent<Transform>().rotation);
             }
         }
 

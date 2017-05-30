@@ -667,7 +667,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1775919142956300}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 163.19, y: 26.56, z: -0.04}
+  m_LocalPosition: {x: 190.8, y: 34.033684, z: -0.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4435450830555190}
@@ -1398,6 +1398,13 @@ MonoBehaviour:
   segunderoI: 2.5
   RecoveryTime: 1
   invulnerable: 0
+  disparoSkill: 1
+  demonShot: {fileID: 1202364717763176, guid: 8a8cb87a608392c4bb0ba9aaf3cb6c72, type: 2}
+  demonTorso: {fileID: 1307957884205902}
+  humanPulse: {fileID: 1195227922529794, guid: c001e168ffdc1b445a3f36671e4a8188, type: 2}
+  pauseMenu: {fileID: 0}
+  opcionesMenu: {fileID: 0}
+  changeControls: {fileID: 0}
 --- !u!114 &114274107933294456
 MonoBehaviour:
   m_ObjectHideFlags: 1
