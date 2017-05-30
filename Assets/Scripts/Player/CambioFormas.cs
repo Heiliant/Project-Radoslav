@@ -9,7 +9,7 @@ public class CambioFormas : MonoBehaviour {
     public bool demon = false;
 
     private KeyCode TRANSFORMACION;
-
+    private KeyCode Escape=KeyCode.Escape;
     public Transform DetectorSuelo;
     public float radDetSuelo = 0.40f;
     public bool enSuelo = false;
@@ -63,8 +63,24 @@ public class CambioFormas : MonoBehaviour {
         TRANSFORMACION = KeyCode.E;
     }
 
+    public void setTransfKey(KeyCode a)
+    {
+        TRANSFORMACION = a;
+    }
+    public void setEscKey(KeyCode a)
+    {
+        Escape = a;
+    }
 
+    public KeyCode getEsc()
+    {
+        return Escape;
+    }
 
+    public KeyCode getTransf()
+    {
+        return TRANSFORMACION;
+    }
     // Use this for initialization
     void Start () {
         disparoSkill = false;
@@ -168,7 +184,7 @@ public class CambioFormas : MonoBehaviour {
             GetComponent<Transform>().position = Input.mousePosition;
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(Escape))
         {
             Time.timeScale = pauseMenu.activeSelf ? 1 : 0;
             pauseMenu.SetActive(!pauseMenu.activeSelf);

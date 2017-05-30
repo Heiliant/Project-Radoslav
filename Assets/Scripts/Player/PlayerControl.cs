@@ -47,9 +47,6 @@ public class PlayerControl : MonoBehaviour {
         return enPared;
     }
 
-
-
-    
     public Transform getTorsoSave()
     {
         return initialTorsoSave;
@@ -69,6 +66,46 @@ public class PlayerControl : MonoBehaviour {
     {
         amountOfJumps = a;
     }
+
+    public void setJumpKey(KeyCode a)
+    {
+        JUMP = a;
+    }
+    public void setLeftKey(KeyCode a)
+    {
+        LEFT = a;
+    }
+    public void setRightKey(KeyCode a)
+    {
+        RIGHT = a;
+    }
+    public void setFistKey(KeyCode a)
+    {
+        PUÑO = a;
+
+    }
+    public void setDownKey(KeyCode a)
+    {
+        DOWN = a;
+    }
+
+    public KeyCode getLeft()
+    {
+        return LEFT;
+    }
+    public KeyCode getRight()
+    {
+        return RIGHT;
+    }
+    public KeyCode getJump()
+    {
+        return JUMP;
+    }
+    public KeyCode getFist()
+    {
+        return PUÑO;
+    }
+
     //-----------------------------
 
 
