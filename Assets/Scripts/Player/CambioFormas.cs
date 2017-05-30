@@ -27,6 +27,7 @@ public class CambioFormas : MonoBehaviour {
 
     public GameObject pauseMenu;
     public GameObject opcionesMenu;
+    public GameObject changeControls;
     public void attackPlayer(float a)
     {
         if (!invulnerable)
@@ -172,7 +173,8 @@ public class CambioFormas : MonoBehaviour {
             Time.timeScale = pauseMenu.activeSelf ? 1 : 0;
             pauseMenu.SetActive(!pauseMenu.activeSelf);
             opcionesMenu.SetActive(false);
-        }
+            changeControls.SetActive(false);
+}
 
     }
 

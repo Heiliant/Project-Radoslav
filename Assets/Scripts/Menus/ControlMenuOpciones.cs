@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ControlMenuOpciones : MonoBehaviour {
+    public GameObject changeControls;
 
     private void Start()
     {
@@ -10,7 +11,7 @@ public class ControlMenuOpciones : MonoBehaviour {
     }
 
     public void _Controles(){
-        
+        changeControls.SetActive(true);
 	}
 
     public void _Sonido()
