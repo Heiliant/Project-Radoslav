@@ -48,6 +48,14 @@ public class ComportamientoEnemigo : MonoBehaviour
     {
         hp-=0.05f;
     }
+
+    public void knockback(bool a)
+    {
+        int localA = a ? 1 : -1;
+        GetComponent<Rigidbody2D>().AddForce(new Vector2(9900 * localA, 2000));
+        speedxOrigin+=0.2f;
+    }
+
     // Use this for initialization
     void Start()
     {

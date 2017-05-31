@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 68535161375466812}
   m_Layer: 0
   m_Name: humanPulse
-  m_TagString: Untagged
+  m_TagString: pulsohumana
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GrowthSpeed: 30
-  FadeOutSpeed: 1.6
+  FadeOutSpeed: 2.5
 --- !u!212 &212929732836165914
 SpriteRenderer:
   m_ObjectHideFlags: 1

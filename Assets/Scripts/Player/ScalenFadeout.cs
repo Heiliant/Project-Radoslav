@@ -20,5 +20,10 @@ public class ScalenFadeout : MonoBehaviour {
             Destroy(gameObject);
 	}
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag.Equals("escualo"))
+            collision.GetComponent<ComportamientoEnemigo>().knockback(collision.GetComponent<Transform>().position.x>GetComponent<Transform>().position.x);
+    }
 
 }

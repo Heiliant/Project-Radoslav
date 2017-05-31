@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 58052267491116880}
   m_Layer: 0
   m_Name: demonShot
-  m_TagString: Untagged
+  m_TagString: demonshot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  explosion: {fileID: 1576461949183884, guid: 6b75b572258e02242a92796c31467eb6, type: 2}
 --- !u!212 &212259137788459300
 SpriteRenderer:
   m_ObjectHideFlags: 1
