@@ -8,8 +8,8 @@ public class ComportamientoCamara : MonoBehaviour
     public float PotestadDelMouse=10f;
     private float desplazadoX=0;
     private float desplazadoY=0;
-    private float bossSizeCam = 28;
-    private float bossYCam = 15;
+    public float bossSizeCam = 28; //28 para el sol, 
+    public float bossYCam = 15; //15 para el sol
     private float regularSizeCam=20;
     private float regularYCam;
     public bool startMoveB = false;
@@ -20,8 +20,13 @@ public class ComportamientoCamara : MonoBehaviour
     private Vector2 sticker;
     private bool stickMode=false;
 
+    private bool free;
     public bool quake;
-
+    
+    public void breakFree(bool a)
+    {
+        free=a;
+    }
     public void bossSize()
     {
         startMoveB = true;
@@ -69,21 +74,25 @@ public class ComportamientoCamara : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!stickMode)
+        if (!free)
         {
-            GetComponent<Transform>().position =
-                new Vector3(player.GetComponent<Transform>().position.x + Input.mousePosition.x /
-                           (Screen.currentResolution.width / PotestadDelMouse) + desplazadoX,
-                            player.GetComponent<Transform>().position.y + Input.mousePosition.y /
-                           (Screen.currentResolution.height / PotestadDelMouse) + desplazadoY,
-                            GetComponent<Transform>().position.z);
-        }
-        else
-        {
-            GetComponent<Transform>().position = new Vector3(sticker.x, sticker.y, GetComponent<Transform>().position.z);
+            if (!stickMode)
+            {
+                GetComponent<Transform>().position =
+                    new Vector3(player.GetComponent<Transform>().position.x + Input.mousePosition.x /
+                               (Screen.currentResolution.width / PotestadDelMouse) + desplazadoX,
+                                player.GetComponent<Transform>().position.y + Input.mousePosition.y /
+                               (Screen.currentResolution.height / PotestadDelMouse) + desplazadoY,
+                                GetComponent<Transform>().position.z);
+            }
+            else
+            {
+                GetComponent<Transform>().position = new Vector3(sticker.x, sticker.y, GetComponent<Transform>().position.z);
+            }
         }
         if (quake)
             this.tremble(0.4f);
+       
     }
 
     private void FixedUpdate()

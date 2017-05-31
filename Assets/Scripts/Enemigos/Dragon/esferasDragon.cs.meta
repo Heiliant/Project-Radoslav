@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 4b227c67fa052854995d188b9778c57b
+timeCreated: 1496268621
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - efectoCarga: {fileID: 1110733912701104, guid: 09bf9b37d437bc648b4d88fff9206904,
+      type: 2}
+  - dragonShots: {fileID: 1744494487741032, guid: 15905159b7f58bb4da6ddaea86b4a5d2,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

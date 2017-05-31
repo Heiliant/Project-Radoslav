@@ -9,30 +9,13 @@ public class ComportamientoBloqueSuelo : MonoBehaviour {
     public float speed = 0.001f;
     private float Xini;
     private float Yini;
-	// Use this for initialization
-	void Start () {
+    private float counter = 0;
+    public float lifeTime;
+    // Use this for initialization
+
+    void Start () {
         Xini = GetComponent<Transform>().position.x;
         Yini = GetComponent<Transform>().position.y;
-        /*
-                if (movVer)
-                {
-                    if(Yini<0)
-                    {
-                        float temp = fromMinVal;
-                        fromMinVal = toMaxVal;
-                        toMaxVal = temp;
-                    }
-                }
-                else
-                {
-                    if (Xini < 0)
-                    {
-                        float temp = fromMinVal;
-                        fromMinVal = toMaxVal;
-                        toMaxVal = temp;
-                    }
-                }
-        */
     }
 
     // Update is called once per frame
@@ -52,6 +35,14 @@ public class ComportamientoBloqueSuelo : MonoBehaviour {
                 speed *= -1;
             }
             transform.Translate(new Vector2(speed, 0));
+        }
+        if (lifeTime != 0)
+        {
+            counter += Time.deltaTime;
+            if (counter > lifeTime)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
