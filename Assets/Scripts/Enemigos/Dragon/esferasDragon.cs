@@ -27,13 +27,14 @@ public class esferasDragon : MonoBehaviour {
             for(int i=0; i<amountOfShots; ++i)
             {
                 shots[i] = Instantiate(dragonShots, GetComponent<Transform>().position, GetComponent<Transform>().rotation);
-                shots[i].GetComponent<ComportamientoDisparosDragon>().strength = 6;
+                shots[i].GetComponent<ComportamientoDisparosDragon>().strength = 4;
                 shots[i].GetComponent<ComportamientoDisparosDragon>().v0 = new Vector2(Mathf.Sin(i)*shotForce, Mathf.Cos(i)*shotForce);
                 shots[i].GetComponent<ComportamientoDisparosDragon>().timeToShoot = 1;
                 shots[i].GetComponent<ComportamientoDisparosDragon>().waitTime = 1;
                 shots[i].GetComponent<ComportamientoDisparosDragon>().lifeTime = 7*0.67f;
             }
             counter = 0;
+            actualTime = timeToAttack + (Random.Range(-variacion, variacion));
         }
         else
         {

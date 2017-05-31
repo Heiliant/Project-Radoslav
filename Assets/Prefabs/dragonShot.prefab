@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 58953393289803842}
   m_Layer: 0
   m_Name: dragonShot
-  m_TagString: Untagged
+  m_TagString: dragonShot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1744494487741032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 77.50633, y: 9.745571, z: -2.2}
+  m_LocalPosition: {x: 86.364075, y: 16.149818, z: -2.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,9 +75,9 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.21, y: -0.33}
   serializedVersion: 2
-  m_Radius: 2.09
+  m_Radius: 1.1341934
 --- !u!96 &96736105585884322
 TrailRenderer:
   serializedVersion: 2

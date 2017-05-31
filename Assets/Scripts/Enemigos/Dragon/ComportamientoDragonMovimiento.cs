@@ -58,21 +58,29 @@ public class ComportamientoDragonMovimiento : MonoBehaviour {
                 }
                 break;
             case estado.mover2:
-                if(counter<3.5f)
                     counter += Time.deltaTime;
                 GetComponent<Transform>().Translate(1f*vel, 0f, 0f);
-                if (counter > 3)
+                if (counter >= 5)
                 {
                     GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>().stayQuiet(false);
                     GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Transform>().Translate(1f * vel, 0f, 0f);
+                    if(counter>13 && counter<14)
                     foreach (esferasDragon a in GetComponentsInChildren<esferasDragon>())
                     {
                         a.enabled = true;
-                        a.timeToAttack = Random.Range(15f, 30f);
-                        a.variacion = Random.Range(1f, 4f);
+                        a.timeToAttack = Random.Range(5, 15f);
+                        a.variacion = 3f;
                         a.amountOfShots = Random.Range(2, 4);
                     }
                     
+                }
+                else if(counter > 22)
+                {
+                    foreach (esferasDragon a in GetComponentsInChildren<esferasDragon>())
+                    {
+                        a.enabled = false;
+                    }
+                    counter = 5;
                 }
                 break;
         }
