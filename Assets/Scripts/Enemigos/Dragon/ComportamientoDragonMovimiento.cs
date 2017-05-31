@@ -21,7 +21,11 @@ public class ComportamientoDragonMovimiento : MonoBehaviour {
     // Use this for initialization
     void Start () {
         modo = estado.nulo;
-	}
+        foreach(esferasDragon a in GetComponentsInChildren<esferasDragon>())
+                    {
+            a.enabled = false;
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {       
@@ -61,6 +65,13 @@ public class ComportamientoDragonMovimiento : MonoBehaviour {
                 {
                     GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>().stayQuiet(false);
                     GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Transform>().Translate(1f * vel, 0f, 0f);
+                    foreach (esferasDragon a in GetComponentsInChildren<esferasDragon>())
+                    {
+                        a.enabled = true;
+                        a.timeToAttack = Random.Range(15f, 30f);
+                        a.variacion = Random.Range(1f, 4f);
+                        a.amountOfShots = Random.Range(2, 4);
+                    }
                     
                 }
                 break;

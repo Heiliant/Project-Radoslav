@@ -40,6 +40,14 @@ public class ComportamientoDisparosDragon : MonoBehaviour {
         if (counter > lifeTime)
             Destroy(gameObject);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag.Equals("humana") || collision.tag.Equals("demonio"))
+        {
+            FindObjectOfType<CambioFormas>().attackPlayer(-1);
+        }
+    }
 }
 
 
