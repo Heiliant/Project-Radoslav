@@ -53,18 +53,20 @@ public class ComportamientoDragonMovimiento : MonoBehaviour {
                     GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ComportamientoCamara>().bossYCam *= 2;
                     GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ComportamientoCamara>().startMoveB = true;
                     modo = estado.mover2;
+                    FindObjectOfType<dragonDamage>().startBar();
                     spawner.GetComponent<floorSpawner>().enabled=(true);
                     counter = 0;
                 }
                 break;
             case estado.mover2:
+                if(counter < 8)
                     counter += Time.deltaTime;
                 GetComponent<Transform>().Translate(1f*vel, 0f, 0f);
                 if (counter >= 5)
                 {
                     GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>().stayQuiet(false);
                     GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Transform>().Translate(1f * vel, 0f, 0f);
-                    if(counter>13 && counter<14)
+                    if(counter>7)
                     foreach (esferasDragon a in GetComponentsInChildren<esferasDragon>())
                     {
                         a.enabled = true;
@@ -74,15 +76,9 @@ public class ComportamientoDragonMovimiento : MonoBehaviour {
                     }
                     
                 }
-                else if(counter > 22)
-                {
-                    foreach (esferasDragon a in GetComponentsInChildren<esferasDragon>())
-                    {
-                        a.enabled = false;
-                    }
-                    counter = 5;
-                }
+
                 break;
         }
 	}
+    
 }

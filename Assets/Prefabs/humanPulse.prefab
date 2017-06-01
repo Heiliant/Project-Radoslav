@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212929732836165914}
   - component: {fileID: 114674306328442768}
   - component: {fileID: 68535161375466812}
+  - component: {fileID: 114755505976768956}
   m_Layer: 0
   m_Name: humanPulse
   m_TagString: pulsohumana
@@ -88,8 +89,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eadc69a44a63a546aaa88e0167311f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GrowthSpeed: 30
-  FadeOutSpeed: 2.5
+  GrowthSpeed: 20
+  FadeOutSpeed: 1
+--- !u!114 &114755505976768956
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1195227922529794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91b7a86ed6fbaf74d891e2de4e4be307, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deflectThis: {fileID: 1744494487741032, guid: 15905159b7f58bb4da6ddaea86b4a5d2,
+    type: 2}
 --- !u!212 &212929732836165914
 SpriteRenderer:
   m_ObjectHideFlags: 1

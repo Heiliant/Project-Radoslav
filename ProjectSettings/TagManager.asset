@@ -24,6 +24,8 @@ TagManager:
   - demonshot
   - escualo
   - pulsohumana
+  - dragonShot
+  - dragonHead
   layers:
   - Default
   - TransparentFX

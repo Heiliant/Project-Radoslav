@@ -8,7 +8,7 @@ public class LevelManagment : MonoBehaviour {
     private Transform lastCP;
     public Transform spawn;
     public Text Relevant;
-    private float counter=0;
+    public float counter=0;
     private void Start()
     {
         lastCP = spawn;
@@ -27,7 +27,7 @@ public class LevelManagment : MonoBehaviour {
             player.SetActive(false);
             Relevant.text = "Has muerto";
             counter += Time.deltaTime;
-            FindObjectOfType<ComportamientoCamara>().stickTo(GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Transform>().position);
+            //para el dragon hay que comentar esto FindObjectOfType<ComportamientoCamara>().stickTo(GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Transform>().position);
             Relevant.color = new Color((counter / 3) * 184, 0, 0, counter / 3);
             if (counter >= 6)
             {        

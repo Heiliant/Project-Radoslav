@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4461101857156196}
   - component: {fileID: 212921739396360174}
+  - component: {fileID: 114693668525989088}
   m_Layer: 0
   m_Name: esfera
   m_TagString: Untagged
@@ -52,6 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4792420162724626}
   - component: {fileID: 212512202897319156}
+  - component: {fileID: 114838376650987236}
   m_Layer: 0
   m_Name: esfera
   m_TagString: Untagged
@@ -164,6 +166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4213795270204558}
   - component: {fileID: 212029404720256082}
+  - component: {fileID: 114118532774371228}
   m_Layer: 0
   m_Name: esfera
   m_TagString: Untagged
@@ -212,6 +215,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4346291000712586}
   - component: {fileID: 212173469536424876}
+  - component: {fileID: 114321264149199678}
   m_Layer: 0
   m_Name: esfera
   m_TagString: Untagged
@@ -228,6 +232,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4088989535051238}
   - component: {fileID: 212669892631366374}
+  - component: {fileID: 114945933511220236}
   m_Layer: 0
   m_Name: esfera
   m_TagString: Untagged
@@ -291,6 +296,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4876247224614310}
   - component: {fileID: 212990844424100004}
+  - component: {fileID: 114232763397559178}
   m_Layer: 0
   m_Name: esfera
   m_TagString: Untagged
@@ -387,6 +393,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4905584001541602}
   - component: {fileID: 212361477084802398}
+  - component: {fileID: 114426533127869386}
   m_Layer: 0
   m_Name: esfera
   m_TagString: Untagged
@@ -419,9 +426,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4988420785598770}
   - component: {fileID: 212874471328652596}
+  - component: {fileID: 58252719591905040}
+  - component: {fileID: 58911535016534174}
+  - component: {fileID: 61416119873699208}
   m_Layer: 0
   m_Name: Cabeza
-  m_TagString: Untagged
+  m_TagString: dragonHead
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -516,6 +526,7 @@ GameObject:
   - component: {fileID: 4707111533372578}
   - component: {fileID: 95729929813126594}
   - component: {fileID: 114583602159750180}
+  - component: {fileID: 114380256351039014}
   m_Layer: 0
   m_Name: Dragon
   m_TagString: Untagged
@@ -564,6 +575,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4617577399179336}
   - component: {fileID: 212640204774193882}
+  - component: {fileID: 114108037345182906}
   m_Layer: 0
   m_Name: esfera
   m_TagString: Untagged
@@ -902,7 +914,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1932629263467248}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 178, y: 131.2, z: 2.65625}
+  m_LocalPosition: {x: -0.6, y: -104.9, z: -21.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4850567296396332}
@@ -1060,6 +1072,48 @@ Transform:
   m_Father: {fileID: 4850567296396332}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &58252719591905040
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1771224335517656}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0.37968445, y: 15.946741}
+  serializedVersion: 2
+  m_Radius: 15.941162
+--- !u!58 &58911535016534174
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1771224335517656}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0.37968445, y: -5.7}
+  serializedVersion: 2
+  m_Radius: 7.331903
+--- !u!61 &61416119873699208
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1771224335517656}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0.4078517, y: -2.482994}
+  serializedVersion: 2
+  m_Size: {x: 15.289294, y: 9.625197}
 --- !u!95 &95729929813126594
 Animator:
   serializedVersion: 3
@@ -1067,7 +1121,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1932629263467248}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 77841cfd94e461046ac845b3804d6b00, type: 2}
   m_CullingMode: 0
@@ -1077,6 +1131,117 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114108037345182906
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1969463124948956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b227c67fa052854995d188b9778c57b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  efectoCarga: {fileID: 1110733912701104, guid: 09bf9b37d437bc648b4d88fff9206904,
+    type: 2}
+  dragonShots: {fileID: 1744494487741032, guid: 15905159b7f58bb4da6ddaea86b4a5d2,
+    type: 2}
+  timeToAttack: 5
+  variacion: 1
+  amountOfShots: 6
+  shotForce: 15
+--- !u!114 &114118532774371228
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1358698585251304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b227c67fa052854995d188b9778c57b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  efectoCarga: {fileID: 1110733912701104, guid: 09bf9b37d437bc648b4d88fff9206904,
+    type: 2}
+  dragonShots: {fileID: 1744494487741032, guid: 15905159b7f58bb4da6ddaea86b4a5d2,
+    type: 2}
+  timeToAttack: 5
+  variacion: 1
+  amountOfShots: 6
+  shotForce: 15
+--- !u!114 &114232763397559178
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1559393961411082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b227c67fa052854995d188b9778c57b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  efectoCarga: {fileID: 1110733912701104, guid: 09bf9b37d437bc648b4d88fff9206904,
+    type: 2}
+  dragonShots: {fileID: 1744494487741032, guid: 15905159b7f58bb4da6ddaea86b4a5d2,
+    type: 2}
+  timeToAttack: 5
+  variacion: 1
+  amountOfShots: 6
+  shotForce: 15
+--- !u!114 &114321264149199678
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1456879008344804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b227c67fa052854995d188b9778c57b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  efectoCarga: {fileID: 1110733912701104, guid: 09bf9b37d437bc648b4d88fff9206904,
+    type: 2}
+  dragonShots: {fileID: 1744494487741032, guid: 15905159b7f58bb4da6ddaea86b4a5d2,
+    type: 2}
+  timeToAttack: 5
+  variacion: 1
+  amountOfShots: 6
+  shotForce: 15
+--- !u!114 &114380256351039014
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1932629263467248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 894d4b5603a0367428c65245c9248a98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vel: 0.161
+  destinyIni: {fileID: 0}
+  spawner: {fileID: 0}
+  modo: 4
+  timeToMove: 1
+--- !u!114 &114426533127869386
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1728692366863002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b227c67fa052854995d188b9778c57b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  efectoCarga: {fileID: 1110733912701104, guid: 09bf9b37d437bc648b4d88fff9206904,
+    type: 2}
+  dragonShots: {fileID: 1744494487741032, guid: 15905159b7f58bb4da6ddaea86b4a5d2,
+    type: 2}
+  timeToAttack: 5
+  variacion: 1
+  amountOfShots: 6
+  shotForce: 15
 --- !u!114 &114583602159750180
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1116,6 +1281,63 @@ MonoBehaviour:
   - {fileID: 1969463124948956}
   - {fileID: 1004998275926454}
   player: {fileID: 0}
+--- !u!114 &114693668525989088
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1004998275926454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b227c67fa052854995d188b9778c57b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  efectoCarga: {fileID: 1110733912701104, guid: 09bf9b37d437bc648b4d88fff9206904,
+    type: 2}
+  dragonShots: {fileID: 1744494487741032, guid: 15905159b7f58bb4da6ddaea86b4a5d2,
+    type: 2}
+  timeToAttack: 5
+  variacion: 1
+  amountOfShots: 6
+  shotForce: 15
+--- !u!114 &114838376650987236
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1137084260841866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b227c67fa052854995d188b9778c57b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  efectoCarga: {fileID: 1110733912701104, guid: 09bf9b37d437bc648b4d88fff9206904,
+    type: 2}
+  dragonShots: {fileID: 1744494487741032, guid: 15905159b7f58bb4da6ddaea86b4a5d2,
+    type: 2}
+  timeToAttack: 5
+  variacion: 1
+  amountOfShots: 6
+  shotForce: 15
+--- !u!114 &114945933511220236
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1496924442046370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b227c67fa052854995d188b9778c57b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  efectoCarga: {fileID: 1110733912701104, guid: 09bf9b37d437bc648b4d88fff9206904,
+    type: 2}
+  dragonShots: {fileID: 1744494487741032, guid: 15905159b7f58bb4da6ddaea86b4a5d2,
+    type: 2}
+  timeToAttack: 5
+  variacion: 1
+  amountOfShots: 6
+  shotForce: 15
 --- !u!212 &212026971971012868
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -1146,7 +1368,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -10
   m_Sprite: {fileID: 21300014, guid: 01e510cbdfeac8e47b81a95ed803a3fd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1181,7 +1403,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: -10
+  m_SortingOrder: -9
   m_Sprite: {fileID: 21300006, guid: 01e510cbdfeac8e47b81a95ed803a3fd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1391,7 +1613,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_Sprite: {fileID: 21300014, guid: 01e510cbdfeac8e47b81a95ed803a3fd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -1461,7 +1683,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_Sprite: {fileID: 21300014, guid: 01e510cbdfeac8e47b81a95ed803a3fd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -1531,7 +1753,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: -10
+  m_SortingOrder: -9
   m_Sprite: {fileID: 21300010, guid: 01e510cbdfeac8e47b81a95ed803a3fd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1601,7 +1823,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: -10
+  m_SortingOrder: -9
   m_Sprite: {fileID: 21300006, guid: 01e510cbdfeac8e47b81a95ed803a3fd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1671,7 +1893,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_Sprite: {fileID: 21300014, guid: 01e510cbdfeac8e47b81a95ed803a3fd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1811,7 +2033,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: -10
+  m_SortingOrder: -9
   m_Sprite: {fileID: 21300012, guid: 01e510cbdfeac8e47b81a95ed803a3fd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1846,7 +2068,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: -10
+  m_SortingOrder: -9
   m_Sprite: {fileID: 21300008, guid: 01e510cbdfeac8e47b81a95ed803a3fd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2021,7 +2243,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_Sprite: {fileID: 21300014, guid: 01e510cbdfeac8e47b81a95ed803a3fd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2056,7 +2278,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_Sprite: {fileID: 21300014, guid: 01e510cbdfeac8e47b81a95ed803a3fd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -2126,7 +2348,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: -10
+  m_SortingOrder: -9
   m_Sprite: {fileID: 21300012, guid: 01e510cbdfeac8e47b81a95ed803a3fd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2196,7 +2418,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_Sprite: {fileID: 21300014, guid: 01e510cbdfeac8e47b81a95ed803a3fd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -2231,7 +2453,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_Sprite: {fileID: 21300014, guid: 01e510cbdfeac8e47b81a95ed803a3fd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2266,7 +2488,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: -10
+  m_SortingOrder: -9
   m_Sprite: {fileID: 21300010, guid: 01e510cbdfeac8e47b81a95ed803a3fd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
