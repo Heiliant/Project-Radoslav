@@ -1,23 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PoderSpawn : MonoBehaviour {
     public Transform destiny;
+    public GameObject relevant;
     public float velocity;
     public string textaco;
-	// Use this for initialization
+    public enum boss{
+        mono,
+        sol
+    }
+    public boss tipo;
+    private bool localB = false;
+    private float counter = 0;
 	void Start () {
 		foreach(Light a in GetComponentsInChildren<Light>())
         {
             a.intensity = 0;
         }
 	}
-
-    // Update is called once per frame
-    
-
-	// Update is called once per frame
 	void Update () {
         foreach (Light a in GetComponentsInChildren<Light>())
         {
@@ -32,14 +35,38 @@ public class PoderSpawn : MonoBehaviour {
             sentido = 1;
         GetComponent<Transform>().Translate(0f, sentido*(velocity*Mathf.Abs((destiny.position.y-GetComponent<Transform>().position.y)))/1000, 0f);
         destiny.transform.Translate(0, sentido * -(velocity * Mathf.Abs((destiny.position.y - GetComponent<Transform>().position.y))) / 1000, 0);
+
+        if (localB)
+        {
+            counter += Time.deltaTime;
+            relevant.GetComponent<Text>().color = new Color(0, 0, 0, 0+counter/3);
+        }
         
+        if(counter > 5)
+        {
+            relevant.GetComponent<Text>().color = new Color(1, 1, 1, 0);
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        FindObjectOfType<CambioFormas>().enableTransf();
-        FindObjectOfType<PlayerControl>().setAmountOfJumps(1);
-
-        Destroy(gameObject);
-    }
+        switch (tipo) {
+            case boss.mono:
+                FindObjectOfType<CambioFormas>().enableTransf();
+                FindObjectOfType<PlayerControl>().setAmountOfJumps(1);               
+            break;
+            case boss.sol:
+                FindObjectOfType<CambioFormas>().disparoSkill=true;
+                break;
+        }
+        relevant.GetComponent<Text>().text = textaco;
+        Destroy(GetComponent<CircleCollider2D>());
+        foreach(Light a in GetComponentsInChildren<Light>())
+        {
+            Destroy(a);
+        }
+        Destroy(GetComponentInChildren<ParticleSystem>());
+        localB = true;
+    }   
 }
