@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class dragonDamage : MonoBehaviour {
-    private float dragonHP = 1;
+    private float dragonHP = 550;
     public GameObject BossHP;
     public GameObject BossHPActual;
 
