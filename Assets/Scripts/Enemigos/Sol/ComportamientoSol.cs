@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ComportamientoSol : MonoBehaviour {
     public enum Estado 
-    {   nullemod=0, //Al alternar entre modos es conveniente que al acabar un ciclo (embestida 1, 2, 3, 4), antes de ejecutar un nuevo estado,
+    {   sleep=-1,
+        nullemod =0, //Al alternar entre modos es conveniente que al acabar un ciclo (embestida 1, 2, 3, 4), antes de ejecutar un nuevo estado,
         laser=1,  //se pase antes por el estado nullemod para resetear todas las componentes que se van usando de manera local. 
         laser2=2,
         lluvia=3,
@@ -70,10 +71,11 @@ public class ComportamientoSol : MonoBehaviour {
     }
 
 	// Use this for initialization
-	void Start () {
+	void Start () {/*
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ComportamientoCamara>().
-            stickTo(GameObject.Find("BossSol").GetComponent<Transform>().position);
+            stickTo(GameObject.Find("BossSol").GetComponent<Transform>().position);*/
 
+        modo = Estado.sleep;
         laserray = new Vector3[2];
         laserOrigin = Random.Range(0, 2);
         laserray[0] = GetComponent<Transform>().position;
@@ -340,6 +342,8 @@ public class ComportamientoSol : MonoBehaviour {
                         break;
                 }
 
+                break;
+            case Estado.sleep:
                 break;
         }
 	}
