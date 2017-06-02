@@ -66,7 +66,10 @@ public class PlayerControl : MonoBehaviour {
     {
         amountOfJumps = a;
     }
-
+    public int getAmountOfJumps()
+    {
+        return amountOfJumps;
+    }
     public void setJumpKey(KeyCode a)
     {
         JUMP = a;

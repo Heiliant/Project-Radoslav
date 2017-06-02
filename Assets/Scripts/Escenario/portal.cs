@@ -15,5 +15,9 @@ public class portal : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         SceneManager.LoadScene(destinyScene, LoadSceneMode.Single);
+        PlayerPrefs.SetInt("jumps", GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>().getAmountOfJumps());
+        PlayerPrefs.SetString("transf", GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().getTransf().ToString());
+        PlayerPrefs.SetInt("disparo", GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().disparoSkill ? 1 : 0);
+        PlayerPrefs.SetInt("stage", SceneManager.GetActiveScene().buildIndex);
     }
 }
