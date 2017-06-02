@@ -247,7 +247,7 @@ public class ComportamientoSol : MonoBehaviour {
                         else
                             aura.GetComponent<MovimientoAura>().scaleSpeed = 0.4f;
 
-                        if (counter >= 3.5f)
+                        if (counter >= 6.5f)
                         {
                             counter = 0;
                             aura.GetComponent<MovimientoAura>().scaleSpeed = 0.1f;

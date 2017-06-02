@@ -1055,7 +1055,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1641754624599470}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.33, y: 8.85, z: 0}
+  m_LocalPosition: {x: -0.33, y: 7.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4097868485207056}
@@ -1309,7 +1309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 514e83075142b7c4ea84d89a4e6aeaf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 3
+  HP: 1
   luz: {fileID: 1944178530099578}
 --- !u!114 &114502143225732974
 MonoBehaviour:
@@ -1429,6 +1429,7 @@ MonoBehaviour:
   aura: {fileID: 1775645076969048}
   modo: 0
   embestidaSpeedOrigin: 0.6
+  counter: 0
   timeToTargetPJ: 2
   Disparo: {fileID: 1355439558692160, guid: 1bbf020068a54934dbfa390e09b5b6cb, type: 2}
   EmbestidaShotsAmount: 20

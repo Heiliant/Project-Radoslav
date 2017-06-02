@@ -9,6 +9,15 @@ public class LevelManagment : MonoBehaviour {
     public Transform spawn;
     public Text Relevant;
     public float counter=0;
+    public GameObject boss;
+    public GameObject hisSpawner;
+    public SpawnerMono script;
+    public enum putoamo
+    {
+        mono, sol, dragon
+    }
+    public putoamo jefe;
+
     private void Start()
     {
         lastCP = spawn;
@@ -36,6 +45,14 @@ public class LevelManagment : MonoBehaviour {
                 player.SetActive(true);
 
                 player.GetComponent<Transform>().position = lastCP.position;
+
+                if (boss != null)
+                {
+                    Destroy(boss);
+                    if(jefe==putoamo.mono)
+                        hisSpawner.GetComponent<BoxCollider2D>().enabled=(true);
+                }
+
 
                 player.GetComponent<CambioFormas>().currentHP = 3;
                 player.GetComponent<CambioFormas>().invulnerable = false;

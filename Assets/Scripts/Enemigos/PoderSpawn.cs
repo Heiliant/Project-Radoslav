@@ -7,13 +7,14 @@ public class PoderSpawn : MonoBehaviour {
     public Transform destiny;
     public GameObject relevant;
     public float velocity;
-    public string textaco;
+    private string textaco;
     public enum boss{
         mono,
         sol
     }
     public boss tipo;
     private bool localB = false;
+    private bool localSumadre = false;
     private float counter = 0;
 	void Start () {
 		foreach(Light a in GetComponentsInChildren<Light>())
@@ -38,14 +39,31 @@ public class PoderSpawn : MonoBehaviour {
 
         if (localB)
         {
-            counter += Time.deltaTime;
-            relevant.GetComponent<Text>().color = new Color(0, 0, 0, 0+counter/3);
+            counter += Time.deltaTime; 
+            relevant.GetComponent<Image>().color = new Color(1, 1, 1, counter);
+         
         }
-        
-        if(counter > 5)
+
+        if (counter >= 1)
         {
-            relevant.GetComponent<Text>().color = new Color(1, 1, 1, 0);
-            Destroy(gameObject);
+            relevant.GetComponentInChildren<Text>().text = textaco;
+            Time.timeScale = 0;
+            localB = false;
+            if (!localSumadre)
+            {
+                if (!Input.anyKey)
+                    localSumadre = true;
+            }
+        }
+
+        if (Input.anyKey && Time.timeScale==0 && !localB && localSumadre)
+        {
+            relevant.GetComponent<Image>().color = new Color(1, 1, 1, 0);
+            relevant.GetComponentInChildren<Text>().text = "";
+            relevant.SetActive(false);
+            Time.timeScale = 1;
+            localB = false;
+            Destroy(this.gameObject);
         }
     }
 
@@ -54,19 +72,23 @@ public class PoderSpawn : MonoBehaviour {
         switch (tipo) {
             case boss.mono:
                 FindObjectOfType<CambioFormas>().enableTransf();
-                FindObjectOfType<PlayerControl>().setAmountOfJumps(1);               
+                FindObjectOfType<PlayerControl>().setAmountOfJumps(1);
+                textaco = "Has obtenido nuevas habilidades.\n\n\n" +
+                    "-Pulsa E para transformarte en demonio.\n\n-Pulsa dos veces ESPACIO para ejecutar un doble salto" +
+                    "\n\n\t\t\t\t\t\t\tpulsa cualquier tecla para continuar";
             break;
             case boss.sol:
                 FindObjectOfType<CambioFormas>().disparoSkill=true;
                 break;
         }
-        relevant.GetComponent<Text>().text = textaco;
-        Destroy(GetComponent<CircleCollider2D>());
+        
+        relevant.SetActive(true);   
         foreach(Light a in GetComponentsInChildren<Light>())
         {
             Destroy(a);
         }
         Destroy(GetComponentInChildren<ParticleSystem>());
         localB = true;
+        
     }   
 }

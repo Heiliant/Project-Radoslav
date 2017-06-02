@@ -8,7 +8,7 @@ public class SpawnerMono : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        GetComponent<Transform>().position = new Vector3(139.9f, 46.4f, 0f);
+        GetComponent<Transform>().position = new Vector3(139.9f, 46.4f, 20f);
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ComportamientoCamara>();
     }
 
@@ -17,10 +17,10 @@ public class SpawnerMono : MonoBehaviour {
      
         if (collision.tag.Equals("humana"))
         {
-            Instantiate(mono, GetComponent<Transform>());
+            FindObjectOfType<LevelManagment>().boss=Instantiate(mono, GetComponent<Transform>().position, new Quaternion(0, 0, 0, 1));
             cam.bossSize();
             GameObject.FindObjectOfType<ComportamientoMono>().startFight();
-            Destroy(this);
+            GetComponent<BoxCollider2D>().enabled=(false);
         }
     }
     
