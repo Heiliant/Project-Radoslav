@@ -5,7 +5,7 @@ using UnityEngine;
 public class DisparosSol : MonoBehaviour {
     private Vector2 origin;
     public Transform sun;
-    public float destroyTime = 10f;
+    public float destroyTime = 20f;
     public enum estilo
     {
         curvo, recto

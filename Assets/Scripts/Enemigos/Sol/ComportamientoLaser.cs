@@ -19,8 +19,8 @@ public class ComportamientoLaser : MonoBehaviour {
 
     public bool imThere(Vector2 dest) //devuelve 1 si aún NO ha llegado, y 0 si SI que ha llegado.
     {
-        return (GetComponent<LineRenderer>().GetPosition(1).x <= dest.x+0.1f && GetComponent<LineRenderer>().GetPosition(1).x >= dest.x - 0.1f) &&
-            (GetComponent<LineRenderer>().GetPosition(1).y <= dest.y+0.1f && GetComponent<LineRenderer>().GetPosition(1).y >= dest.y - 0.1f);
+        return (GetComponent<LineRenderer>().GetPosition(1).x <= dest.x+0.5f && GetComponent<LineRenderer>().GetPosition(1).x >= dest.x - 0.5f) &&
+            (GetComponent<LineRenderer>().GetPosition(1).y <= dest.y+0.5f && GetComponent<LineRenderer>().GetPosition(1).y >= dest.y - 0.5f);
     }
 
     // Use this for initialization

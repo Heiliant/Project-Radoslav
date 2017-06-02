@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sun: {fileID: 4760395318178222, guid: a02d4b97e91138945b129355fad6980c, type: 2}
-  destroyTime: 10
+  destroyTime: 20
   Tipo: 0
 --- !u!198 &198003996895349098
 ParticleSystem:
