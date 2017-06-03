@@ -287,6 +287,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1636983238411506
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4532007647176324}
+  m_Layer: 0
+  m_Name: PortalSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1641754624599470
 GameObject:
   m_ObjectHideFlags: 1
@@ -424,7 +439,7 @@ GameObject:
   - component: {fileID: 50679678407337016}
   - component: {fileID: 95559744677142354}
   - component: {fileID: 114799826569007688}
-  - component: {fileID: 58998164253280376}
+  - component: {fileID: 58047701728286794}
   m_Layer: 0
   m_Name: Solesico
   m_TagString: sol
@@ -688,6 +703,7 @@ Transform:
   - {fileID: 4998231796145860}
   - {fileID: 4800361112846104}
   - {fileID: 4670326004079122}
+  - {fileID: 4532007647176324}
   m_Father: {fileID: 4662757450052618}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -711,7 +727,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1601123562531266}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.57, y: -2.33, z: -0.06604078}
+  m_LocalPosition: {x: -11.99, y: -2.33, z: -0.06604078}
   m_LocalScale: {x: 0.3842372, y: 0.38423723, z: 0.38423723}
   m_Children:
   - {fileID: 4890985142127152}
@@ -764,7 +780,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1363644092359020}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.84, y: 2.1, z: -0.06604078}
+  m_LocalPosition: {x: -0.07, y: 2.1, z: -0.06604078}
   m_LocalScale: {x: 0.3842372, y: 0.38423723, z: 0.38423723}
   m_Children:
   - {fileID: 4917380065424834}
@@ -814,6 +830,19 @@ Transform:
   m_Father: {fileID: 4612822983376974}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4532007647176324
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1636983238411506}
+  m_LocalRotation: {x: -0.0028722484, y: 0.55918956, z: 0.001937356, w: 0.8290326}
+  m_LocalPosition: {x: -17.69, y: -7.82, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4097868485207056}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: -0.397, y: 68, z: 0}
 --- !u!4 &4550217245947736
 Transform:
   m_ObjectHideFlags: 1
@@ -963,7 +992,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1059043826877968}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.18, y: -2.3, z: -0.06604078}
+  m_LocalPosition: {x: 14.49, y: -2.3, z: -0.06604078}
   m_LocalScale: {x: 0.3842372, y: 0.38423723, z: 0.38423723}
   m_Children:
   - {fileID: 4178511040036708}
@@ -1081,20 +1110,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &58998164253280376
+--- !u!58 &58047701728286794
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1819870628739704}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 4.96
+  m_Radius: 4.98
 --- !u!68 &68045490163695224
 EdgeCollider2D:
   m_ObjectHideFlags: 1
@@ -1429,10 +1458,11 @@ MonoBehaviour:
   aura: {fileID: 1775645076969048}
   modo: 0
   embestidaSpeedOrigin: 0.6
+  embestidatoPJSpeed: 2
   counter: 0
   timeToTargetPJ: 2
   Disparo: {fileID: 1355439558692160, guid: 1bbf020068a54934dbfa390e09b5b6cb, type: 2}
-  EmbestidaShotsAmount: 20
+  EmbestidaShotsAmount: 10
   LluviaSolSpot: {fileID: 4998231796145860}
   ShotSpawnersLluvia:
   - {fileID: 1620858187822826}
@@ -1453,6 +1483,10 @@ MonoBehaviour:
   BossHP: {fileID: 0}
   BossHPActual: {fileID: 0}
   HP: 100
+  poder: {fileID: 1544308611361952, guid: 0048a0fbf3063184ca90a58ed445f3cb, type: 2}
+  PoderInfo: {fileID: 0}
+  portal: {fileID: 1238350318033766, guid: cbb41ad86c26cd7429e79f881e37292c, type: 2}
+  portalSpot: {fileID: 0}
 --- !u!114 &114836834351549256
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1464,7 +1498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 514e83075142b7c4ea84d89a4e6aeaf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 3
+  HP: 1
   luz: {fileID: 1799297113290012}
 --- !u!114 &114863235473378328
 MonoBehaviour:
@@ -1477,7 +1511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 514e83075142b7c4ea84d89a4e6aeaf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 3
+  HP: 1
   luz: {fileID: 1604160025407900}
 --- !u!212 &212222203699725826
 SpriteRenderer:

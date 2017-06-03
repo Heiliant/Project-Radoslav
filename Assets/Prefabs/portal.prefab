@@ -35,13 +35,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1238350318033766}
-  m_LocalRotation: {x: 0.55200964, y: 0, z: 0, w: 0.83383775}
-  m_LocalPosition: {x: 270.6, y: 35.3, z: 10}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalRotation: {x: -0.559193, y: 0, z: 0, w: 0.82903755}
+  m_LocalPosition: {x: 246.19882, y: 40.189247, z: 0.42}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 67.01, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -68, y: -67.008, z: -89.66801}
 --- !u!70 &70058908134877364
 CapsuleCollider2D:
   m_ObjectHideFlags: 1
@@ -69,6 +69,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   destinyScene: 0
+  salida: 0
+  deathTime: 5
 --- !u!212 &212886093297288322
 SpriteRenderer:
   m_ObjectHideFlags: 1

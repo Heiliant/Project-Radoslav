@@ -47,6 +47,9 @@ public class ComportamientoSol : MonoBehaviour {
     public GameObject BossHPActual;
     public float HP = 100;
 
+    public GameObject poder;
+
+    private Estado lastmode; 
     private bool localCheck=false;
     private bool localCheckHit = false;
     private int laserOrigin;
@@ -57,7 +60,11 @@ public class ComportamientoSol : MonoBehaviour {
             direction = new Vector2(direction.x / localmod, direction.y / localmod);
             transform.Translate(direction.x * speed, direction.y * speed, 0f);
     } //Dirige el sol hacia el punto dest a la velocidad speed.
-
+    private bool comprobaciondeath = false;
+    public GameObject PoderInfo;
+    public GameObject portal;
+    public Transform portalSpot;
+    public int nextScene;
     private bool imThere(Vector2 dest) //devuelve 1 si aún NO ha llegado, y 0 si SI que ha llegado.
     {
         return (transform.position.x < dest.x + 1.2f && transform.position.x > dest.x - 1.2f &&
@@ -68,6 +75,7 @@ public class ComportamientoSol : MonoBehaviour {
     {
         HP -= 10;
 
+        if(modo==Estado.embestida4 || modo == Estado.lluvia2 || modo == Estado.laser2 || modo == Estado.embestida3)
         modo = Estado.nullemod;
     }
 
@@ -87,12 +95,16 @@ public class ComportamientoSol : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        BossHPActual.GetComponent<RectTransform>().localScale = new Vector2((HP / 100f) * 4.7f, BossHPActual.GetComponent<RectTransform>().localScale.y);
-        if(HP <= 0 && (modo!=Estado.death))
+        if(HP>=0)
+            BossHPActual.GetComponent<RectTransform>().localScale = new Vector2((HP / 100f), BossHPActual.GetComponent<RectTransform>().localScale.y);
+        else
+            BossHPActual.GetComponent<RectTransform>().localScale = new Vector2(0, BossHPActual.GetComponent<RectTransform>().localScale.y);
+        if (HP <= 0 && !comprobaciondeath )
         {
             FindObjectOfType<ComportamientoPilon>().HP = 0;
             StartCoroutine(Autodestroy(5f));
             modo = Estado.nullemod;
+            comprobaciondeath = true;
         }
     }
 
@@ -144,11 +156,11 @@ public class ComportamientoSol : MonoBehaviour {
                 {
                     goTo(PJtarget, embestidaSpeed);
                     localshot = true;
-                    localCheckHit = false;
+                    localCheckHit = true;
                 }
                 else
                 {
-                    localCheckHit = true;
+                    lastmode = Estado.embestida;
                     if (counter < 3f)
                     {
                         counter += Time.deltaTime;
@@ -232,7 +244,7 @@ public class ComportamientoSol : MonoBehaviour {
             case Estado.lluvia2:
 
                 counter += Time.deltaTime;
-
+                lastmode = Estado.lluvia;
                 if (!ShotSpawnersLluvia[0].activeSelf)
                 {
                     foreach (GameObject a in ShotSpawnersLluvia)
@@ -277,6 +289,7 @@ public class ComportamientoSol : MonoBehaviour {
                 break;
             case Estado.laser2:
                 counter += Time.deltaTime;
+                lastmode = Estado.laser;
                 if (!localCheck && counter >= 2)
                 {
                     localCheck = true;
@@ -347,13 +360,13 @@ public class ComportamientoSol : MonoBehaviour {
                         switch (Random.Range(0, 3))
                         {
                             case 0:
-                                modo = Estado.embestida;
+                                modo = lastmode!=Estado.embestida? Estado.embestida : Estado.lluvia;
                                 break;
                             case 1:
-                                modo = Estado.lluvia;
+                                modo = lastmode!=Estado.lluvia? Estado.lluvia : Estado.laser;
                                 break;
                             case 2:
-                                modo = Estado.laser;
+                                modo = lastmode!=Estado.laser?Estado.laser:Estado.embestida;
                                 break;
                         }
                     }
@@ -416,6 +429,13 @@ public class ComportamientoSol : MonoBehaviour {
         yield return new WaitForSeconds(a);
         BossHP.SetActive(false);
         BossHPActual.SetActive(false);
+        GameObject local=Instantiate(poder, recoverPos.position-new Vector3(0, -10, 0), new Quaternion(0, 0, 0, 1));
+        local.GetComponent<Transform>().Translate(0, 0, -4.4f);
+        local.GetComponent<PoderSpawn>().tipo = PoderSpawn.boss.sol;
+        local.GetComponent<PoderSpawn>().relevant = PoderInfo;
+        GameObject wayOut=Instantiate(portal, portalSpot.position, portalSpot.rotation);
+        wayOut.GetComponent<portal>().salida = true;
+        wayOut.GetComponent<portal>().destinyScene = nextScene;
         Destroy(gameObject);
     }
 }

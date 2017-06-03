@@ -26,6 +26,7 @@ TagManager:
   - pulsohumana
   - dragonShot
   - dragonHead
+  - poderinfo
   layers:
   - Default
   - TransparentFX
