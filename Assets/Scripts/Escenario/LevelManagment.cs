@@ -42,7 +42,7 @@ public class LevelManagment : MonoBehaviour {
         {
             for(int i=0; i<bosslevels.Length; ++i)
             {
-                if (i == SceneManager.GetActiveScene().buildIndex)
+                if (bosslevels[i] == SceneManager.GetActiveScene().buildIndex)
                 {
                     localBool = true;
                     break;

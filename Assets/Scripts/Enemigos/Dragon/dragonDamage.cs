@@ -11,7 +11,7 @@ public class dragonDamage : MonoBehaviour {
     {
         BossHP.SetActive(false);
         BossHPActual.SetActive(false);
-        gameObject.SetActive(GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().dragon);
+        StartCoroutine(wait(1));
     }
     private void Update()
     {   
@@ -48,5 +48,11 @@ public class dragonDamage : MonoBehaviour {
         yield return new WaitForSeconds(a);
         GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().dragon = false;
         Destroy(gameObject);
+    }
+
+    IEnumerator wait(float a)
+    {
+        yield return new WaitForSeconds(a);
+        gameObject.SetActive(GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().dragon);
     }
 }

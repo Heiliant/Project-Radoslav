@@ -444,5 +444,6 @@ public class ComportamientoSol : MonoBehaviour {
     {
         yield return new WaitForSeconds(a);
         gameObject.SetActive(GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().sol);
+        
     }
 }

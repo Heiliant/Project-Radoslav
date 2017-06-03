@@ -41,7 +41,6 @@ public class portal : MonoBehaviour {
             PlayerPrefs.SetInt("bossMono", GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().mono ? 1 : 0);
             PlayerPrefs.SetInt("bossSol", GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().sol ? 1 : 0);
             PlayerPrefs.SetInt("bossDragon", GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().dragon ? 1 : 0);
-            //añadir los bosslevels del levelmanagment
         }
         else
         {
