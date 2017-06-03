@@ -23,6 +23,9 @@ public class LevelManagment : MonoBehaviour {
 
     private void Start()
     {
+        bosslevels = new int[2];
+        bosslevels[0] = 5;
+        bosslevels[1] = 6;
         localBool = false;
         lastCP = spawn;
         Relevant.text = "";
@@ -54,7 +57,7 @@ public class LevelManagment : MonoBehaviour {
                 {
                     Relevant.text = "";
                     Relevant.color = new Color(0, 0, 0, 0);
-                if (localBool)
+                if (!localBool)
                 {
                     player.SetActive(true);
                     player.GetComponent<Transform>().position = lastCP.position;
@@ -70,6 +73,7 @@ public class LevelManagment : MonoBehaviour {
                     player.GetComponent<CambioFormas>().currentHP = 3;
                     player.GetComponent<CambioFormas>().invulnerable = false;
                     FindObjectOfType<ComportamientoCamara>().stopStick();
+                    FindObjectOfType<ComportamientoCamara>().regularSize();
                     counter = 0;
                 }
                 else

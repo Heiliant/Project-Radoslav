@@ -90,7 +90,7 @@ public class ComportamientoSol : MonoBehaviour {
         laserray[0] = GetComponent<Transform>().position;
         laserray[1] = Platform[laserOrigin].position;
 
-        
+        StartCoroutine(wait(1));
     }
 
     private void FixedUpdate()
@@ -436,6 +436,13 @@ public class ComportamientoSol : MonoBehaviour {
         GameObject wayOut=Instantiate(portal, portalSpot.position, portalSpot.rotation);
         wayOut.GetComponent<portal>().salida = true;
         wayOut.GetComponent<portal>().destinyScene = nextScene;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().sol = false;
         Destroy(gameObject);
+    }
+
+    IEnumerator wait(float a)
+    {
+        yield return new WaitForSeconds(a);
+        gameObject.SetActive(GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().sol);
     }
 }

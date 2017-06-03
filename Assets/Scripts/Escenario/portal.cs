@@ -38,6 +38,10 @@ public class portal : MonoBehaviour {
             PlayerPrefs.SetInt("transf", GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().getTransf().ToString()!=null? 1:0);
             PlayerPrefs.SetInt("disparo", GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().disparoSkill ? 1 : 0);
             PlayerPrefs.SetInt("stage", SceneManager.GetActiveScene().buildIndex);
+            PlayerPrefs.SetInt("bossMono", GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().mono ? 1 : 0);
+            PlayerPrefs.SetInt("bossSol", GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().sol ? 1 : 0);
+            PlayerPrefs.SetInt("bossDragon", GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().dragon ? 1 : 0);
+            //añadir los bosslevels del levelmanagment
         }
         else
         {
@@ -51,6 +55,9 @@ public class portal : MonoBehaviour {
                 GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().setTransfKey(KeyCode.None);
             }
             GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().disparoSkill = (PlayerPrefs.GetInt("disparo", 0) == 1 ? true : false);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().mono = PlayerPrefs.GetInt("bossMono", 1) == 1 ? true : false;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().sol = PlayerPrefs.GetInt("bossSol", 1) == 1 ? true : false;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().dragon = PlayerPrefs.GetInt("bossDragon", 1) == 1 ? true : false;
             autodestroy = true;
         }
     }

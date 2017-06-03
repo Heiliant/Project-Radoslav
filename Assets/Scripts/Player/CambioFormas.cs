@@ -35,6 +35,10 @@ public class CambioFormas : MonoBehaviour {
     public GameObject pauseMenu;
     public GameObject opcionesMenu;
     public GameObject changeControls;
+
+    public bool mono;
+    public bool sol;
+    public bool dragon;
     public void attackPlayer(float a)
     {
         if (!invulnerable)
@@ -103,6 +107,7 @@ public class CambioFormas : MonoBehaviour {
 
         currentHP = 3;
         lastHP = currentHP;
+        mono = sol = dragon = true;
     }
 
     private void FixedUpdate()

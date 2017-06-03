@@ -39,6 +39,8 @@ public class ComportamientoMono : MonoBehaviour
 
     private bool bossFight = false;
 
+    public Transform powerSpawn;
+    public GameObject poderinfo;
     public void startFight()
     {
         bossFight = true;
@@ -238,8 +240,11 @@ public class ComportamientoMono : MonoBehaviour
     IEnumerator killMono(float s)
     {
         yield return new WaitForSeconds(s);
-        Instantiate(poder);
+        GameObject pow=Instantiate(poder, powerSpawn.position, new Quaternion(0, 0, 0, 1));
+        pow.transform.position = new Vector3(pow.transform.position.x, pow.transform.position.y, -22f);
+        pow.GetComponent<PoderSpawn>().relevant = poderinfo;
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ComportamientoCamara>().regularSize();
+        GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().mono = false;
         Destroy(gameObject);
     }
 }

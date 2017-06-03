@@ -11,6 +11,7 @@ public class dragonDamage : MonoBehaviour {
     {
         BossHP.SetActive(false);
         BossHPActual.SetActive(false);
+        gameObject.SetActive(GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().dragon);
     }
     private void Update()
     {   
@@ -45,6 +46,7 @@ public class dragonDamage : MonoBehaviour {
     IEnumerator AutoDestroy(float a)
     {
         yield return new WaitForSeconds(a);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().dragon = false;
         Destroy(gameObject);
     }
 }
