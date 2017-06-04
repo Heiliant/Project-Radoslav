@@ -9,7 +9,6 @@ public class PlataformaAtravesable : MonoBehaviour {
 
     public PlayerControl script;
     public CambioFormas scriptFormas;
-    public GameObject DemonBody;
     public GameObject HumanBody;
 
 	void Start () {
