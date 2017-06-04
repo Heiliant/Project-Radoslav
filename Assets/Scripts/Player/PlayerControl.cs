@@ -37,8 +37,8 @@ public class PlayerControl : MonoBehaviour {
     private KeyCode DOWN = KeyCode.S;
     private KeyCode PUÑO = KeyCode.Mouse0;
 
-    private int amountOfJumps = 0;
-    private int jumpCount;
+    public int amountOfJumps = 0;
+    public int jumpCount;
  
 
     //métodos de acceso para scripts externos
@@ -212,7 +212,7 @@ public class PlayerControl : MonoBehaviour {
                 GetComponent<Rigidbody2D>().AddForce(new Vector2(0, FuerzaSalto));
             }
 
-            else if (Input.GetKeyDown(JUMP) && !enSuelo && jumpCount>0)
+            else if (Input.GetKeyDown(JUMP) && !enSuelo && jumpCount>0 && !enPared)
             {
                 if (Input.GetKey(RIGHT))
                 {

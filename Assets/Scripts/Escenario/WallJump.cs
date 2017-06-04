@@ -51,6 +51,12 @@ public class WallJump : MonoBehaviour
 
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Player"))
+            collision.gameObject.GetComponent<PlayerControl>().jumpCount=collision.gameObject.GetComponent<PlayerControl>().amountOfJumps;
+    }
+
     private void OnCollisionStay2D(Collision2D collision)
 
     {
@@ -81,6 +87,5 @@ public class WallJump : MonoBehaviour
 
             }
         }
-
     }
 }
