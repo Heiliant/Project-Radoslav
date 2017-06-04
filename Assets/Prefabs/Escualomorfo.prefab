@@ -819,7 +819,7 @@ MonoBehaviour:
   destino: {fileID: 0}
   destino2: {fileID: 0}
   speedxOrigin: 0.2
-  hp: 3
+  hp: 1
   lasthp: 0
   suelo:
     serializedVersion: 2

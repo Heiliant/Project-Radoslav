@@ -128,7 +128,13 @@ public class PlayerControl : MonoBehaviour {
     private void FixedUpdate()
     {
             VelX = GetComponent<Rigidbody2D>().velocity.x;
-        
+
+        if ((VelX < 0 && VelX > -0.61 && !enSuelo && animacionHumana.GetFloat("VelX") > 0) || (VelX > 0 && VelX < 0.61f && !enSuelo &&
+            animacionHumana.GetFloat("VelX") < 0))
+            VelX *= -1;
+
+        if (VelX < 0)
+            Debug.Log(VelX);
             animacionHumana.SetFloat("VelX", VelX);
             animacionHumana.SetBool("enSuelo 0", enSuelo);
             animacionHumana.SetBool("enPared", enPared);

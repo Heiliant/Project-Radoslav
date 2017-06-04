@@ -114,7 +114,7 @@ MonoBehaviour:
   prota: {fileID: 1775919142956300, guid: 9c526dd606c07624582bb154bac1ed6f, type: 2}
   script: {fileID: 0}
   incrementoCaida: 5
-  segToFall: 1
+  segToFall: 0
   fuerzaWallJump: 900
   XsobreY: 1
   derecha: 0

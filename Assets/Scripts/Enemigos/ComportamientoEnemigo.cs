@@ -30,7 +30,7 @@ public class ComportamientoEnemigo : MonoBehaviour
     private float PasadaX;
     Vector2 VectorAuxiliar1;
     Vector2 VectorAuxiliar2;
-    public float hp = 3;
+    public float hp = 1;
     public float lasthp;
     private Animator animescualo;
     public LayerMask suelo;
@@ -46,7 +46,7 @@ public class ComportamientoEnemigo : MonoBehaviour
 
     public void harmWeak()
     {
-        hp-=0.05f;
+        hp-=0.05f/3;
     }
 
     public void knockback(bool a)
