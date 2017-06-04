@@ -115,7 +115,6 @@ public class PlayerControl : MonoBehaviour {
     void Start () {
         initialTorsoSave = GameObject.FindGameObjectWithTag("muñeco").GetComponent<Transform>();
         Debug.Log(initialTorsoSave.rotation);
-        Debug.Log("Human start");
 
 
         puñetazo = false;
@@ -134,7 +133,6 @@ public class PlayerControl : MonoBehaviour {
             VelX *= -1;
 
         if (VelX < 0)
-            Debug.Log(VelX);
             animacionHumana.SetFloat("VelX", VelX);
             animacionHumana.SetBool("enSuelo 0", enSuelo);
             animacionHumana.SetBool("enPared", enPared);
