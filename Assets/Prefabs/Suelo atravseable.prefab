@@ -96,12 +96,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdbd673a776a632489ff4b5c02bf939e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1775919142956300, guid: 9c526dd606c07624582bb154bac1ed6f, type: 2}
   ignorar: 0
   script: {fileID: 0}
   scriptFormas: {fileID: 0}
-  DemonBody: {fileID: 0}
-  HumanBody: {fileID: 0}
+  DemonBody: {fileID: 1194327788664720, guid: 9c526dd606c07624582bb154bac1ed6f, type: 2}
+  HumanBody: {fileID: 1973306040956254, guid: 9c526dd606c07624582bb154bac1ed6f, type: 2}
 --- !u!212 &212166268301848332
 SpriteRenderer:
   m_ObjectHideFlags: 1

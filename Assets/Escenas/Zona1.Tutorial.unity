@@ -200,11 +200,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4072482812460336, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 134.33
+      value: 141.21
       objectReference: {fileID: 0}
     - target: {fileID: 4072482812460336, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -59.47
+      value: -51.73
       objectReference: {fileID: 0}
     - target: {fileID: 4072482812460336, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -229,37 +229,6 @@ Prefab:
     - target: {fileID: 4072482812460336, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
       propertyPath: m_RootOrder
       value: 37
-      objectReference: {fileID: 0}
-    - target: {fileID: 114367808262928480, guid: 7ab70928c44375d40966a26360cc234a,
-        type: 2}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114367808262928480, guid: 7ab70928c44375d40966a26360cc234a,
-        type: 2}
-      propertyPath: HumanBody
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114367808262928480, guid: 7ab70928c44375d40966a26360cc234a,
-        type: 2}
-      propertyPath: DemonBody
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 6.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 3.10989
-      objectReference: {fileID: 0}
-    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 7.7409
-      objectReference: {fileID: 0}
-    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0.019531
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
@@ -2254,11 +2223,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4072482812460336, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 84.45
+      value: 74.8
       objectReference: {fileID: 0}
     - target: {fileID: 4072482812460336, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 19.19
+      value: 25.77
       objectReference: {fileID: 0}
     - target: {fileID: 4072482812460336, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2284,40 +2253,13 @@ Prefab:
       propertyPath: m_RootOrder
       value: 117
       objectReference: {fileID: 0}
-    - target: {fileID: 114367808262928480, guid: 7ab70928c44375d40966a26360cc234a,
-        type: 2}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114367808262928480, guid: 7ab70928c44375d40966a26360cc234a,
-        type: 2}
-      propertyPath: HumanBody
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114367808262928480, guid: 7ab70928c44375d40966a26360cc234a,
-        type: 2}
-      propertyPath: DemonBody
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -8.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1.1767044
-      objectReference: {fileID: 0}
-    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 6.31
-      objectReference: {fileID: 0}
-    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0.019531
-      objectReference: {fileID: 0}
     - target: {fileID: 1498451658900134, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
       propertyPath: m_Name
       value: Suelo atravseable (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4072482812460336, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.3875004
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
@@ -2450,11 +2392,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4072482812460336, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 67.3
+      value: 64.5
       objectReference: {fileID: 0}
     - target: {fileID: 4072482812460336, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -29.47
+      value: -25.66
       objectReference: {fileID: 0}
     - target: {fileID: 4072482812460336, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2479,37 +2421,6 @@ Prefab:
     - target: {fileID: 4072482812460336, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
       propertyPath: m_RootOrder
       value: 106
-      objectReference: {fileID: 0}
-    - target: {fileID: 114367808262928480, guid: 7ab70928c44375d40966a26360cc234a,
-        type: 2}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114367808262928480, guid: 7ab70928c44375d40966a26360cc234a,
-        type: 2}
-      propertyPath: HumanBody
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114367808262928480, guid: 7ab70928c44375d40966a26360cc234a,
-        type: 2}
-      propertyPath: DemonBody
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -4.59
-      objectReference: {fileID: 0}
-    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 2.3651657
-      objectReference: {fileID: 0}
-    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 3.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0.019531
       objectReference: {fileID: 0}
     - target: {fileID: 1498451658900134, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
       propertyPath: m_Name
@@ -3441,40 +3352,17 @@ Prefab:
       propertyPath: m_RootOrder
       value: 107
       objectReference: {fileID: 0}
-    - target: {fileID: 114367808262928480, guid: 7ab70928c44375d40966a26360cc234a,
-        type: 2}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114367808262928480, guid: 7ab70928c44375d40966a26360cc234a,
-        type: 2}
-      propertyPath: HumanBody
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114367808262928480, guid: 7ab70928c44375d40966a26360cc234a,
-        type: 2}
-      propertyPath: DemonBody
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -3.19
-      objectReference: {fileID: 0}
-    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 2.3651657
-      objectReference: {fileID: 0}
-    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 5.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0.019531
-      objectReference: {fileID: 0}
     - target: {fileID: 1498451658900134, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
       propertyPath: m_Name
       value: Suelo atravseable (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 5.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
@@ -3876,11 +3764,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4072482812460336, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 85.85
+      value: 81.48
       objectReference: {fileID: 0}
     - target: {fileID: 4072482812460336, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 24.28
+      value: 30.43
       objectReference: {fileID: 0}
     - target: {fileID: 4072482812460336, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3905,37 +3793,6 @@ Prefab:
     - target: {fileID: 4072482812460336, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
       propertyPath: m_RootOrder
       value: 116
-      objectReference: {fileID: 0}
-    - target: {fileID: 114367808262928480, guid: 7ab70928c44375d40966a26360cc234a,
-        type: 2}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114367808262928480, guid: 7ab70928c44375d40966a26360cc234a,
-        type: 2}
-      propertyPath: HumanBody
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114367808262928480, guid: 7ab70928c44375d40966a26360cc234a,
-        type: 2}
-      propertyPath: DemonBody
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -5.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 2.843439
-      objectReference: {fileID: 0}
-    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 5.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0.019531
       objectReference: {fileID: 0}
     - target: {fileID: 1498451658900134, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
       propertyPath: m_Name
@@ -3999,11 +3856,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4072482812460336, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 124.19
+      value: 121.45
       objectReference: {fileID: 0}
     - target: {fileID: 4072482812460336, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -22.3
+      value: -18.42
       objectReference: {fileID: 0}
     - target: {fileID: 4072482812460336, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4028,37 +3885,6 @@ Prefab:
     - target: {fileID: 4072482812460336, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
       propertyPath: m_RootOrder
       value: 99
-      objectReference: {fileID: 0}
-    - target: {fileID: 114367808262928480, guid: 7ab70928c44375d40966a26360cc234a,
-        type: 2}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114367808262928480, guid: 7ab70928c44375d40966a26360cc234a,
-        type: 2}
-      propertyPath: HumanBody
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114367808262928480, guid: 7ab70928c44375d40966a26360cc234a,
-        type: 2}
-      propertyPath: DemonBody
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -4.59
-      objectReference: {fileID: 0}
-    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 2.3651657
-      objectReference: {fileID: 0}
-    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 3.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0.019531
       objectReference: {fileID: 0}
     - target: {fileID: 1498451658900134, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
       propertyPath: m_Name
@@ -5236,40 +5062,17 @@ Prefab:
       propertyPath: m_RootOrder
       value: 97
       objectReference: {fileID: 0}
-    - target: {fileID: 114367808262928480, guid: 7ab70928c44375d40966a26360cc234a,
-        type: 2}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114367808262928480, guid: 7ab70928c44375d40966a26360cc234a,
-        type: 2}
-      propertyPath: HumanBody
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114367808262928480, guid: 7ab70928c44375d40966a26360cc234a,
-        type: 2}
-      propertyPath: DemonBody
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -4.59
-      objectReference: {fileID: 0}
-    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 2.3651657
-      objectReference: {fileID: 0}
-    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 3.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0.019531
-      objectReference: {fileID: 0}
     - target: {fileID: 1498451658900134, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
       propertyPath: m_Name
       value: Suelo atravseable (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 3.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -2.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
@@ -5908,11 +5711,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4072482812460336, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 46
+      value: 40.26
       objectReference: {fileID: 0}
     - target: {fileID: 4072482812460336, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 19
+      value: 24.24
       objectReference: {fileID: 0}
     - target: {fileID: 4072482812460336, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -5937,37 +5740,6 @@ Prefab:
     - target: {fileID: 4072482812460336, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
       propertyPath: m_RootOrder
       value: 112
-      objectReference: {fileID: 0}
-    - target: {fileID: 114367808262928480, guid: 7ab70928c44375d40966a26360cc234a,
-        type: 2}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114367808262928480, guid: 7ab70928c44375d40966a26360cc234a,
-        type: 2}
-      propertyPath: HumanBody
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114367808262928480, guid: 7ab70928c44375d40966a26360cc234a,
-        type: 2}
-      propertyPath: DemonBody
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -5.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 2.843439
-      objectReference: {fileID: 0}
-    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 5.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4877027842773694, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0.019531
       objectReference: {fileID: 0}
     - target: {fileID: 1498451658900134, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
       propertyPath: m_Name
