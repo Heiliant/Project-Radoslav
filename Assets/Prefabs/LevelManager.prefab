@@ -66,3 +66,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1a4dbb050cc088498f3c5cb806edbbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  spawn: {fileID: 0}
+  Relevant: {fileID: 0}
+  counter: 0
+  boss: {fileID: 0}
+  hisSpawner: {fileID: 0}
+  script: {fileID: 0}
+  bosslevels: 
+  musica:
+  - {fileID: 8300000, guid: c58e3a8179465904aac1d9ec609bdb85, type: 3}
+  - {fileID: 8300000, guid: 22180bfbb3867da418089dc2c5231b05, type: 3}
+  - {fileID: 8300000, guid: 2f4728f1684a68b4cadef14c5779cdfa, type: 3}
+  - {fileID: 8300000, guid: 3954453c3a380014aad9e10b9e3db124, type: 3}
+  - {fileID: 8300000, guid: d97347ae48c2ad74a8ca0384b8c3d6c0, type: 3}
+  jefe: 0

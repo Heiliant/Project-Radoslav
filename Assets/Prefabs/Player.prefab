@@ -1386,7 +1386,7 @@ MonoBehaviour:
   Demonio: {fileID: 1194327788664720}
   Particulillas: {fileID: 1188944435826808}
   demon: 0
-  DetectorSuelo: {fileID: 0}
+  DetectorSuelo: {fileID: 4289207512645122}
   radDetSuelo: 0.4
   enSuelo: 0
   suelo:
@@ -1405,6 +1405,9 @@ MonoBehaviour:
   pauseMenu: {fileID: 0}
   opcionesMenu: {fileID: 0}
   changeControls: {fileID: 0}
+  mono: 0
+  sol: 0
+  dragon: 0
 --- !u!114 &114274107933294456
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1441,6 +1444,8 @@ MonoBehaviour:
     m_Bits: 512
   DetectorTecho: {fileID: 4805538812012016}
   "pu\xF1etazo": 0
+  amountOfJumps: 0
+  jumpCount: 0
 --- !u!198 &198741856535566960
 ParticleSystem:
   m_ObjectHideFlags: 1

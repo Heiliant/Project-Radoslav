@@ -8,16 +8,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Escenas/Menu.unity
   - enabled: 1
-    path: Assets/Escenas/Pause Menu.unity
-  - enabled: 1
-    path: Assets/Escenas/Graphic Options.unity
-  - enabled: 1
-    path: Assets/Escenas/Controls  Menu.unity
-  - enabled: 1
     path: Assets/Escenas/Zona1.Tutorial.unity
   - enabled: 1
     path: Assets/Escenas/Zona2.Solesico.unity
   - enabled: 1
     path: Assets/Escenas/Zona3.Dragonaso.unity
   - enabled: 1
+    path: Assets/Escenas/Zona3.1.unity
+  - enabled: 1
     path: Assets/Escenas/scenes.unity
+  - enabled: 1
+    path: Assets/Escenas/Pause Menu.unity
+  - enabled: 1
+    path: Assets/Escenas/Graphic Options.unity
+  - enabled: 1
+    path: Assets/Escenas/Controls  Menu.unity

@@ -13,9 +13,8 @@ public class PlataformaAtravesable : MonoBehaviour {
     public GameObject HumanBody;
 
 	void Start () {
-        //player = GameObject.FindGameObjectWithTag("Player");
-        //HumanBody = GameObject.FindGameObjectWithTag("humana");
-        //DemonBody = GameObject.FindGameObjectWithTag("demonio");
+        player = GameObject.FindGameObjectWithTag("Player");
+        HumanBody = GameObject.FindGameObjectWithTag("humana");
         script = player.GetComponent<PlayerControl>();
         scriptFormas = player.GetComponent<CambioFormas>();
         //height = this.transform.Find("ladrillos").gameObject;
@@ -23,21 +22,19 @@ public class PlataformaAtravesable : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        if (scriptFormas.Humana)
+        if (!scriptFormas.demon)
         {
             if (scriptFormas.DetectorSuelo.position.y > GetComponent<Transform>().position.y) //PJ está por encima de la plataforma
             {
                 if (Input.GetKey(KeyCode.S))
                 {
                     Physics2D.IgnoreCollision(GetComponentInChildren<BoxCollider2D>(), HumanBody.GetComponent<CapsuleCollider2D>(), true);
-                    Physics2D.IgnoreCollision(GetComponentInChildren<BoxCollider2D>(), DemonBody.GetComponent<CapsuleCollider2D>(), true);
                     ignorar = true;
                     
                 }
                 else
                 {
                     Physics2D.IgnoreCollision(GetComponentInChildren<BoxCollider2D>(), HumanBody.GetComponent<CapsuleCollider2D>(), false);
-                    Physics2D.IgnoreCollision(GetComponentInChildren<BoxCollider2D>(), DemonBody.GetComponent<CapsuleCollider2D>(), false);
                     ignorar = false;
 
                 }
@@ -45,12 +42,32 @@ public class PlataformaAtravesable : MonoBehaviour {
             else if (script.DetectorTecho.position.y  < GetComponent<Transform>().position.y) //PJ está debajo de la plataforma
             {
                 Physics2D.IgnoreCollision(GetComponentInChildren<BoxCollider2D>(), HumanBody.GetComponent<CapsuleCollider2D>(), true);
-                Physics2D.IgnoreCollision(GetComponentInChildren<BoxCollider2D>(), DemonBody.GetComponent<CapsuleCollider2D>(), true);
                 ignorar = true;
             }
         }
-       
+        else
+        {
+            if (scriptFormas.DetectorSuelo.position.y > GetComponent<Transform>().position.y) //PJ está por encima de la plataforma
+            {
+                if (Input.GetKey(KeyCode.S))
+                { 
+                    Physics2D.IgnoreCollision(GetComponentInChildren<BoxCollider2D>(), GameObject.FindGameObjectWithTag("demonio").GetComponent<CapsuleCollider2D>(), true);
+                    ignorar = true;
+
+                }
+                else
+                {
+                    Physics2D.IgnoreCollision(GetComponentInChildren<BoxCollider2D>(), GameObject.FindGameObjectWithTag("demonio").GetComponent<CapsuleCollider2D>(), false);
+                    ignorar = false;
+
+                }
+            }
+            else if (script.DetectorTecho.position.y < GetComponent<Transform>().position.y) //PJ está debajo de la plataforma
+            { 
+                Physics2D.IgnoreCollision(GetComponentInChildren<BoxCollider2D>(), GameObject.FindGameObjectWithTag("demonio").GetComponent<CapsuleCollider2D>(), true);
+                ignorar = true;
+            }
+        }
     }
-       
-}
+  }
 

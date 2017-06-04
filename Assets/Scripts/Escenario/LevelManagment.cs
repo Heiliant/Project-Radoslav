@@ -15,6 +15,8 @@ public class LevelManagment : MonoBehaviour {
     public SpawnerMono script;
     public int[] bosslevels;
     private bool localBool;
+
+    public AudioClip[] musica;
     public enum putoamo
     {
         mono, sol, dragon
@@ -29,7 +31,15 @@ public class LevelManagment : MonoBehaviour {
         localBool = false;
         lastCP = spawn;
         Relevant.text = "";
-    }
+
+        if (SceneManager.GetActiveScene().buildIndex == 0) {
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().clip = musica[0];
+        }
+        else {
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().clip = musica[1];
+            }
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().Play();
+        }
 
     public void setCP(Transform CP)
     {

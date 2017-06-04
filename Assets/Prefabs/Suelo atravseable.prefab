@@ -100,7 +100,7 @@ MonoBehaviour:
   ignorar: 0
   script: {fileID: 0}
   scriptFormas: {fileID: 0}
-  DemonBody: {fileID: 1194327788664720, guid: 9c526dd606c07624582bb154bac1ed6f, type: 2}
+  DemonBody: {fileID: 0}
   HumanBody: {fileID: 1973306040956254, guid: 9c526dd606c07624582bb154bac1ed6f, type: 2}
 --- !u!212 &212166268301848332
 SpriteRenderer:
