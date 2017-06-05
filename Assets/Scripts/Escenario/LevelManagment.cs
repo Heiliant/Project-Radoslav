@@ -117,5 +117,9 @@ public class LevelManagment : MonoBehaviour {
         
             player.GetComponent<CambioFormas>().killPlayer();
         }
+        else
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }

@@ -169,6 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BossHP: {fileID: 407359158}
   BossHPActual: {fileID: 1874497489}
+  cabeza: {fileID: 175352499}
 --- !u!1 &257489303 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1775919142956300, guid: 9c526dd606c07624582bb154bac1ed6f,
@@ -1458,7 +1459,7 @@ Prefab:
     - target: {fileID: 212874471328652596, guid: dba4903f7e254ae4a8028d07b6e52113,
         type: 2}
       propertyPath: m_Color.b
-      value: 1
+      value: 0.99264705
       objectReference: {fileID: 0}
     - target: {fileID: 212874471328652596, guid: dba4903f7e254ae4a8028d07b6e52113,
         type: 2}

@@ -6,6 +6,7 @@ public class dragonDamage : MonoBehaviour {
     private float dragonHP = 550;
     public GameObject BossHP;
     public GameObject BossHPActual;
+    public GameObject cabeza;
 
     private void Start()
     {
@@ -26,6 +27,8 @@ public class dragonDamage : MonoBehaviour {
             FindObjectOfType<ComportamientoCamara>().startMoveR = true;
             Destroy(FindObjectOfType<floorSpawner>().gameObject);
         }
+        float localColor = dragonHP / 550f;
+        cabeza.GetComponent<SpriteRenderer>().color = new Color(1, localColor, localColor);
     }
 
     public void startBar()

@@ -61,7 +61,7 @@ public class WallJump : MonoBehaviour
 
     {
 
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag.Equals("Player"))
         {
 
             contador += Time.deltaTime;
@@ -71,9 +71,9 @@ public class WallJump : MonoBehaviour
             }
 
 
-            if ((Input.GetKey(KeyCode.D) && (!derecha)) || ((derecha) && Input.GetKey(KeyCode.A)))
-
-            {
+            //if ((Input.GetKey(KeyCode.D) && (!derecha)) || ((derecha) && Input.GetKey(KeyCode.A))) //le quito esto para 
+                        //que el PJ no tenga que pulsar el mov hacia la pared para pegarse a ella
+            //{
                 prota.GetComponent<Rigidbody2D>().velocity = new Vector2(0, fuerzaY);
 
 
@@ -85,7 +85,7 @@ public class WallJump : MonoBehaviour
                     //prota.GetComponent<Rigidbody2D>().velocity = new Vector2(script.getFuerzawalljump()*sentido*2, script.getFuerzawalljump()*2f);
                 }
 
-            }
+            //}
         }
     }
 }
