@@ -19,11 +19,4 @@ public class ScalenFadeout : MonoBehaviour {
         if (GetComponent<SpriteRenderer>().color.a <= 0)
             Destroy(gameObject);
 	}
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag.Equals("escualo"))
-            collision.GetComponent<ComportamientoEnemigo>().knockback(collision.GetComponent<Transform>().position.x>GetComponent<Transform>().position.x);
-    }
-
 }

@@ -38,10 +38,10 @@ GameObject:
   - component: {fileID: 58652413281808522}
   - component: {fileID: 198608857418540492}
   - component: {fileID: 199552039878467312}
-  - component: {fileID: 114863589984786264}
+  - component: {fileID: 114820481555511804}
   m_Layer: 0
   m_Name: disparoSolImpostor
-  m_TagString: Untagged
+  m_TagString: disparosol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53,7 +53,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1576569339885140}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 191.63, y: 33.248, z: -0.17410749}
+  m_LocalPosition: {x: 28.917149, y: -6.0065427, z: -0.17410749}
   m_LocalScale: {x: 0.85239923, y: 0.8523992, z: 0.8523992}
   m_Children:
   - {fileID: 4411795603946064}
@@ -87,7 +87,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &114863589984786264
+--- !u!114 &114820481555511804
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -95,12 +95,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1576569339885140}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ece02e18a1fa54542a6363a537fd5f94, type: 3}
+  m_Script: {fileID: 11500000, guid: 4edf09c4a30d12a42a4ec531c42755b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sun: {fileID: 4760395318178222, guid: a02d4b97e91138945b129355fad6980c, type: 2}
+  sun: {fileID: 0}
   destroyTime: 20
   Tipo: 0
+  speed: 1
 --- !u!198 &198608857418540492
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -156,7 +157,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 445711475
+  randomSeed: 812386762
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -948,13 +949,13 @@ ParticleSystem:
       maxGradient:
         key0:
           serializedVersion: 2
-          rgba: 4278190335
+          rgba: 4294967040
         key1:
           serializedVersion: 2
-          rgba: 55039
+          rgba: 130816
         key2:
           serializedVersion: 2
-          rgba: 0
+          rgba: 120574
         key3:
           serializedVersion: 2
           rgba: 0
@@ -971,8 +972,8 @@ ParticleSystem:
           serializedVersion: 2
           rgba: 0
         ctime0: 0
-        ctime1: 24865
-        ctime2: 0
+        ctime1: 38550
+        ctime2: 38550
         ctime3: 0
         ctime4: 0
         ctime5: 0
@@ -2796,6 +2797,6 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e128332110a1416439eecad9f4936cdd, type: 3}
-  m_Color: {r: 0.14827585, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0.6102941, a: 1}
   m_FlipX: 0
   m_FlipY: 0

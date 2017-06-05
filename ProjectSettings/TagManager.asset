@@ -27,6 +27,7 @@ TagManager:
   - dragonShot
   - dragonHead
   - poderinfo
+  - disparosol
   layers:
   - Default
   - TransparentFX

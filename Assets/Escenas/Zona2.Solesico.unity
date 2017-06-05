@@ -696,6 +696,11 @@ Prefab:
       propertyPath: m_LocalPosition.x
       value: -19.04
       objectReference: {fileID: 0}
+    - target: {fileID: 114799826569007688, guid: a02d4b97e91138945b129355fad6980c,
+        type: 2}
+      propertyPath: nextScene
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a02d4b97e91138945b129355fad6980c, type: 2}
   m_IsPrefabParent: 0

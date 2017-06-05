@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class disparosDragonImpostor : MonoBehaviour {
-
+    public float speed=1;
 	// Use this for initialization
 	void Start () {
 		
@@ -11,7 +11,7 @@ public class disparosDragonImpostor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        GetComponent<Transform>().Translate(0f, Time.deltaTime * -5, 0f);
+        GetComponent<Transform>().Translate(0f, Time.deltaTime * -5*speed, 0f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

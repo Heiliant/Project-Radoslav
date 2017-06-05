@@ -132,7 +132,7 @@ public class PlayerControl : MonoBehaviour {
             animacionHumana.GetFloat("VelX") < 0))
             VelX *= -1;
 
-        if (VelX < 0)
+        
             animacionHumana.SetFloat("VelX", VelX);
             animacionHumana.SetBool("enSuelo 0", enSuelo);
             animacionHumana.SetBool("enPared", enPared);

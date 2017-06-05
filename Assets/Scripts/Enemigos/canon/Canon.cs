@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Canon : MonoBehaviour {
 
@@ -13,6 +14,7 @@ public class Canon : MonoBehaviour {
     public float rad;
     private bool BalaInstanciada;
     Vector2 SalidaBala;
+    public float shotspeed=1;
 
     public Vector2[] tramos;
 
@@ -98,14 +100,27 @@ public class Canon : MonoBehaviour {
                 tiempoActual = TiempoRecarga;
                 GameObject shot=Instantiate(Bala, Boca_Canon.position, GetComponent<Transform>().rotation);
                 shot.GetComponent<Transform>().Rotate(0, 0, -90);
-
+                try
+                {
+                    shot.GetComponent<disparosDragonImpostor>().speed = shotspeed;
+                }
+                catch (NullReferenceException)
+                {
+                    try
+                    {
+                        shot.GetComponent<DisparosSol>().speed = shotspeed;
+                    }
+                    catch (NullReferenceException)
+                    {
+                        shot.GetComponent<DisparoSolImpostor>().speed = shotspeed;
+                    }
+                }
             }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.tag);
         if (collision.tag.Equals("demonshot"))
         {
             collision.gameObject.GetComponent<demonShotBehaviour>().explode();

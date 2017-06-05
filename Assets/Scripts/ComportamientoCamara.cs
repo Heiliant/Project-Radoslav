@@ -6,11 +6,11 @@ public class ComportamientoCamara : MonoBehaviour
 {
     public GameObject player;
     public float PotestadDelMouse=10f;
-    private float desplazadoX=0;
-    private float desplazadoY=0;
+    public  float desplazadoX=0;
+    public  float desplazadoY=0;
     public float bossSizeCam = 28; //28 para el sol, 
     public float bossYCam = 15; //15 para el sol
-    private float regularSizeCam=20;
+    public float regularSizeCam=25;
     private float regularYCam;
     public bool startMoveB = false;
     public bool startMoveR = false;
@@ -112,7 +112,7 @@ public class ComportamientoCamara : MonoBehaviour
         {
             if (GetComponent<Camera>().orthographicSize > regularSizeCam)
                 GetComponent<Camera>().orthographicSize -= 0.13f;
-            if ((GetComponent<Transform>().position.y - player.GetComponent<Transform>().position.y) > regularYCam)
+            if ((GetComponent<Transform>().position.y+40 - player.GetComponent<Transform>().position.y) > regularYCam)
                 desplazadoY -= 0.2f;
             if (GetComponent<Camera>().orthographicSize < regularSizeCam && (GetComponent<Transform>().position.y - player.GetComponent<Transform>().position.y) < regularYCam)
             {

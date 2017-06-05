@@ -874,6 +874,11 @@ Prefab:
       propertyPath: m_Name
       value: portal (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114339183070469174, guid: cbb41ad86c26cd7429e79f881e37292c,
+        type: 2}
+      propertyPath: salida
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbb41ad86c26cd7429e79f881e37292c, type: 2}
   m_IsPrefabParent: 0
@@ -2478,6 +2483,16 @@ Prefab:
     - target: {fileID: 4132684204305960, guid: cbb41ad86c26cd7429e79f881e37292c, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 114339183070469174, guid: cbb41ad86c26cd7429e79f881e37292c,
+        type: 2}
+      propertyPath: salida
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114339183070469174, guid: cbb41ad86c26cd7429e79f881e37292c,
+        type: 2}
+      propertyPath: destinyScene
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbb41ad86c26cd7429e79f881e37292c, type: 2}

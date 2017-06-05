@@ -80,7 +80,7 @@ public class PoderSpawn : MonoBehaviour {
             case boss.sol:
                 FindObjectOfType<CambioFormas>().disparoSkill=true;
                 textaco = "Has obtenido nuevas habilidades.\n\n" +
-                    "-Pulsa MouseDerecho para usar magia. La magia varía en función de tu forma:\n\t·En humana, es un pulso que repele a enemigos y proyectiles" +
+                    "-Pulsa MouseDerecho para usar magia. La magia varía en función de tu forma:\n\t·En humana, es un pulso que repele proyectiles" +
                     "\n\t·En demonio son disparos.\n\n\t\t\t\t\t\t\tpulsa cualquier tecla para continuar";
                 break;
         }

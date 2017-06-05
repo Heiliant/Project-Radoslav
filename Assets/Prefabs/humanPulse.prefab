@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114674306328442768}
   - component: {fileID: 68535161375466812}
   - component: {fileID: 114755505976768956}
+  - component: {fileID: 50397510085437104}
   m_Layer: 0
   m_Name: humanPulse
   m_TagString: pulsohumana
@@ -43,6 +44,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50397510085437104
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1195227922529794}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!68 &68535161375466812
 EdgeCollider2D:
   m_ObjectHideFlags: 1
@@ -103,6 +124,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deflectThis: {fileID: 1744494487741032, guid: 15905159b7f58bb4da6ddaea86b4a5d2,
+    type: 2}
+  deflectThistag_noRB: {fileID: 1355439558692160, guid: 1bbf020068a54934dbfa390e09b5b6cb,
     type: 2}
 --- !u!212 &212929732836165914
 SpriteRenderer:

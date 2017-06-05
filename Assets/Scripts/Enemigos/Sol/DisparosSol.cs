@@ -12,7 +12,7 @@ public class DisparosSol : MonoBehaviour {
     };
     public estilo Tipo;
     private float rotSpeed;
-
+    public float speed=1;
     public void setRotSpeed( float a)
     {
         rotSpeed = a;
@@ -39,7 +39,7 @@ void Start () {
 	
 	
 	void Update () {
-        GetComponent<Transform>().Translate(0f, Time.deltaTime*-5, 0f);
+        GetComponent<Transform>().Translate(0f, Time.deltaTime*-5*speed, 0f);
         if (Tipo == estilo.curvo)
             GetComponent<Transform>().Rotate(0f, 0f, Time.deltaTime*rotSpeed); 
 
