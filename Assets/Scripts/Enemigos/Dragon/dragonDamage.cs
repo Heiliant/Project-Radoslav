@@ -15,7 +15,7 @@ public class dragonDamage : MonoBehaviour {
     }
     private void Update()
     {   
-        BossHPActual.GetComponent<RectTransform>().localScale = new Vector2((dragonHP / 550f) * 4.7f, BossHPActual.GetComponent<RectTransform>().localScale.y);
+        BossHPActual.GetComponent<RectTransform>().localScale = new Vector2((dragonHP / 550f), BossHPActual.GetComponent<RectTransform>().localScale.y);
         if (dragonHP <= 0)
         {
             BossHP.SetActive(false);

@@ -437,6 +437,7 @@ public class ComportamientoSol : MonoBehaviour {
         wayOut.GetComponent<portal>().salida = true;
         wayOut.GetComponent<portal>().destinyScene = nextScene;
         GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().sol = false;
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().Stop();
         Destroy(gameObject);
     }
 

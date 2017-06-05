@@ -13,7 +13,7 @@ public class ComportamientoDragonMovimiento : MonoBehaviour {
         nulo,
     }
     public GameObject destinyIni;
-    public GameObject spawner;
+    public GameObject[] spawner;
     public estado modo;
     public float timeToMove;
     Vector2 movement;
@@ -54,7 +54,10 @@ public class ComportamientoDragonMovimiento : MonoBehaviour {
                     GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ComportamientoCamara>().startMoveB = true;
                     modo = estado.mover2;
                     FindObjectOfType<dragonDamage>().startBar();
-                    spawner.GetComponent<floorSpawner>().enabled=(true);
+                    foreach (GameObject a in spawner)
+                    {
+                        a.GetComponent<floorSpawner>().enabled = (true);
+                    }
                     counter = 0;
                 }
                 break;

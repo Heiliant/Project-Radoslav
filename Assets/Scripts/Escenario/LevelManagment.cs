@@ -26,8 +26,8 @@ public class LevelManagment : MonoBehaviour {
     private void Start()
     {
         bosslevels = new int[2];
-        bosslevels[0] = 5;
-        bosslevels[1] = 6;
+        bosslevels[0] = 4;
+        bosslevels[1] = 7;
         localBool = false;
         lastCP = spawn;
         Relevant.text = "";
@@ -35,9 +35,14 @@ public class LevelManagment : MonoBehaviour {
         if (SceneManager.GetActiveScene().buildIndex == 0) {
             GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().clip = musica[0];
         }
+        else if (SceneManager.GetActiveScene().buildIndex == bosslevels[1])
+        {
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().clip = musica[4];//dragon
+        }
         else {
             GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().clip = musica[1];
             }
+
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().Play();
         }
 
@@ -61,7 +66,6 @@ public class LevelManagment : MonoBehaviour {
             player.SetActive(false);
             Relevant.text = "Has muerto";
             counter += Time.deltaTime;
-            //para el dragon hay que comentar esto FindObjectOfType<ComportamientoCamara>().stickTo(GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Transform>().position);
             Relevant.color = new Color((counter / 3) * 184, 0, 0, counter / 3);
                 if (counter >= 6 )
                 {
@@ -72,7 +76,19 @@ public class LevelManagment : MonoBehaviour {
                     player.SetActive(true);
                     player.GetComponent<Transform>().position = lastCP.position;
 
-                    if (boss != null)
+                    if (SceneManager.GetActiveScene().buildIndex == bosslevels[1])
+                    {
+                        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().clip = musica[4];//dragon
+                    }
+                    else
+                    {
+                        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().clip = musica[1];
+                    }
+
+                    GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().Play();
+
+
+                if (boss != null)
                     {
                         Destroy(boss);
                         if (jefe == putoamo.mono)

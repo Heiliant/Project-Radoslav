@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class deflect : MonoBehaviour {
     public GameObject deflectThis;
@@ -26,6 +27,21 @@ public class deflect : MonoBehaviour {
             angle *= Mathf.Rad2Deg;
             angle += 90;
             collision.GetComponent<Transform>().rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            try
+            {
+                collision.GetComponent<disparosDragonImpostor>().speed = 30;
+            }
+            catch (NullReferenceException)
+            {
+                try
+                {
+                    collision.GetComponent<DisparosSol>().speed = 30;
+                }
+                catch (NullReferenceException)
+                {
+                    collision.GetComponent<DisparoSolImpostor>().speed = 30;
+                }
+            }
         }
     }
 }

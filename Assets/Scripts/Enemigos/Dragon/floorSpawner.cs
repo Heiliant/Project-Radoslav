@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class floorSpawner : MonoBehaviour {
     public GameObject suelo;
     private float counter;
@@ -17,7 +17,14 @@ public class floorSpawner : MonoBehaviour {
         if (counter > timeToSpawn)
         {
             GameObject localboi=Instantiate(suelo, GetComponent<Transform>().position, GetComponent<Transform>().rotation);
-            localboi.GetComponent<ComportamientoBloqueSuelo>().lifeTime = 25;
+            try
+            {
+                localboi.GetComponent<ComportamientoBloqueSuelo>().lifeTime = 25;
+            }
+            catch (NullReferenceException)
+            {
+                localboi.GetComponentInChildren<PlataformaAtravesable>().lifeTime = 25;
+            }
             counter = 0;
         }
 	}

@@ -194,8 +194,16 @@ public class CambioFormas : MonoBehaviour {
 
         if (Input.GetKeyDown(Escape))
         {
-            Time.timeScale = pauseMenu.activeSelf ? 1 : 0;
+            Time.timeScale = pauseMenu.activeSelf ? 1 : 0;           
             pauseMenu.SetActive(!pauseMenu.activeSelf);
+            if (pauseMenu.activeSelf)
+            {
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().Pause();
+            }
+            else
+            {
+                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().Play();
+            }
             opcionesMenu.SetActive(false);
             changeControls.SetActive(false);
         }

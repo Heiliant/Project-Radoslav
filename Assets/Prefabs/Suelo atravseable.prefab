@@ -100,8 +100,8 @@ MonoBehaviour:
   ignorar: 0
   script: {fileID: 0}
   scriptFormas: {fileID: 0}
-  DemonBody: {fileID: 0}
   HumanBody: {fileID: 1973306040956254, guid: 9c526dd606c07624582bb154bac1ed6f, type: 2}
+  lifeTime: 0
 --- !u!212 &212166268301848332
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -132,7 +132,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: -10
+  m_SortingOrder: -8
   m_Sprite: {fileID: 21300000, guid: b75a438be8da8b843b38b0df7a8039a2, type: 3}
   m_Color: {r: 0.99178505, g: 0.4044118, b: 1, a: 1}
   m_FlipX: 0

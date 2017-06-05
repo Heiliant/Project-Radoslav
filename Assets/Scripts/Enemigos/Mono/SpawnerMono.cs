@@ -6,6 +6,7 @@ public class SpawnerMono : MonoBehaviour {
     public GameObject mono;
     public ComportamientoCamara cam;
     public GameObject poderinfo;
+    public AudioClip musicotemono;
     // Use this for initialization
     void Start()
     {
@@ -22,6 +23,8 @@ public class SpawnerMono : MonoBehaviour {
             FindObjectOfType<LevelManagment>().boss=Instantiate(mono, GetComponent<Transform>().position, new Quaternion(0, 0, 0, 1));
             FindObjectOfType<LevelManagment>().boss.GetComponent<ComportamientoMono>().poderinfo = poderinfo;
             cam.bossSize();
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().clip = musicotemono;
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().Play();
             GameObject.FindObjectOfType<ComportamientoMono>().startFight();
             GetComponent<BoxCollider2D>().enabled=(false);
         }

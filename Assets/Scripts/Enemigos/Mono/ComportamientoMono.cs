@@ -245,6 +245,7 @@ public class ComportamientoMono : MonoBehaviour
         pow.GetComponent<PoderSpawn>().relevant = poderinfo;
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ComportamientoCamara>().regularSize();
         GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().mono = false;
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().Stop();
         Destroy(gameObject);
     }
 }

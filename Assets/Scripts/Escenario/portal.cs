@@ -41,6 +41,7 @@ public class portal : MonoBehaviour {
             PlayerPrefs.SetInt("bossMono", GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().mono ? 1 : 0);
             PlayerPrefs.SetInt("bossSol", GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().sol ? 1 : 0);
             PlayerPrefs.SetInt("bossDragon", GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().dragon ? 1 : 0);
+            PlayerPrefs.SetFloat("sound", GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().volume);
         }
         else
         {
@@ -57,6 +58,7 @@ public class portal : MonoBehaviour {
             GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().mono = PlayerPrefs.GetInt("bossMono", 1) == 1 ? true : false;
             GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().sol = PlayerPrefs.GetInt("bossSol", 1) == 1 ? true : false;
             GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().dragon = PlayerPrefs.GetInt("bossDragon", 1) == 1 ? true : false;
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("sound", 0.1f);
             autodestroy = true;
         }
     }

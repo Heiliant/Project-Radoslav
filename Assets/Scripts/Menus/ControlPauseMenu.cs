@@ -2,8 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ControlPauseMenu : MonoBehaviour {
+
+    private void FixedUpdate()
+    {
+        GetComponentInChildren<Slider>().value = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().volume;
+    }
+
     public GameObject opcionesMenu;
     private void Start()
     {
@@ -31,4 +38,8 @@ public class ControlPauseMenu : MonoBehaviour {
         Time.timeScale = 1;
     }
 
+    public void setVolume()
+    {
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().volume = GetComponentInChildren<Slider>().value;
+    }
 }
