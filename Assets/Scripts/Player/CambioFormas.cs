@@ -135,30 +135,30 @@ public class CambioFormas : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         //transformación
-
-        if (Input.GetKeyDown(TRANSFORMACION) && !transf)
+        if (!inmovil)
         {
-            Debug.Log(GetComponent<PlayerControl>().getVelX());
+            if (Input.GetKeyDown(TRANSFORMACION) && !transf)
+            {
                 transf = true;
                 StartCoroutine(TransformacionDemon(timeToTrans));
-           
-        }
 
-        if (transf)
-        {
-            if (!demon)
-            {
-                Particulillas.GetComponent<Transform>().localPosition = new Vector2(Particulillas.transform.localPosition.x, 3.1f);
-                Particulillas.GetComponent<Transform>().localScale = new Vector3(2.6025f, 2.6025f, 2.6025f);
             }
-            else
-            {
-                Particulillas.GetComponent<Transform>().localPosition = new Vector2(Particulillas.transform.localPosition.x, 4.4f);
-                Particulillas.GetComponent<Transform>().localScale = new Vector3(3.386891f, 3.386891f, 3.386891f);
-            }
-            Invoke("doEmit", 0f);
         }
-
+            if (transf)
+            {
+                if (!demon)
+                {
+                    Particulillas.GetComponent<Transform>().localPosition = new Vector2(Particulillas.transform.localPosition.x, 3.1f);
+                    Particulillas.GetComponent<Transform>().localScale = new Vector3(2.6025f, 2.6025f, 2.6025f);
+                }
+                else
+                {
+                    Particulillas.GetComponent<Transform>().localPosition = new Vector2(Particulillas.transform.localPosition.x, 4.4f);
+                    Particulillas.GetComponent<Transform>().localScale = new Vector3(3.386891f, 3.386891f, 3.386891f);
+                }
+                Invoke("doEmit", 0f);
+            }
+        
         if (lastHP != currentHP)
         {
             invulnerable = true;
@@ -192,46 +192,46 @@ public class CambioFormas : MonoBehaviour {
         lastHP = currentHP;
 
         Physics2D.Linecast(GetComponent<Transform>().position, Input.mousePosition);
-        Debug.DrawLine(GetComponent<Transform>().position, Camera.main.ScreenToWorldPoint(Input.mousePosition), Color.magenta);
-        
-        if (Input.GetKeyDown(Escape))
-        {                    
-            pauseMenu.SetActive(!pauseMenu.activeSelf);
-            Debug.Log(pauseMenu.activeSelf);
-            Time.timeScale = pauseMenu.activeSelf ? 0 : 1;
-            gameObject.GetComponent<PlayerControl>().stayQuiet(!gameObject.GetComponent<PlayerControl>().inmovil);
-            if (pauseMenu.activeSelf)
-            {
-                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().Pause();
-            }
-            else
-            {
-                GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().Play();
-            }
-            opcionesMenu.SetActive(false);
-            changeControls.SetActive(false);
-        }
-
-        if(disparoSkill && Input.GetKey(DisparoKey) && !FindObjectOfType<DemonControl>().getPuñetazo())
+        if (!inmovil)
         {
-            if (demon)
+            if (Input.GetKeyDown(Escape))
             {
-                if (counter < 0.05f)
+                pauseMenu.SetActive(!pauseMenu.activeSelf);
+                Time.timeScale = pauseMenu.activeSelf ? 0 : 1;
+                gameObject.GetComponent<PlayerControl>().stayQuiet(!gameObject.GetComponent<PlayerControl>().inmovil);
+                if (pauseMenu.activeSelf)
                 {
-                    counter += Time.deltaTime;
-                    GameObject demonshot = Instantiate(demonShot, demonTorso.GetComponent<Transform>().position, new Quaternion(0, 0, 0, 1));
-                    demonshot.GetComponent<demonShotBehaviour>().speed = 2;
+                    GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().Pause();
                 }
                 else
                 {
-                    counter += Time.deltaTime;
-                    if (counter > 0.1)
-                        counter = 0;
+                    GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().Play();
                 }
+                opcionesMenu.SetActive(false);
+                changeControls.SetActive(false);
             }
-            else if(localPulse==null)
+
+            if (disparoSkill && Input.GetKey(DisparoKey) && !FindObjectOfType<DemonControl>().getPuñetazo())
             {
-                localPulse=Instantiate(humanPulse, GetComponent<Transform>().position, GetComponent<Transform>().rotation);
+                if (demon)
+                {
+                    if (counter < 0.05f)
+                    {
+                        counter += Time.deltaTime;
+                        GameObject demonshot = Instantiate(demonShot, demonTorso.GetComponent<Transform>().position, new Quaternion(0, 0, 0, 1));
+                        demonshot.GetComponent<demonShotBehaviour>().speed = 2;
+                    }
+                    else
+                    {
+                        counter += Time.deltaTime;
+                        if (counter > 0.1)
+                            counter = 0;
+                    }
+                }
+                else if (localPulse == null)
+                {
+                    localPulse = Instantiate(humanPulse, GetComponent<Transform>().position, GetComponent<Transform>().rotation);
+                }
             }
         }
 

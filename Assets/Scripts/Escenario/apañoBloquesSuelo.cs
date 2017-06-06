@@ -11,12 +11,10 @@ public class apañoBloquesSuelo : MonoBehaviour {
             float speed = GetComponentInParent<ComportamientoBloqueSuelo>().speed;
             if (GetComponentInParent<ComportamientoBloqueSuelo>().movVer)
             {
-                Debug.Log('v');
                 collision.gameObject.GetComponent<Transform>().Translate(0, speed, 0);
             }
             else
             {
-                Debug.Log('h');
                 collision.gameObject.GetComponent<Transform>().Translate(speed, 0, 0);
             }
         }

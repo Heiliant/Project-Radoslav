@@ -40,8 +40,12 @@ public class PlataformaAtravesable : MonoBehaviour {
                     }
                     else
                     {
-                        Physics2D.IgnoreCollision(GetComponentInChildren<BoxCollider2D>(), HumanBody.GetComponent<CapsuleCollider2D>(), false);
-                        ignorar = false;
+                        try
+                        {
+                            Physics2D.IgnoreCollision(GetComponentInChildren<BoxCollider2D>(), HumanBody.GetComponent<CapsuleCollider2D>(), false);
+                            ignorar = false;
+                        }
+                        catch (NullReferenceException) { };
 
                     }
                 }
@@ -95,7 +99,6 @@ public class PlataformaAtravesable : MonoBehaviour {
             lifeTime -= Time.deltaTime;
             if (lifeTime <= 0)
             {
-                Debug.Log("swolo");
                 Destroy(gameObject);
             }
         }

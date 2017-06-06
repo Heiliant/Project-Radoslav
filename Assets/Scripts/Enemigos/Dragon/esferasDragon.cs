@@ -21,24 +21,26 @@ public class esferasDragon : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        counter += Time.deltaTime;
-        if (counter > actualTime)
-        {
-            for(int i=0; i<amountOfShots; ++i)
+        if (FindObjectOfType<dragonDamage>().dragonHP>0) {
+            counter += Time.deltaTime;
+            if (counter > actualTime)
             {
-                shots[i] = Instantiate(dragonShots, GetComponent<Transform>().position, GetComponent<Transform>().rotation);
-                shots[i].GetComponent<ComportamientoDisparosDragon>().strength = 4;
-                shots[i].GetComponent<ComportamientoDisparosDragon>().v0 = new Vector2(Mathf.Sin(i)*shotForce, Mathf.Cos(i)*shotForce);
-                shots[i].GetComponent<ComportamientoDisparosDragon>().timeToShoot = 1;
-                shots[i].GetComponent<ComportamientoDisparosDragon>().waitTime = 1;
-                shots[i].GetComponent<ComportamientoDisparosDragon>().lifeTime = 7*0.67f;
+                for (int i = 0; i < amountOfShots; ++i)
+                {
+                    shots[i] = Instantiate(dragonShots, GetComponent<Transform>().position, GetComponent<Transform>().rotation);
+                    shots[i].GetComponent<ComportamientoDisparosDragon>().strength = 4;
+                    shots[i].GetComponent<ComportamientoDisparosDragon>().v0 = new Vector2(Mathf.Sin(i) * shotForce, Mathf.Cos(i) * shotForce);
+                    shots[i].GetComponent<ComportamientoDisparosDragon>().timeToShoot = 1;
+                    shots[i].GetComponent<ComportamientoDisparosDragon>().waitTime = 1;
+                    shots[i].GetComponent<ComportamientoDisparosDragon>().lifeTime = 7 * 0.67f;
+                }
+                counter = 0;
+                actualTime = timeToAttack + (Random.Range(-variacion, variacion));
             }
-            counter = 0;
-            actualTime = timeToAttack + (Random.Range(-variacion, variacion));
-        }
-        else
-        {
-            GetComponent<SpriteRenderer>().color = new Color(counter/actualTime, counter / actualTime, counter / actualTime);
+            else
+            {
+                GetComponent<SpriteRenderer>().color = new Color(counter / actualTime, counter / actualTime, counter / actualTime);
+            }
         }
 	}
 }

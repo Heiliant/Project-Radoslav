@@ -41,7 +41,6 @@ public class ComportamientoCamara : MonoBehaviour
     public void stickTo (Vector2 a) //stickTo un vector2
     {
         sticker = a;
-        Debug.Log(a);
         stickMode = true;
     }
     

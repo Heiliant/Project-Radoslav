@@ -48,7 +48,6 @@ public class ComportamientoDragon : MonoBehaviour {
                 angle -= 360;
 
             if (brazos[i].name.Equals("BrazoD4"))
-                Debug.Log(angle);
             if (i % 2 == 0)
             {
                 if ((angle >= 60 && angle <= 120))

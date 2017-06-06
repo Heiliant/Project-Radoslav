@@ -114,7 +114,6 @@ public class PlayerControl : MonoBehaviour {
 
     void Start () {
         initialTorsoSave = GameObject.FindGameObjectWithTag("muñeco").GetComponent<Transform>();
-        Debug.Log(initialTorsoSave.rotation);
 
 
         puñetazo = false;

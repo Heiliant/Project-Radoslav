@@ -30,7 +30,6 @@ public class demonShotBehaviour : MonoBehaviour
         if (to.x > from.x)
             angle *= -1;
         transform.Rotate(0f, 0f, angle);
-        Debug.Log(angle);
     }
 
     // Update is called once per frame

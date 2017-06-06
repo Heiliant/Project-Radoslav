@@ -206,7 +206,6 @@ public class ComportamientoSol : MonoBehaviour {
 
                                 if (i % (360 / EmbestidaShotsAmount) == 0)
                                 {
-                                    Debug.DrawLine(GetComponent<Transform>().position, new Vector2(localX, localY));
                                     StartCoroutine(ShotEmUp((i / 360f), Disparo, localHit.point, new Quaternion(0, 0, 0, 0), true));
 
                                 }

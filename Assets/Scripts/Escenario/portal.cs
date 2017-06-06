@@ -31,7 +31,7 @@ public class portal : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (salida)
+        if (salida && (collision.gameObject.tag.Equals("humana") || collision.gameObject.tag.Equals("demonio")))
         {
             SceneManager.LoadScene(destinyScene, LoadSceneMode.Single);
             PlayerPrefs.SetInt("jumps", GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>().getAmountOfJumps());
@@ -57,7 +57,7 @@ public class portal : MonoBehaviour {
             GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().disparoSkill = (PlayerPrefs.GetInt("disparo", 0) == 1 ? true : false);
             GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().mono = PlayerPrefs.GetInt("bossMono", 1) == 1 ? true : false;
             GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().sol = PlayerPrefs.GetInt("bossSol", 1) == 1 ? true : false;
-            GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().dragon = PlayerPrefs.GetInt("bossDragon", 1) == 1 ? true : false;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().dragon = PlayerPrefs.GetInt("bossDragon", 1) == 1 ? true : true;
             GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("sound", 0.1f);
             autodestroy = true;
         }

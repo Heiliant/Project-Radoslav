@@ -7,12 +7,14 @@ public class TriggerDragon : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        FindObjectOfType<ComportamientoDragonMovimiento>().modo = ComportamientoDragonMovimiento.estado.comienzo;
-        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ComportamientoCamara>().startMoveB = true;
-        foreach(GameObject a in puente)
-        {
-            a.SetActive(false);
+        if (collision.tag.Equals("humana") || collision.tag.Equals("demonio")) {
+            FindObjectOfType<ComportamientoDragonMovimiento>().modo = ComportamientoDragonMovimiento.estado.comienzo;
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ComportamientoCamara>().startMoveB = true;
+            foreach (GameObject a in puente)
+            {
+                a.SetActive(false);
+            }
+            Destroy(this);
         }
-        Destroy(this);
     }
 }

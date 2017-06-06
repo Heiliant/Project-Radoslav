@@ -20,7 +20,6 @@ public class deflect : MonoBehaviour {
         }
         else if (collision.tag.Equals(deflectThistag_noRB.tag))
         {
-            Debug.Log(collision.tag);
             Vector2 local = collision.GetComponent<Transform>().position - PJ.GetComponent<Transform>().position;
             local/=Vector2.Distance(collision.GetComponent<Transform>().position, PJ.GetComponent<Transform>().position);
             float angle = Mathf.Atan2(local.y, local.x);

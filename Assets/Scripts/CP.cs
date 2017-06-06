@@ -13,7 +13,6 @@ public class CP : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.name);
         if (other.tag == "humana")
         {
             boss.setCP(GetComponent<Transform>());

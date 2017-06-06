@@ -16,7 +16,6 @@ public class PupilasSol : MonoBehaviour {
         try
         {
             PJ = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-            Debug.DrawLine(GetComponent<Transform>().position, PJ.position, Color.cyan);
             RaycastHit2D colision = Physics2D.Linecast(GetComponent<Transform>().position, PJ.position, ojoSol);
 
             if (colision.collider != null)

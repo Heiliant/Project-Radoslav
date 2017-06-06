@@ -167,9 +167,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01f33b6f432e28345b4028a0b6705a64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dragonHP: 1
   BossHP: {fileID: 407359158}
   BossHPActual: {fileID: 1874497489}
   cabeza: {fileID: 175352499}
+  counter: 0
+  dragon: {fileID: 1304559799}
+  portal: {fileID: 1238350318033766, guid: cbb41ad86c26cd7429e79f881e37292c, type: 2}
 --- !u!1 &257489303 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1775919142956300, guid: 9c526dd606c07624582bb154bac1ed6f,
@@ -858,6 +862,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   suelo: {fileID: 1498451658900134, guid: 7ab70928c44375d40966a26360cc234a, type: 2}
   timeToSpawn: 5
+--- !u!1 &1304559799 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1932629263467248, guid: dba4903f7e254ae4a8028d07b6e52113,
+    type: 2}
+  m_PrefabInternal: {fileID: 1968271453}
 --- !u!1 &1418720167
 GameObject:
   m_ObjectHideFlags: 0
