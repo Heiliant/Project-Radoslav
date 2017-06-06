@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01f33b6f432e28345b4028a0b6705a64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dragonHP: 1
+  dragonHP: 550
   BossHP: {fileID: 407359158}
   BossHPActual: {fileID: 1874497489}
   cabeza: {fileID: 175352499}

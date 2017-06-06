@@ -25,3 +25,13 @@ Platform assembly: C:\Users\Alex\Documents\P1_B04_DanielOlivellaMajoral_AlexGóm
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 2.264323 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 13.077481 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2342.
+Total: 1.249547 ms (FindLiveObjects: 0.148389 ms CreateObjectMapping: 0.100066 ms MarkObjects: 0.967736 ms  DeleteObjects: 0.032927 ms)
+
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: e70 -> priority: 1 
