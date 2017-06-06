@@ -135,7 +135,7 @@ public class CambioFormas : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         //transformación
-        if (!inmovil)
+        if (!gameObject.GetComponent<PlayerControl>().inmovil)
         {
             if (Input.GetKeyDown(TRANSFORMACION) && !transf)
             {
@@ -190,10 +190,7 @@ public class CambioFormas : MonoBehaviour {
         }
 
         lastHP = currentHP;
-
-        Physics2D.Linecast(GetComponent<Transform>().position, Input.mousePosition);
-        if (!inmovil)
-        {
+        
             if (Input.GetKeyDown(Escape))
             {
                 pauseMenu.SetActive(!pauseMenu.activeSelf);
@@ -210,7 +207,8 @@ public class CambioFormas : MonoBehaviour {
                 opcionesMenu.SetActive(false);
                 changeControls.SetActive(false);
             }
-
+        if (!gameObject.GetComponent<PlayerControl>().inmovil)
+        {
             if (disparoSkill && Input.GetKey(DisparoKey) && !FindObjectOfType<DemonControl>().getPuñetazo())
             {
                 if (demon)

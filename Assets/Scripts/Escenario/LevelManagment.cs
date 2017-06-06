@@ -27,7 +27,7 @@ public class LevelManagment : MonoBehaviour {
     {
         bosslevels = new int[2];
         bosslevels[0] = 4;
-        bosslevels[1] = 7;
+        bosslevels[1] = 6;
         localBool = false;
         lastCP = spawn;
         Relevant.text = "";

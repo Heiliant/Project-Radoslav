@@ -36,6 +36,8 @@ public class DemonControl : MonoBehaviour {
 
     private void FixedUpdate()
     {
+        inmovil=gameObject.GetComponent<PlayerControl>().inmovil;
+
         enSuelo = FindObjectOfType<CambioFormas>().enSuelo;
 
         animacionDemon.SetFloat("VelX", GetComponent<Rigidbody2D>().velocity.x);

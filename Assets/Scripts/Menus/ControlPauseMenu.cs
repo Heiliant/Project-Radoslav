@@ -5,16 +5,18 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ControlPauseMenu : MonoBehaviour {
-
+    public bool control = false;
     private void FixedUpdate()
     {
-        GetComponentInChildren<Slider>().value = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().volume;
+        if(!control)
+         GetComponentInChildren<Slider>().value = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().volume;
     }
 
     public GameObject opcionesMenu;
     private void Start()
     {
-        gameObject.SetActive(false);
+        if(!control)
+            gameObject.SetActive(false);
     }
 
     public void _Continue()
@@ -44,4 +46,8 @@ public class ControlPauseMenu : MonoBehaviour {
     {
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().volume = GetComponentInChildren<Slider>().value;
     }
+
+    public void goTo (int a){
+        SceneManager.LoadScene(a);
+        }
 }
