@@ -4992,7 +4992,7 @@ Prefab:
     - target: {fileID: 114435716242999554, guid: 55662de57eb70d746ade41c73c218579,
         type: 2}
       propertyPath: tramos.Array.data[0].y
-      value: 20
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 114435716242999554, guid: 55662de57eb70d746ade41c73c218579,
         type: 2}

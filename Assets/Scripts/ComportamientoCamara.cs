@@ -68,6 +68,7 @@ public class ComportamientoCamara : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         regularSize();
+        
     }
 
     // Update is called once per frame

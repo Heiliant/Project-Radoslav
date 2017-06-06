@@ -7,6 +7,7 @@ public class PlayerControl : MonoBehaviour {
     private Transform initialTorsoSave;
 
     //mimebros de animacion
+    public GameObject humana;
     public Animator animacionHumana;
 
     //mimebros de movimiento simple
@@ -118,7 +119,7 @@ public class PlayerControl : MonoBehaviour {
 
         puñetazo = false;
  
-        animacionHumana = GameObject.FindGameObjectWithTag("humana").GetComponent<Animator>();
+        animacionHumana = humana.GetComponent<Animator>();
 
         jumpCount = amountOfJumps;
     }

@@ -8,8 +8,7 @@ public class ControlPauseMenu : MonoBehaviour {
     public bool control = false;
     private void FixedUpdate()
     {
-        if(!control)
-         GetComponentInChildren<Slider>().value = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().volume;
+
     }
 
     public GameObject opcionesMenu;
