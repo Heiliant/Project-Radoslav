@@ -19,11 +19,20 @@ public class CambiarEscena : MonoBehaviour {
     }
     public void cambiarEscenaTotal(int newScene) {
         SceneManager.LoadScene(newScene, LoadSceneMode.Single);
+        PlayerPrefs.SetInt("jumps", 0);
+        PlayerPrefs.SetInt("transf", 0);
+        PlayerPrefs.SetInt("disparo", 0);
+        PlayerPrefs.SetInt("stage", 0);
+        PlayerPrefs.SetInt("bossMono", 1);
+        PlayerPrefs.SetInt("bossSol", 1);
+        PlayerPrefs.SetInt("bossDragon", 1);
+        PlayerPrefs.SetFloat("sound", 0.1f);
     }
 
     public void cambiarEscenaAditivo(int newScene)
     {
         SceneManager.LoadScene(newScene, LoadSceneMode.Additive);
+        
     }
 
     public void goOn(){
