@@ -12,9 +12,9 @@ public class PlataformaAtravesable : MonoBehaviour {
     public CambioFormas scriptFormas;
     public GameObject HumanBody;
     public float lifeTime = 0;
-    private bool doIt;
+    private bool doIt=false;
 	void Start () {
-        if (lifeTime == 0)
+        if (lifeTime <= 0)
             doIt = false;
         else
             doIt = true;
@@ -95,6 +95,7 @@ public class PlataformaAtravesable : MonoBehaviour {
             lifeTime -= Time.deltaTime;
             if (lifeTime <= 0)
             {
+                Debug.Log("swolo");
                 Destroy(gameObject);
             }
         }

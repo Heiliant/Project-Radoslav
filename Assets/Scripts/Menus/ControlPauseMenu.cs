@@ -20,7 +20,9 @@ public class ControlPauseMenu : MonoBehaviour {
     public void _Continue()
     {
         gameObject.SetActive(false);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>().stayQuiet(!GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>().inmovil);
         Time.timeScale = 1;
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().Play();
     }
 
     public void _Quit()

@@ -73,9 +73,9 @@ public class ComportamientoMono : MonoBehaviour
         {
 
             a.color = new Color(1, 1, 1, 0);
-            Debug.Log(a.name);
-            Debug.Log(a.color);
         }
+
+        GetComponentInChildren<PlataformaAtravesable>().lifeTime = -1f;
 
     }
 
@@ -193,8 +193,8 @@ public class ComportamientoMono : MonoBehaviour
             //TRIPA SI TIENE VIDA
             else
             {
-                palaD.enabled = true;
-                palaI.enabled = true;
+                StartCoroutine(ResetPalas(2));
+                
                 if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControl>().puñetazo && dmgCont)
                 {
                     if (tripaHP > 0)
@@ -247,6 +247,13 @@ public class ComportamientoMono : MonoBehaviour
         GameObject.FindGameObjectWithTag("Player").GetComponent<CambioFormas>().mono = false;
         GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().Stop();
         Destroy(gameObject);
+    }
+
+    IEnumerator ResetPalas(float a)
+    {
+        yield return new WaitForSeconds(a);
+        palaD.enabled = true;
+        palaI.enabled = true;
     }
 }
 

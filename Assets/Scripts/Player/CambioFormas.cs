@@ -108,6 +108,8 @@ public class CambioFormas : MonoBehaviour {
         currentHP = 3;
         lastHP = currentHP;
         mono = sol = dragon = true;
+
+        pauseMenu.SetActive(true);
     }
 
     private void FixedUpdate()
@@ -191,11 +193,13 @@ public class CambioFormas : MonoBehaviour {
 
         Physics2D.Linecast(GetComponent<Transform>().position, Input.mousePosition);
         Debug.DrawLine(GetComponent<Transform>().position, Camera.main.ScreenToWorldPoint(Input.mousePosition), Color.magenta);
-
+        
         if (Input.GetKeyDown(Escape))
-        {
-            Time.timeScale = pauseMenu.activeSelf ? 1 : 0;           
+        {                    
             pauseMenu.SetActive(!pauseMenu.activeSelf);
+            Debug.Log(pauseMenu.activeSelf);
+            Time.timeScale = pauseMenu.activeSelf ? 0 : 1;
+            gameObject.GetComponent<PlayerControl>().stayQuiet(!gameObject.GetComponent<PlayerControl>().inmovil);
             if (pauseMenu.activeSelf)
             {
                 GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>().Pause();

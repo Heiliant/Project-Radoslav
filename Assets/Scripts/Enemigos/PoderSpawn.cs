@@ -74,7 +74,7 @@ public class PoderSpawn : MonoBehaviour {
                 FindObjectOfType<CambioFormas>().enableTransf();
                 FindObjectOfType<PlayerControl>().setAmountOfJumps(1);
                 textaco = "Has obtenido nuevas habilidades.\n\n\n" +
-                    "-Pulsa E para transformarte en demonio.\n\n-Pulsa dos veces ESPACIO para ejecutar un doble salto" +
+                    "-Pulsa E para transformarte en demonio.\n\n-Pulsa dos veces ESPACIO para ejecutar un doble salto (solo humana)" +
                     "\n\n\t\t\t\t\t\t\tpulsa cualquier tecla para continuar";
             break;
             case boss.sol:

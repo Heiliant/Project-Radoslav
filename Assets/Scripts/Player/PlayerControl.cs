@@ -29,7 +29,7 @@ public class PlayerControl : MonoBehaviour {
 
 
 
-    private bool inmovil = false;
+    public bool inmovil = false;
 
     private KeyCode JUMP = KeyCode.Space;
     private KeyCode LEFT = KeyCode.A;
@@ -209,33 +209,34 @@ public class PlayerControl : MonoBehaviour {
             }
 
             //movimiento elaborado
-
-            if (Input.GetKeyDown(JUMP) && enSuelo)
+            if (!inmovil)
             {
-                //GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, FuerzaSalto);
-                GetComponent<Rigidbody2D>().AddForce(new Vector2(0, FuerzaSalto));
-            }
-
-            else if (Input.GetKeyDown(JUMP) && !enSuelo && jumpCount>0 && !enPared)
-            {
-                if (Input.GetKey(RIGHT))
+                if (Input.GetKeyDown(JUMP) && enSuelo)
                 {
+                    //GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, FuerzaSalto);
+                    GetComponent<Rigidbody2D>().AddForce(new Vector2(0, FuerzaSalto));
+                }
+
+                else if (Input.GetKeyDown(JUMP) && !enSuelo && jumpCount > 0 && !enPared)
+                {
+                    if (Input.GetKey(RIGHT))
+                    {
                         GetComponent<Rigidbody2D>().AddForce(new Vector2(FuerzaSalto * 1.4f, 0));
-                    GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, FuerzaSalto / 40);
-                }
-                else if (Input.GetKey(LEFT))
-                {
-                        GetComponent<Rigidbody2D>().AddForce(new Vector2(-FuerzaSalto*1.4f, 0));
-                    GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, FuerzaSalto / 40);
-                }
-                else
-                {
+                        GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, FuerzaSalto / 40);
+                    }
+                    else if (Input.GetKey(LEFT))
+                    {
+                        GetComponent<Rigidbody2D>().AddForce(new Vector2(-FuerzaSalto * 1.4f, 0));
+                        GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, FuerzaSalto / 40);
+                    }
+                    else
+                    {
                         //GetComponent<Rigidbody2D>().AddForce(new Vector2(0, FuerzaSalto));
-                        GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, FuerzaSalto/40);
+                        GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, FuerzaSalto / 40);
+                    }
+                    --jumpCount;
                 }
-                --jumpCount;
             }
-
                 //combate 
 
                 if (Input.GetKeyDown(PUÑO) && enSuelo)
@@ -252,6 +253,8 @@ public class PlayerControl : MonoBehaviour {
                     segundero = 0;
                 }
             }
+
+            
 
         }
 
